@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useAuth } from '../context/AuthContext'
 import './Login.css'
+import LoboLogin from './LoboLogin'
 
 const API_URL = 'http://127.0.0.1:8000/api'
 
@@ -46,6 +47,18 @@ function Login() {
   const [loginPassword, setLoginPassword] = useState('')
   const [verLoginPassword, setVerLoginPassword] = useState(false)
   const [loginCargando, setLoginCargando] = useState(false)
+  const [campo, setCampo] = useState(null)         // 'correo' | 'contrasena' | null
+  const [resultado, setResultado] = useState(null) // 'error' | 'exito' | null
+  const [saludo, setSaludo] = useState(false)
+  const estadoLobo = resultado ?? campo ?? (verLoginPassword ? 'espiando' : 'reposo')
+
+  // Al entrar a Crear cuenta: el lobo saluda y luego se esconde
+  useEffect(() => {
+    if (pane !== 'register') return
+    setSaludo(true)
+    const t = setTimeout(() => setSaludo(false), 1900)
+    return () => clearTimeout(t)
+  }, [pane])
 
   const [regNombre, setRegNombre] = useState('')
   const [regCorreo, setRegCorreo] = useState('')
@@ -86,8 +99,11 @@ function Login() {
     setLoginCargando(true)
     try {
       await login(loginCorreo, loginPassword)
-      navigate('/')
+      setResultado('exito')
+      setTimeout(() => navigate('/'), 700)
     } catch (err) {
+      setResultado('error')
+      setTimeout(() => setResultado(null), 900)
       mostrarToast(err.response?.data?.error || 'Usuario o contraseña incorrectos.', 'error')
     } finally {
       setLoginCargando(false)
@@ -131,6 +147,7 @@ function Login() {
           </button>
 
           <div className="form-shell">
+            <LoboLogin estado={pane === 'login' ? estadoLobo : (saludo ? 'saludo' : 'oculto')} mostrando={verLoginPassword} largoCorreo={loginCorreo.length}>
             <div className="mark">
               <div className="mark-badge"><EmblemaEscudo /></div>
               <div className="mark-word">FENRIR<span>·TI</span></div>
@@ -151,6 +168,7 @@ function Login() {
                         id="login-correo" type="text" placeholder="nombre@alam.mx"
                         value={loginCorreo} onChange={(e) => setLoginCorreo(e.target.value)}
                         autoComplete="username" required
+                        onFocus={() => setCampo('correo')} onBlur={() => setCampo(null)}
                       />
                     </div>
                   </div>
@@ -162,8 +180,9 @@ function Login() {
                         id="login-pass" type={verLoginPassword ? 'text' : 'password'} placeholder="Tu contraseña"
                         value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)}
                         autoComplete="current-password" required
+                        onFocus={() => setCampo('contrasena')} onBlur={() => setCampo(null)}
                       />
-                      <button type="button" className={`eye-btn${verLoginPassword ? ' is-visible' : ''}`} onClick={() => setVerLoginPassword(v => !v)} aria-label="Mostrar contraseña">
+                      <button type="button" className={`eye-btn${verLoginPassword ? ' is-visible' : ''}`} onClick={() => setVerLoginPassword(v => !v)} onMouseDown={(e) => e.preventDefault()} aria-label="Mostrar contraseña">
                         <IconoOjoAbierto /><IconoOjoCerrado />
                       </button>
                     </div>
@@ -246,6 +265,7 @@ function Login() {
                 </form>
               )}
             </div>
+            </LoboLogin>
 
             {pane === 'login' ? (
               <p className="foot-switch">¿Aún no tienes cuenta?<button type="button" onClick={() => cambiarPane('register')}>Crear una</button></p>
@@ -255,19 +275,6 @@ function Login() {
           </div>
         </div>
 
-        <div className="panel-brand">
-          <div className="glow g1" />
-          <div className="glow g2" />
-          <div className="brand-content">
-            <div className="lockup">
-              <div className="emblem-stage">
-                <div className="emblem"><EmblemaEscudo /></div>
-              </div>
-              <h2 className="brand-title">FENRIR<span>·TI</span></h2>
-            </div>
-            <p className="brand-caption">Sistema de inventario de TI · Alamex</p>
-          </div>
-        </div>
       </div>
 
       {toast && (

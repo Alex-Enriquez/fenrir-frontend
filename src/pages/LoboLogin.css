@@ -1,0 +1,131 @@
+/* Lobo de Fenrir: se asoma por arriba de la tarjeta del login (variante A) */
+.lobo-escenario {
+  --W: 140px;
+  --H: calc(var(--W) * 1.1);
+  --t: 50%;
+  --r: 0deg;
+  --lobo-card: #FFFFFF;
+  --lobo-card-line: #DCE3F0;
+  --lobo-sombra: rgba(0, 20, 64, .28);
+  position: relative;
+  width: 100%;
+  padding-top: calc(var(--H) * .85);
+}
+.login-page-root[data-theme="dark"] .lobo-escenario {
+  --lobo-card: #141E46;
+  --lobo-card-line: rgba(255, 255, 255, .08);
+  --lobo-sombra: rgba(0, 0, 0, .55);
+}
+.lobo-pos { position: absolute; top: 0; left: 50%; width: var(--W); margin-left: calc(var(--W) / -2); z-index: 1; pointer-events: none; }
+.lobo {
+  transform: translateY(var(--t)) rotate(var(--r));
+  transform-origin: 50% 85%;
+  transition: transform .5s cubic-bezier(.3, 1.18, .5, 1);
+}
+.lobo svg { display: block; width: 100%; height: auto; overflow: hidden; }
+
+/* ---- la tarjeta ---- */
+.lobo-tarjeta {
+  position: relative; z-index: 2;
+  background: var(--lobo-card);
+  border: 1px solid var(--lobo-card-line);
+  border-radius: 24px;
+  padding: 30px 30px 26px;
+  box-shadow: 0 28px 56px -30px var(--lobo-sombra);
+  transition: border-color .3s;
+}
+.lobo-tarjeta .mark { display: flex; align-items: center; justify-content: center; margin: 0 0 20px; }
+.lobo-tarjeta .headline, .lobo-tarjeta .sub { text-align: center; }
+
+/* piezas */
+.lobo-mirada { transform: translate(var(--px), var(--py)); transition: transform .25s ease-out; }
+.lobo-parpadeo { transform-box: fill-box; transform-origin: center; animation: lobo-parpadeo 5.5s infinite; }
+.lobo-ojo-der { transform-box: fill-box; transform-origin: center; transition: transform .2s, opacity .2s; }
+.lobo-ojo-feliz { opacity: 0; transition: opacity .2s; }
+.lobo-ceja { transition: transform .3s; }
+.lobo-oreja { transform-box: fill-box; transform-origin: 50% 100%; }
+.lobo-pata { transform-box: fill-box; transform-origin: 50% 100%; transition: transform .45s cubic-bezier(.3, 1.2, .5, 1); }
+
+/* reposo: orejas y frente, una oreja se mueve de vez en cuando */
+.lobo-reposo .lobo-oreja-izq { animation: lobo-oreja 6s infinite; }
+
+/* oculto (pantalla de crear cuenta): se hunde detrás de la tarjeta */
+.lobo-oculto { --t: 100%; }
+
+/* correo: se asoma, se agarra del borde y sigue el texto */
+.lobo-correo { --t: 0%; }
+.lobo-correo .lobo-ceja { transform: translateY(-2px); }
+
+/* contraseña: se tapa los ojos */
+.lobo-contrasena { --t: 0%; }
+.lobo-contrasena .lobo-pata-izq { transform: translate(4px, -88px); }
+.lobo-contrasena .lobo-pata-der { transform: translate(-4px, -88px); }
+.lobo-contrasena.lobo-mostrando .lobo-pata-der { transform: translate(4px, -62px) rotate(16deg); }
+
+/* error: sacude la cabeza, levanta las cejas y la tarjeta tiembla */
+.lobo-error { --t: 0%; }
+.lobo-error svg { animation: lobo-no .5s; }
+.lobo-error .lobo-ceja-izq { transform: translate(-2px, -5px) rotate(-10deg); }
+.lobo-error .lobo-ceja-der { transform: translate(2px, -5px) rotate(10deg); }
+.lobo-error .lobo-tarjeta { animation: lobo-temblor .45s; border-color: #E25B5B; }
+
+/* éxito: sale un poco más y guiña */
+.lobo-exito { --t: -5%; --r: 4deg; }
+.lobo-exito .lobo-ojo-der { transform: scaleY(.3); opacity: 0; }
+.lobo-exito .lobo-ojo-feliz { opacity: 1; }
+.lobo-exito .lobo-tarjeta { border-color: #34D399; }
+
+@keyframes lobo-parpadeo { 0%, 94%, 100% { transform: scaleY(1); } 96% { transform: scaleY(.1); } }
+@keyframes lobo-oreja { 0%, 88%, 100% { transform: rotate(0); } 91% { transform: rotate(-9deg); } 94% { transform: rotate(4deg); } }
+@keyframes lobo-temblor { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-8px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-5px); } 80% { transform: translateX(3px); } }
+@keyframes lobo-no { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-6deg); } 50% { transform: rotate(5deg); } 75% { transform: rotate(-2deg); } }
+
+@media (max-width: 480px) {
+  .lobo-escenario { --W: 120px; }
+  .lobo-tarjeta { padding: 24px 20px 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lobo-escenario *, .lobo-escenario *::before, .lobo-escenario *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important;
+  }
+}
+
+/* Logo FENRIR·TI centrado en el panel del login */
+.login-page-root .form-shell .mark { display: flex; align-items: center; justify-content: center; }
+
+/* ---- Login a pantalla completa, centrado ---- */
+.login-page-root .scene {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  grid-template-columns: none !important;
+}
+.login-page-root .panel-form {
+  position: relative;
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-page-root .form-shell { width: min(100%, 440px); margin: 0 auto; }
+
+/* ---- Espiando: contraseña visible sin estar en el campo (estilo variante B) ---- */
+.lobo-espiando { --t: 27%; --r: -8deg; }
+
+/* ---- Saludo al entrar a Crear cuenta: se asoma, dice hola y se esconde ---- */
+.lobo-saludo { --t: 0%; }
+.lobo-saludo .lobo-ceja { transform: translateY(-3px); }
+.lobo-saludo .lobo-pata-der { animation: lobo-hola 1.6s ease-in-out forwards; }
+@keyframes lobo-hola {
+  0%   { transform: translate(0, 0) rotate(0); }
+  18%  { transform: translate(34px, -70px) rotate(0); }
+  35%  { transform: translate(34px, -70px) rotate(-18deg); }
+  52%  { transform: translate(34px, -70px) rotate(14deg); }
+  68%  { transform: translate(34px, -70px) rotate(-12deg); }
+  85%  { transform: translate(34px, -70px) rotate(0); }
+  100% { transform: translate(0, 0) rotate(0); }
+}
