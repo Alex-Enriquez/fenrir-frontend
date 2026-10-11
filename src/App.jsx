@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext'
 import Sidebar from './components/Sidebar'
@@ -57,6 +58,15 @@ function RutaProtegida({ children }) {
   return children
 }
 
+// Si ya hay sesión al abrir /login, manda a la app. Solo se revisa al montar:
+// así no corta la animación del lobo cuando el login se completa.
+function RutaPublica({ children }) {
+  const { isAuthenticated } = useAuth()
+  const [yaTeniaSesion] = useState(isAuthenticated)
+  if (yaTeniaSesion) return <Navigate to="/" replace />
+  return children
+}
+
 function AppLayout() {
   return (
     <div style={{ display: 'flex', minHeight: '100vh' }}>
@@ -90,7 +100,7 @@ function AppLayout() {
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<RutaPublica><Login /></RutaPublica>} />
       <Route
         path="/*"
         element={

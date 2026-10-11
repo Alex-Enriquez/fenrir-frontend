@@ -45,7 +45,7 @@ function Sidebar({ abierta, onCerrar }) {
 
   const handleLogout = () => {
     logout()
-    navigate('/login')
+    navigate('/login', { replace: true })
   }
 
   const cerrarSiMovil = () => {

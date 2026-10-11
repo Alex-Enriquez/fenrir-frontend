@@ -100,7 +100,7 @@ function Login() {
     try {
       await login(loginCorreo, loginPassword)
       setResultado('exito')
-      setTimeout(() => navigate('/'), 700)
+      setTimeout(() => navigate('/', { replace: true }), 700)
     } catch (err) {
       setResultado('error')
       setTimeout(() => setResultado(null), 900)
