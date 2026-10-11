@@ -1,7 +1,7 @@
 const COLORES_ESTADO = {
-  operativo: { bg: 'rgba(96,165,250,0.15)', border: '#60A5FA', color: '#60A5FA' },
-  mantenimiento: { bg: 'rgba(248,194,46,0.15)', border: '#F8C22E', color: '#F8C22E' },
-  fuera_de_linea: { bg: 'rgba(248,113,113,0.15)', border: '#F87171', color: '#F87171' },
+  operativo: { bg: 'rgba(96,165,250,0.15)', border: '#60A5FA', color: 'var(--info-texto)' },
+  mantenimiento: { bg: 'rgba(248,194,46,0.15)', border: 'var(--acento)', color: 'var(--acento-texto)' },
+  fuera_de_linea: { bg: 'rgba(248,113,113,0.15)', border: '#F87171', color: 'var(--peligro-texto)' },
 }
 
 const ALTURA_FILA = 22

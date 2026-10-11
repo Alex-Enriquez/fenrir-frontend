@@ -30,13 +30,13 @@ function ImportarExcelForm({ urlPlantilla, urlImportar, nombrePlantilla, onTermi
     return (
       <div>
         {resultado.error ? (
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: '#F87171', marginBottom: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: 'var(--peligro-texto)', marginBottom: '1rem' }}>
             <AlertTriangle size={20} style={{ flexShrink: 0, marginTop: '2px' }} />
             <span style={{ fontSize: '0.9rem' }}>{resultado.error}</span>
           </div>
         ) : (
           <>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#4ADE80', marginBottom: '1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--exito-texto)', marginBottom: '1rem' }}>
               <CheckCircle2 size={20} />
               <span style={{ fontSize: '0.95rem', fontWeight: 600 }}>
                 {resultado.creados} registro{resultado.creados !== 1 ? 's' : ''} creado{resultado.creados !== 1 ? 's' : ''} correctamente.
@@ -44,10 +44,10 @@ function ImportarExcelForm({ urlPlantilla, urlImportar, nombrePlantilla, onTermi
             </div>
             {resultado.errores && resultado.errores.length > 0 && (
               <div style={{
-                backgroundColor: '#2A1F10', border: '1px solid #4A3510', borderRadius: '8px',
+                backgroundColor: 'var(--aviso-bg-2)', border: '1px solid var(--aviso-borde)', borderRadius: '8px',
                 padding: '0.75rem 1rem', marginBottom: '1rem', maxHeight: '180px', overflowY: 'auto',
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#F8C22E', fontSize: '0.85rem', fontWeight: 600, marginBottom: '0.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--acento-texto)', fontSize: '0.85rem', fontWeight: 600, marginBottom: '0.5rem' }}>
                   <AlertTriangle size={15} /> {resultado.errores.length} fila(s) con problemas
                 </div>
                 {resultado.errores.map((e, i) => (
@@ -60,7 +60,7 @@ function ImportarExcelForm({ urlPlantilla, urlImportar, nombrePlantilla, onTermi
         <button
           onClick={onTerminado}
           style={{
-            width: '100%', backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+            width: '100%', backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
             padding: '0.65rem', borderRadius: '6px', fontWeight: 'bold',
           }}
         >
@@ -93,7 +93,7 @@ function ImportarExcelForm({ urlPlantilla, urlImportar, nombrePlantilla, onTermi
         cursor: 'pointer', marginBottom: '1.25rem', textAlign: 'center',
       }}>
         <Upload size={22} color="#6B7690" />
-        <span style={{ fontSize: '0.85rem', color: archivo ? '#4ADE80' : 'var(--texto-tenue)' }}>
+        <span style={{ fontSize: '0.85rem', color: archivo ? 'var(--exito-texto)' : 'var(--texto-tenue)' }}>
           {archivo ? archivo.name : 'Haz clic para elegir tu archivo .xlsx'}
         </span>
         <input
@@ -109,7 +109,7 @@ function ImportarExcelForm({ urlPlantilla, urlImportar, nombrePlantilla, onTermi
           onClick={handleImportar}
           disabled={!archivo || subiendo}
           style={{
-            backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+            backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
             padding: '0.65rem 1.25rem', borderRadius: '6px', fontWeight: 'bold', flex: 1,
             opacity: (!archivo || subiendo) ? 0.5 : 1,
           }}

@@ -80,7 +80,7 @@ function EmpleadoForm({ departamentos, empleadoInicial, onSubmit, onCancel }) {
 
       <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.5rem' }}>
         <button type="submit" style={{
-          backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+          backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
           padding: '0.65rem 1.25rem', borderRadius: '6px', fontWeight: 'bold', flex: 1,
         }}>
           Guardar

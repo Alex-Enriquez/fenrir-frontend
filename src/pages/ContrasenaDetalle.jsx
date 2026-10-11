@@ -36,10 +36,10 @@ function FilaRegistro({ registro, seleccionado, onToggleSeleccion, onEditar, onE
       </td>
       <td>
         <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'flex-end' }}>
-          <button onClick={() => onEditar(registro)} title="Editar" style={{ background: '#132A2A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#2DD4BF', display: 'flex' }}>
+          <button onClick={() => onEditar(registro)} title="Editar" style={{ background: 'var(--edit-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--edit-texto)', display: 'flex' }}>
             <Pencil size={16} />
           </button>
-          <button onClick={() => onEliminar(registro)} title="Eliminar" style={{ background: '#3A1A1A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#F87171', display: 'flex' }}>
+          <button onClick={() => onEliminar(registro)} title="Eliminar" style={{ background: 'var(--peligro-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--peligro-texto)', display: 'flex' }}>
             <Trash2 size={16} />
           </button>
         </div>
@@ -155,7 +155,7 @@ function ContrasenaDetalle() {
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <div style={{ width: '44px', height: '44px', borderRadius: '12px', backgroundColor: 'rgba(248,194,46,0.12)', color: '#F8C22E', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ width: '44px', height: '44px', borderRadius: '12px', backgroundColor: 'rgba(248,194,46,0.12)', color: 'var(--acento-texto)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Lock size={22} />
           </div>
           <h1 style={{ color: 'var(--texto-fuerte)', margin: 0 }}>{categoria.nombre}</h1>
@@ -165,14 +165,14 @@ function ContrasenaDetalle() {
           {seleccionados.length > 0 && (
             <button
               onClick={() => setConfirmarEliminarSeleccionados(true)}
-              style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#3A1A1A', color: '#F87171', border: 'none', padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.9rem' }}
+              style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'var(--peligro-bg)', color: 'var(--peligro-texto)', border: 'none', padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.9rem' }}
             >
               <Trash2 size={16} /> Eliminar ({seleccionados.length})
             </button>
           )}
           <button
             onClick={abrirNuevo}
-            style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#F8C22E', color: '#0F1420', border: 'none', padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.95rem' }}
+            style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none', padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.95rem' }}
           >
             <Plus size={18} /> Añadir
           </button>

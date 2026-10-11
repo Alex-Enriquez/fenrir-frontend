@@ -83,11 +83,11 @@ function ResponsivaForm({ empleados, equipos, empleadoInicial, onSubmit, onCance
             return (
               <span key={id} style={{
                 display: 'flex', alignItems: 'center', gap: '0.35rem',
-                backgroundColor: 'rgba(248,194,46,0.12)', color: '#F8C22E',
+                backgroundColor: 'rgba(248,194,46,0.12)', color: 'var(--acento-texto)',
                 padding: '0.3rem 0.6rem', borderRadius: '999px', fontSize: '0.82rem',
               }}>
                 {eq.marca} {eq.modelo}
-                <button type="button" onClick={() => quitarEquipo(id)} style={{ background: 'none', border: 'none', color: '#F8C22E', display: 'flex', padding: 0 }}>
+                <button type="button" onClick={() => quitarEquipo(id)} style={{ background: 'none', border: 'none', color: 'var(--acento-texto)', display: 'flex', padding: 0 }}>
                   <X size={13} />
                 </button>
               </span>
@@ -140,7 +140,7 @@ function ResponsivaForm({ empleados, equipos, empleadoInicial, onSubmit, onCance
       </div>
 
       {equiposSeleccionados.length === 0 && (
-        <p style={{ color: '#F87171', fontSize: '0.8rem', marginTop: '-0.5rem', marginBottom: '1rem' }}>
+        <p style={{ color: 'var(--peligro-texto)', fontSize: '0.8rem', marginTop: '-0.5rem', marginBottom: '1rem' }}>
           Selecciona al menos un equipo.
         </p>
       )}
@@ -153,7 +153,7 @@ function ResponsivaForm({ empleados, equipos, empleadoInicial, onSubmit, onCance
           type="submit"
           disabled={!empleadoId || !quienEntrega || equiposSeleccionados.length === 0}
           style={{
-            backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+            backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
             padding: '0.65rem 1.25rem', borderRadius: '6px', fontWeight: 'bold', flex: 1,
             opacity: (!empleadoId || !quienEntrega || equiposSeleccionados.length === 0) ? 0.5 : 1,
           }}

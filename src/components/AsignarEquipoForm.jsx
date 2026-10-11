@@ -32,14 +32,14 @@ function AsignarEquipoForm({ equiposDisponibles, onSubmit, onCancel }) {
       </select>
 
       {equiposDisponibles.length === 0 && (
-        <p style={{ color: '#F87171', fontSize: '0.85rem', marginBottom: '1rem' }}>
+        <p style={{ color: 'var(--peligro-texto)', fontSize: '0.85rem', marginBottom: '1rem' }}>
           No hay equipos disponibles en este momento.
         </p>
       )}
 
       <div style={{ display: 'flex', gap: '0.75rem' }}>
         <button type="submit" disabled={!equipoId} style={{
-          backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+          backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
           padding: '0.65rem 1.25rem', borderRadius: '6px', fontWeight: 'bold', flex: 1,
           opacity: equipoId ? 1 : 0.5,
         }}>

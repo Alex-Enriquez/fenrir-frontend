@@ -12,9 +12,9 @@ import Toast from '../components/Toast'
 const API_URL = 'http://127.0.0.1:8000/api'
 
 const BADGE_ESTADO = {
-  operativo: { bg: '#1E3A5F', color: '#60A5FA' },
-  mantenimiento: { bg: '#4A3510', color: '#F8C22E' },
-  fuera_de_linea: { bg: '#4A1515', color: '#F87171' },
+  operativo: { bg: 'var(--info-bg-2)', color: 'var(--info-texto)' },
+  mantenimiento: { bg: 'var(--aviso-bg)', color: 'var(--acento-texto)' },
+  fuera_de_linea: { bg: 'var(--peligro-bg-2)', color: 'var(--peligro-texto)' },
 }
 
 function EstadoBadge({ estado }) {
@@ -113,10 +113,10 @@ function Infraestructura() {
 
   const BotonesVista = () => (
     <div style={{ display: 'flex', gap: '0.3rem', backgroundColor: 'var(--campo-bg-2)', borderRadius: '8px', padding: '0.25rem' }}>
-      <button onClick={() => setVista('dispositivos')} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', border: 'none', borderRadius: '6px', padding: '0.4rem 0.7rem', fontSize: '0.82rem', backgroundColor: vista === 'dispositivos' ? '#F8C22E' : 'transparent', color: vista === 'dispositivos' ? '#0F1420' : 'var(--texto-tenue)' }}>
+      <button onClick={() => setVista('dispositivos')} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', border: 'none', borderRadius: '6px', padding: '0.4rem 0.7rem', fontSize: '0.82rem', backgroundColor: vista === 'dispositivos' ? 'var(--accion)' : 'transparent', color: vista === 'dispositivos' ? 'var(--sobre-accion)' : 'var(--texto-tenue)' }}>
         <List size={14} /> Dispositivos
       </button>
-      <button onClick={() => setVista('racks')} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', border: 'none', borderRadius: '6px', padding: '0.4rem 0.7rem', fontSize: '0.82rem', backgroundColor: vista === 'racks' ? '#F8C22E' : 'transparent', color: vista === 'racks' ? '#0F1420' : 'var(--texto-tenue)' }}>
+      <button onClick={() => setVista('racks')} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', border: 'none', borderRadius: '6px', padding: '0.4rem 0.7rem', fontSize: '0.82rem', backgroundColor: vista === 'racks' ? 'var(--accion)' : 'transparent', color: vista === 'racks' ? 'var(--sobre-accion)' : 'var(--texto-tenue)' }}>
         <Grid3x3 size={14} /> Racks
       </button>
     </div>
@@ -125,7 +125,7 @@ function Infraestructura() {
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-        <h1 style={{ color: '#F8C22E', margin: 0 }}>Infraestructura de red</h1>
+        <h1 style={{ color: 'var(--acento-texto)', margin: 0 }}>Infraestructura de red</h1>
         <BotonesVista />
       </div>
 
@@ -141,7 +141,7 @@ function Infraestructura() {
                 style={{ width: '100%', padding: '0.65rem 1rem 0.65rem 2.5rem', borderRadius: '10px', border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg-2)', color: 'var(--texto-claro)', fontSize: '0.9rem', boxSizing: 'border-box' }}
               />
             </div>
-            <button onClick={() => setModalNuevoDispositivo(true)} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#F8C22E', color: '#0F1420', border: 'none', padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.95rem', whiteSpace: 'nowrap' }}>
+            <button onClick={() => setModalNuevoDispositivo(true)} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none', padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.95rem', whiteSpace: 'nowrap' }}>
               <Plus size={18} /> Nuevo dispositivo
             </button>
           </div>
@@ -167,10 +167,10 @@ function Infraestructura() {
                       <td><EstadoBadge estado={d.estado} /></td>
                       <td>
                         <div style={{ display: 'flex', gap: '0.4rem', justifyContent: 'flex-end' }}>
-                          <button onClick={() => setDispositivoViendo(d)} title="Ver dispositivo" style={{ background: '#132A3A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#60A5FA', display: 'flex' }}>
+                          <button onClick={() => setDispositivoViendo(d)} title="Ver dispositivo" style={{ background: 'var(--info-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--info-texto)', display: 'flex' }}>
                             <Eye size={15} />
                           </button>
-                          <button onClick={() => setDispositivoAEliminar(d)} title="Eliminar" style={{ background: '#3A1A1A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#F87171', display: 'flex' }}>
+                          <button onClick={() => setDispositivoAEliminar(d)} title="Eliminar" style={{ background: 'var(--peligro-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--peligro-texto)', display: 'flex' }}>
                             <Trash2 size={15} />
                           </button>
                         </div>
@@ -185,7 +185,7 @@ function Infraestructura() {
       ) : (
         <>
           <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1.5rem' }}>
-            <button onClick={abrirNuevoRack} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#F8C22E', color: '#0F1420', border: 'none', padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.95rem' }}>
+            <button onClick={abrirNuevoRack} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none', padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.95rem' }}>
               <Plus size={18} /> Nuevo rack
             </button>
           </div>
@@ -201,10 +201,10 @@ function Infraestructura() {
                 const cantidad = dispositivos.filter(d => d.rack === r.id).length
                 return (
                   <div key={r.id} className="card" onClick={() => setRackViendo(r)} style={{ cursor: 'pointer', position: 'relative' }}>
-                    <button onClick={(e) => { e.stopPropagation(); setRackAEliminar(r) }} style={{ position: 'absolute', top: '0.75rem', right: '0.75rem', background: '#3A1A1A', border: 'none', borderRadius: '6px', padding: '0.35rem', color: '#F87171', display: 'flex' }}>
+                    <button onClick={(e) => { e.stopPropagation(); setRackAEliminar(r) }} style={{ position: 'absolute', top: '0.75rem', right: '0.75rem', background: 'var(--peligro-bg)', border: 'none', borderRadius: '6px', padding: '0.35rem', color: 'var(--peligro-texto)', display: 'flex' }}>
                       <Trash2 size={14} />
                     </button>
-                    <div style={{ width: '42px', height: '42px', borderRadius: '11px', backgroundColor: 'rgba(96,165,250,0.12)', color: '#60A5FA', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '0.85rem' }}>
+                    <div style={{ width: '42px', height: '42px', borderRadius: '11px', backgroundColor: 'rgba(96,165,250,0.12)', color: 'var(--info-texto)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '0.85rem' }}>
                       <Server size={20} />
                     </div>
                     <div style={{ fontWeight: 700, color: 'var(--texto-fuerte)', fontSize: '1rem', marginBottom: '0.2rem' }}>{r.nombre}</div>

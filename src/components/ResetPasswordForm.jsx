@@ -68,7 +68,7 @@ function ResetPasswordForm({ usuario, onSubmit, onCancel }) {
           backgroundColor: 'var(--campo-bg)', border: '1px solid var(--campo-borde)', borderRadius: '8px',
           padding: '0.75rem 1rem', marginBottom: '1rem',
         }}>
-          <code style={{ flex: 1, color: '#4ADE80', fontSize: '1rem' }}>{resultado}</code>
+          <code style={{ flex: 1, color: 'var(--exito-texto)', fontSize: '1rem' }}>{resultado}</code>
           <button onClick={copiar} style={{ background: 'none', border: 'none', color: 'var(--texto-4)', display: 'flex' }}>
             {copiado ? <Check size={18} color="#4ADE80" /> : <Copy size={18} />}
           </button>
@@ -84,16 +84,16 @@ function ResetPasswordForm({ usuario, onSubmit, onCancel }) {
             width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
             backgroundColor: guardado ? 'rgba(74,222,128,0.12)' : 'transparent',
             border: guardado ? '1px solid rgba(74,222,128,0.4)' : '1px solid var(--campo-borde)',
-            color: guardado ? '#4ADE80' : 'var(--texto-2)',
+            color: guardado ? 'var(--exito-texto)' : 'var(--texto-2)',
             padding: '0.6rem', borderRadius: '6px', fontSize: '0.85rem', marginBottom: '1rem',
           }}
         >
           {guardado ? <><Check size={15} /> Guardada en Contraseñas</> : <><Save size={15} /> {guardando ? 'Guardando...' : 'Guardar en Contraseñas'}</>}
         </button>
-        {errorGuardar && <p style={{ color: '#F87171', fontSize: '0.8rem', marginTop: '-0.5rem', marginBottom: '1rem' }}>{errorGuardar}</p>}
+        {errorGuardar && <p style={{ color: 'var(--peligro-texto)', fontSize: '0.8rem', marginTop: '-0.5rem', marginBottom: '1rem' }}>{errorGuardar}</p>}
 
         <button onClick={onCancel} style={{
-          width: '100%', backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+          width: '100%', backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
           padding: '0.65rem', borderRadius: '6px', fontWeight: 'bold',
         }}>
           Cerrar
@@ -112,8 +112,8 @@ function ResetPasswordForm({ usuario, onSubmit, onCancel }) {
         <label style={{
           flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem',
           padding: '0.6rem', borderRadius: '8px', cursor: 'pointer', fontSize: '0.88rem',
-          border: modo === 'auto' ? '1px solid #F8C22E' : '1px solid var(--campo-borde)',
-          color: modo === 'auto' ? '#F8C22E' : 'var(--texto-2)',
+          border: modo === 'auto' ? '1px solid var(--acento)' : '1px solid var(--campo-borde)',
+          color: modo === 'auto' ? 'var(--acento-texto)' : 'var(--texto-2)',
         }}>
           <input type="radio" checked={modo === 'auto'} onChange={() => setModo('auto')} style={{ display: 'none' }} />
           Generar automática
@@ -121,8 +121,8 @@ function ResetPasswordForm({ usuario, onSubmit, onCancel }) {
         <label style={{
           flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem',
           padding: '0.6rem', borderRadius: '8px', cursor: 'pointer', fontSize: '0.88rem',
-          border: modo === 'manual' ? '1px solid #F8C22E' : '1px solid var(--campo-borde)',
-          color: modo === 'manual' ? '#F8C22E' : 'var(--texto-2)',
+          border: modo === 'manual' ? '1px solid var(--acento)' : '1px solid var(--campo-borde)',
+          color: modo === 'manual' ? 'var(--acento-texto)' : 'var(--texto-2)',
         }}>
           <input type="radio" checked={modo === 'manual'} onChange={() => setModo('manual')} style={{ display: 'none' }} />
           Escribir manual
@@ -145,7 +145,7 @@ function ResetPasswordForm({ usuario, onSubmit, onCancel }) {
 
       <div style={{ display: 'flex', gap: '0.75rem' }}>
         <button type="submit" style={{
-          backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+          backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
           padding: '0.65rem 1.25rem', borderRadius: '6px', fontWeight: 'bold', flex: 1,
         }}>
           Restablecer

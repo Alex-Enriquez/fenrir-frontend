@@ -82,7 +82,7 @@ function Sidebar({ abierta, onCerrar }) {
     }}>
       <div style={{ padding: '1.75rem 1.5rem 1.25rem' }}>
         <div style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--texto-fuerte)', letterSpacing: '-0.02em' }}>
-          Alamex<span style={{ color: '#F8C22E' }}>.</span>TI
+          Alamex<span style={{ color: 'var(--acento-texto)' }}>.</span>TI
         </div>
         <div style={{ fontSize: '0.72rem', color: 'var(--texto-6)', marginTop: '0.15rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           Gestión de inventario
@@ -136,7 +136,7 @@ function Sidebar({ abierta, onCerrar }) {
         >
           <div style={{
             width: '34px', height: '34px', borderRadius: '9px',
-            background: 'linear-gradient(135deg, #F8C22E, #001D5C)',
+            background: 'linear-gradient(135deg, var(--acento), #001D5C)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             fontWeight: 700, fontSize: '0.9rem', color: '#0B0F1A', flexShrink: 0,
           }}>
@@ -162,7 +162,7 @@ function Sidebar({ abierta, onCerrar }) {
           style={{
             display: 'flex', alignItems: 'center', gap: '0.5rem', width: '100%',
             background: 'rgba(248,113,113,0.08)', border: '1px solid rgba(248,113,113,0.2)',
-            color: '#F87171', padding: '0.5rem 0.75rem', borderRadius: '8px',
+            color: 'var(--peligro-texto)', padding: '0.5rem 0.75rem', borderRadius: '8px',
             fontSize: '0.82rem', fontWeight: 500,
           }}
         >

@@ -13,9 +13,9 @@ function calcularVigencia(servicio) {
   if (!servicio.fecha_proximo_pago) return { label: 'Sin fecha', bg: 'var(--campo-borde)', color: 'var(--texto-tenue)' }
   const hoy = new Date()
   const dias = Math.ceil((new Date(servicio.fecha_proximo_pago) - hoy) / (1000 * 60 * 60 * 24))
-  if (dias < 0) return { label: `Vencido (${Math.abs(dias)}d)`, bg: '#4A1515', color: '#F87171' }
-  if (dias <= 7) return { label: `Vence en ${dias}d`, bg: '#4A3510', color: '#F8C22E' }
-  return { label: 'Al día', bg: '#16412A', color: '#4ADE80' }
+  if (dias < 0) return { label: `Vencido (${Math.abs(dias)}d)`, bg: 'var(--peligro-bg-2)', color: 'var(--peligro-texto)' }
+  if (dias <= 7) return { label: `Vence en ${dias}d`, bg: 'var(--aviso-bg)', color: 'var(--acento-texto)' }
+  return { label: 'Al día', bg: 'var(--exito-bg)', color: 'var(--exito-texto)' }
 }
 
 function ServiciosContratados() {
@@ -85,12 +85,12 @@ function ServiciosContratados() {
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-        <h1 style={{ color: '#F8C22E', margin: 0 }}>Servicios contratados</h1>
+        <h1 style={{ color: 'var(--acento-texto)', margin: 0 }}>Servicios contratados</h1>
         <button
           onClick={abrirNuevo}
           style={{
             display: 'flex', alignItems: 'center', gap: '0.5rem',
-            backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+            backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
             padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.95rem',
           }}
         >
@@ -152,16 +152,16 @@ function ServiciosContratados() {
                     </td>
                     <td>
                       <div style={{ display: 'flex', gap: '0.4rem', justifyContent: 'flex-end' }}>
-                        <button onClick={() => marcarPago(s)} title="Marcar pago" style={{ background: '#16412A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#4ADE80', display: 'flex' }}>
+                        <button onClick={() => marcarPago(s)} title="Marcar pago" style={{ background: 'var(--exito-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--exito-texto)', display: 'flex' }}>
                           <CheckCircle2 size={15} />
                         </button>
-                        <button onClick={() => setServicioHistorial(s)} title="Ver historial" style={{ background: '#132A3A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#60A5FA', display: 'flex' }}>
+                        <button onClick={() => setServicioHistorial(s)} title="Ver historial" style={{ background: 'var(--info-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--info-texto)', display: 'flex' }}>
                           <History size={15} />
                         </button>
-                        <button onClick={() => abrirEditar(s)} title="Editar" style={{ background: '#132A2A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#2DD4BF', display: 'flex' }}>
+                        <button onClick={() => abrirEditar(s)} title="Editar" style={{ background: 'var(--edit-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--edit-texto)', display: 'flex' }}>
                           <Pencil size={15} />
                         </button>
-                        <button onClick={() => setServicioAEliminar(s)} title="Eliminar" style={{ background: '#3A1A1A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#F87171', display: 'flex' }}>
+                        <button onClick={() => setServicioAEliminar(s)} title="Eliminar" style={{ background: 'var(--peligro-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--peligro-texto)', display: 'flex' }}>
                           <Trash2 size={15} />
                         </button>
                       </div>

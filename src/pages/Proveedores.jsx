@@ -72,12 +72,12 @@ function Proveedores() {
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-        <h1 style={{ color: '#F8C22E', margin: 0 }}>Proveedores</h1>
+        <h1 style={{ color: 'var(--acento-texto)', margin: 0 }}>Proveedores</h1>
         <button
           onClick={abrirNuevo}
           style={{
             display: 'flex', alignItems: 'center', gap: '0.5rem',
-            backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+            backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
             padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.95rem',
           }}
         >
@@ -129,13 +129,13 @@ function Proveedores() {
               <div style={{ display: 'flex', gap: '0.5rem', paddingTop: '0.75rem', borderTop: '1px solid var(--borde-suave)' }}>
                 <button
                   onClick={() => abrirEditar(p)}
-                  style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', background: '#132A2A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#2DD4BF', fontSize: '0.8rem' }}
+                  style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', background: 'var(--edit-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--edit-texto)', fontSize: '0.8rem' }}
                 >
                   <Pencil size={13} /> Editar
                 </button>
                 <button
                   onClick={() => setProveedorAEliminar(p)}
-                  style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', background: '#3A1A1A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#F87171', fontSize: '0.8rem' }}
+                  style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', background: 'var(--peligro-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--peligro-texto)', fontSize: '0.8rem' }}
                 >
                   <Trash2 size={13} /> Eliminar
                 </button>

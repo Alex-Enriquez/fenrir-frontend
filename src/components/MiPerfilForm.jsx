@@ -37,7 +37,7 @@ function MiPerfilForm({ perfil, onSubmit, onCancel }) {
         <span style={{ color: 'var(--texto-tenue)', fontSize: '0.85rem' }}>{perfil?.email || perfil?.username}</span>
         <span style={{
           backgroundColor: perfil?.is_staff ? 'rgba(248,194,46,0.12)' : 'rgba(96,165,250,0.12)',
-          color: perfil?.is_staff ? '#F8C22E' : '#60A5FA',
+          color: perfil?.is_staff ? 'var(--acento-texto)' : 'var(--info-texto)',
           padding: '0.15rem 0.55rem', borderRadius: '999px', fontSize: '0.72rem', fontWeight: 600,
         }}>
           {perfil?.is_staff ? 'Administrador' : 'Analista'}
@@ -46,7 +46,7 @@ function MiPerfilForm({ perfil, onSubmit, onCancel }) {
 
       {error && (
         <div style={{
-          backgroundColor: '#4A1515', color: '#F87171', padding: '0.5rem 0.7rem',
+          backgroundColor: 'var(--peligro-bg-2)', color: 'var(--peligro-texto)', padding: '0.5rem 0.7rem',
           borderRadius: '8px', fontSize: '0.85rem', marginBottom: '1rem',
         }}>
           {error}
@@ -72,7 +72,7 @@ function MiPerfilForm({ perfil, onSubmit, onCancel }) {
           type="submit"
           disabled={guardando}
           style={{
-            backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+            backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
             padding: '0.65rem 1.25rem', borderRadius: '6px', fontWeight: 'bold', flex: 1,
             opacity: guardando ? 0.6 : 1,
           }}

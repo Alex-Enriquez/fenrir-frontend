@@ -18,6 +18,8 @@ import Proveedores from './pages/Proveedores'
 import ServiciosContratados from './pages/ServiciosContratados'
 import Infraestructura from './pages/Infraestructura'
 import Login from './pages/Login'
+import BotonTema from './components/BotonTema'
+import { useAplicarTema } from './context/tema'
 
 const titulos = {
   '/': 'Dashboard',
@@ -48,6 +50,7 @@ function Topbar() {
       <span style={{ color: 'var(--texto-5)', fontSize: '0.85rem', marginLeft: '0.6rem' }}>
         · Sistema de Inventario TI
       </span>
+      <BotonTema />
     </header>
   )
 }
@@ -68,6 +71,7 @@ function RutaPublica({ children }) {
 }
 
 function AppLayout() {
+  useAplicarTema()
   return (
     <div style={{ display: 'flex', minHeight: '100vh' }}>
       <Sidebar />

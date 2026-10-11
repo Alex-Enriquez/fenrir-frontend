@@ -94,7 +94,7 @@ function ContrasenaForm({ empleados, registroInicial, onSubmit, onCancel }) {
           style={{
             display: 'flex', alignItems: 'center', gap: '0.4rem',
             background: 'rgba(248,194,46,0.12)', border: '1px solid rgba(248,194,46,0.3)',
-            borderRadius: '6px', color: '#F8C22E', padding: '0 0.9rem', fontSize: '0.85rem', fontWeight: 600,
+            borderRadius: '6px', color: 'var(--acento-texto)', padding: '0 0.9rem', fontSize: '0.85rem', fontWeight: 600,
           }}
         >
           <Wand2 size={15} /> Generar
@@ -106,7 +106,7 @@ function ContrasenaForm({ empleados, registroInicial, onSubmit, onCancel }) {
 
       <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.5rem' }}>
         <button type="submit" style={{
-          backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+          backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
           padding: '0.65rem 1.25rem', borderRadius: '6px', fontWeight: 'bold', flex: 1,
         }}>
           Guardar

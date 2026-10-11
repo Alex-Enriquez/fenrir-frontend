@@ -76,12 +76,12 @@ function Responsivas() {
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-        <h1 style={{ color: '#F8C22E', margin: 0 }}>Responsivas</h1>
+        <h1 style={{ color: 'var(--acento-texto)', margin: 0 }}>Responsivas</h1>
         <button
           onClick={() => setModalAbierto(true)}
           style={{
             display: 'flex', alignItems: 'center', gap: '0.5rem',
-            backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+            backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
             padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.95rem',
           }}
         >
@@ -136,14 +136,14 @@ function Responsivas() {
                       <button
                         onClick={() => verPdf(r.id)}
                         title="Ver PDF"
-                        style={{ background: '#132A2A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#2DD4BF', display: 'flex' }}
+                        style={{ background: 'var(--edit-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--edit-texto)', display: 'flex' }}
                       >
                         <FileText size={16} />
                       </button>
                       <button
                         onClick={() => setResponsivaAEliminar(r)}
                         title="Eliminar"
-                        style={{ background: '#3A1A1A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#F87171', display: 'flex' }}
+                        style={{ background: 'var(--peligro-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--peligro-texto)', display: 'flex' }}
                       >
                         <Trash2 size={16} />
                       </button>

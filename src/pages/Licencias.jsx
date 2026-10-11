@@ -119,13 +119,13 @@ function Licencias() {
   }
 
   if (cargando) return <p>Cargando licencias...</p>
-  if (error) return <p style={{ color: '#F87171' }}>{error}</p>
+  if (error) return <p style={{ color: 'var(--peligro-texto)' }}>{error}</p>
 
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <h1 style={{ color: '#F8C22E', margin: 0 }}>Licencias</h1>
+          <h1 style={{ color: 'var(--acento-texto)', margin: 0 }}>Licencias</h1>
           <button
             onClick={() => descargarArchivo(`${API_URL}/licencias/exportar/`, 'licencias.xlsx')}
             style={{
@@ -141,7 +141,7 @@ function Licencias() {
           onClick={() => setModalAbierto(true)}
           style={{
             display: 'flex', alignItems: 'center', gap: '0.5rem',
-            backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+            backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
             padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.95rem',
           }}
         >
@@ -194,8 +194,8 @@ function Licencias() {
                   title="Eliminar tipo de licencia"
                   style={{
                     position: 'absolute', top: '0.75rem', right: '0.75rem',
-                    background: '#3A1A1A', border: 'none', borderRadius: '6px',
-                    padding: '0.35rem', color: '#F87171', display: 'flex',
+                    background: 'var(--peligro-bg)', border: 'none', borderRadius: '6px',
+                    padding: '0.35rem', color: 'var(--peligro-texto)', display: 'flex',
                   }}
                 >
                   <Trash2 size={14} />
@@ -220,7 +220,7 @@ function Licencias() {
                   <div style={{
                     display: 'inline-flex', alignItems: 'center', gap: '0.35rem',
                     backgroundColor: lleno ? 'rgba(248,113,113,0.1)' : 'rgba(74,222,128,0.1)',
-                    color: lleno ? '#F87171' : '#4ADE80',
+                    color: lleno ? 'var(--peligro-texto)' : 'var(--exito-texto)',
                     padding: '0.2rem 0.55rem', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 700,
                     marginBottom: '0.6rem',
                   }}>
@@ -231,12 +231,12 @@ function Licencias() {
                 {(t.vencidas > 0 || t.porVencer > 0) && (
                   <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
                     {t.vencidas > 0 && (
-                      <span style={{ backgroundColor: '#4A1515', color: '#F87171', padding: '0.15rem 0.5rem', borderRadius: '999px', fontSize: '0.72rem', fontWeight: 600 }}>
+                      <span style={{ backgroundColor: 'var(--peligro-bg-2)', color: 'var(--peligro-texto)', padding: '0.15rem 0.5rem', borderRadius: '999px', fontSize: '0.72rem', fontWeight: 600 }}>
                         {t.vencidas} vencida{t.vencidas !== 1 ? 's' : ''}
                       </span>
                     )}
                     {t.porVencer > 0 && (
-                      <span style={{ backgroundColor: '#4A3510', color: '#F8C22E', padding: '0.15rem 0.5rem', borderRadius: '999px', fontSize: '0.72rem', fontWeight: 600 }}>
+                      <span style={{ backgroundColor: 'var(--aviso-bg)', color: 'var(--acento-texto)', padding: '0.15rem 0.5rem', borderRadius: '999px', fontSize: '0.72rem', fontWeight: 600 }}>
                         {t.porVencer} por vencer
                       </span>
                     )}

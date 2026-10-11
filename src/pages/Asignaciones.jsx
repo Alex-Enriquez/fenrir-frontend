@@ -148,8 +148,8 @@ function Asignaciones() {
         style={{
           display: 'flex', alignItems: 'center', gap: '0.35rem', border: 'none', borderRadius: '6px',
           padding: '0.4rem 0.7rem', fontSize: '0.82rem',
-          backgroundColor: vista === 'tarjetas' ? '#F8C22E' : 'transparent',
-          color: vista === 'tarjetas' ? '#0F1420' : 'var(--texto-tenue)',
+          backgroundColor: vista === 'tarjetas' ? 'var(--accion)' : 'transparent',
+          color: vista === 'tarjetas' ? 'var(--sobre-accion)' : 'var(--texto-tenue)',
         }}
       >
         <LayoutGrid size={14} /> Tarjetas
@@ -160,8 +160,8 @@ function Asignaciones() {
         style={{
           display: 'flex', alignItems: 'center', gap: '0.35rem', border: 'none', borderRadius: '6px',
           padding: '0.4rem 0.7rem', fontSize: '0.82rem',
-          backgroundColor: vista === 'tabla' ? '#F8C22E' : 'transparent',
-          color: vista === 'tabla' ? '#0F1420' : 'var(--texto-tenue)',
+          backgroundColor: vista === 'tabla' ? 'var(--accion)' : 'transparent',
+          color: vista === 'tabla' ? 'var(--sobre-accion)' : 'var(--texto-tenue)',
         }}
       >
         <List size={14} /> Tabla
@@ -173,7 +173,7 @@ function Asignaciones() {
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <h1 style={{ color: '#F8C22E', margin: 0 }}>Asignaciones</h1>
+          <h1 style={{ color: 'var(--acento-texto)', margin: 0 }}>Asignaciones</h1>
           <button
             onClick={() => descargarArchivo(`${API_URL}/asignaciones/exportar/`, 'asignaciones.xlsx')}
             style={{
@@ -236,7 +236,7 @@ function Asignaciones() {
                         onClick={() => setAsignacionParaReasignar(asignacion)}
                         style={{
                           flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem',
-                          background: '#132A3A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#60A5FA', fontSize: '0.8rem',
+                          background: 'var(--info-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--info-texto)', fontSize: '0.8rem',
                         }}
                       >
                         <Repeat size={13} /> Reasignar
@@ -245,7 +245,7 @@ function Asignaciones() {
                         onClick={() => setAsignacionParaLiberar(asignacion)}
                         style={{
                           flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem',
-                          background: '#3A1A1A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#F87171', fontSize: '0.8rem',
+                          background: 'var(--peligro-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--peligro-texto)', fontSize: '0.8rem',
                         }}
                       >
                         <Undo2 size={13} /> Liberar
@@ -257,7 +257,7 @@ function Asignaciones() {
                       style={{
                         width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem',
                         background: 'rgba(248,194,46,0.1)', border: '1px solid rgba(248,194,46,0.3)', borderRadius: '6px',
-                        padding: '0.45rem', color: '#F8C22E', fontSize: '0.85rem', fontWeight: 600,
+                        padding: '0.45rem', color: 'var(--acento-texto)', fontSize: '0.85rem', fontWeight: 600,
                       }}
                     >
                       <Plus size={14} /> Asignar equipo
@@ -302,14 +302,14 @@ function Asignaciones() {
                             <button
                               onClick={() => setAsignacionParaReasignar(asignacion)}
                               title="Reasignar"
-                              style={{ background: '#132A3A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#60A5FA', display: 'flex' }}
+                              style={{ background: 'var(--info-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--info-texto)', display: 'flex' }}
                             >
                               <Repeat size={15} />
                             </button>
                             <button
                               onClick={() => setAsignacionParaLiberar(asignacion)}
                               title="Liberar"
-                              style={{ background: '#3A1A1A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#F87171', display: 'flex' }}
+                              style={{ background: 'var(--peligro-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--peligro-texto)', display: 'flex' }}
                             >
                               <Undo2 size={15} />
                             </button>
@@ -318,7 +318,7 @@ function Asignaciones() {
                           <button
                             onClick={() => setEmpleadoParaAsignar(emp)}
                             title="Asignar equipo"
-                            style={{ background: 'rgba(248,194,46,0.1)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#F8C22E', display: 'flex' }}
+                            style={{ background: 'rgba(248,194,46,0.1)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--acento-texto)', display: 'flex' }}
                           >
                             <Plus size={15} />
                           </button>

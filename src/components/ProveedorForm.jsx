@@ -84,7 +84,7 @@ function ProveedorForm({ proveedorInicial, onSubmit, onCancel }) {
           type="submit"
           disabled={guardando}
           style={{
-            backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+            backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
             padding: '0.65rem 1.25rem', borderRadius: '6px', fontWeight: 'bold', flex: 1,
             opacity: guardando ? 0.6 : 1,
           }}

@@ -22,7 +22,7 @@ function ConfirmDialog({ isOpen, title, message, onConfirm, onCancel }) {
       >
         <div style={{
           width: '48px', height: '48px', borderRadius: '50%',
-          backgroundColor: 'rgba(248,113,113,0.12)', color: '#F87171',
+          backgroundColor: 'rgba(248,113,113,0.12)', color: 'var(--peligro-texto)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           margin: '0 auto 1rem',
         }}>

@@ -9,8 +9,8 @@ import { descargarArchivo } from '../utils/descargarArchivo'
 const API_URL = 'http://127.0.0.1:8000/api'
 
 const estatusColors = {
-  activo: { bg: '#16412A', color: '#4ADE80' },
-  baja: { bg: '#4A1515', color: '#F87171' },
+  activo: { bg: 'var(--exito-bg)', color: 'var(--exito-texto)' },
+  baja: { bg: 'var(--peligro-bg-2)', color: 'var(--peligro-texto)' },
 }
 
 const filtros = [
@@ -145,7 +145,7 @@ function Empleados() {
   }
 
   if (cargando) return <p>Cargando empleados...</p>
-  if (error) return <p style={{ color: '#F87171' }}>{error}</p>
+  if (error) return <p style={{ color: 'var(--peligro-texto)' }}>{error}</p>
 
   const columnas = [
     { key: 'nombre_completo', label: 'Nombre' },
@@ -158,7 +158,7 @@ function Empleados() {
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <h1 style={{ color: '#F8C22E', margin: 0 }}>Empleados</h1>
+          <h1 style={{ color: 'var(--acento-texto)', margin: 0 }}>Empleados</h1>
           <button
             onClick={() => descargarArchivo(`${API_URL}/empleados/exportar/`, 'empleados.xlsx')}
             style={{
@@ -174,7 +174,7 @@ function Empleados() {
           onClick={abrirNuevo}
           style={{
             display: 'flex', alignItems: 'center', gap: '0.5rem',
-            backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+            backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
             padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.95rem',
           }}
         >
@@ -203,9 +203,9 @@ function Empleados() {
             onClick={() => setFiltroActivo(f.key)}
             style={{
               padding: '0.4rem 0.9rem', borderRadius: '999px',
-              border: filtroActivo === f.key ? '1px solid #F8C22E' : '1px solid var(--campo-borde)',
+              border: filtroActivo === f.key ? '1px solid var(--acento)' : '1px solid var(--campo-borde)',
               backgroundColor: filtroActivo === f.key ? 'rgba(248,194,46,0.12)' : 'transparent',
-              color: filtroActivo === f.key ? '#F8C22E' : 'var(--texto-tenue)',
+              color: filtroActivo === f.key ? 'var(--acento-texto)' : 'var(--texto-tenue)',
               fontSize: '0.82rem', fontWeight: filtroActivo === f.key ? 600 : 500,
             }}
           >
@@ -261,14 +261,14 @@ function Empleados() {
                       <button
                         onClick={() => abrirEditar(empleado)}
                         title="Editar"
-                        style={{ background: '#132A2A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#2DD4BF', display: 'flex' }}
+                        style={{ background: 'var(--edit-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--edit-texto)', display: 'flex' }}
                       >
                         <Pencil size={16} />
                       </button>
                       <button
                         onClick={() => setEmpleadoAEliminar(empleado)}
                         title="Eliminar"
-                        style={{ background: '#3A1A1A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#F87171', display: 'flex' }}
+                        style={{ background: 'var(--peligro-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--peligro-texto)', display: 'flex' }}
                       >
                         <Trash2 size={16} />
                       </button>

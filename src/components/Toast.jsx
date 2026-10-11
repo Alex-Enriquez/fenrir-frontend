@@ -17,9 +17,9 @@ function Toast({ mensaje, tipo = 'error', onClose }) {
     <div style={{
       position: 'fixed', bottom: '1.5rem', right: '1.5rem', zIndex: 1200,
       display: 'flex', alignItems: 'center', gap: '0.6rem',
-      backgroundColor: esError ? '#3A1A1A' : '#16412A',
-      color: esError ? '#F87171' : '#4ADE80',
-      border: `1px solid ${esError ? '#5C2626' : '#1F5C3A'}`,
+      backgroundColor: esError ? 'var(--peligro-bg)' : 'var(--exito-bg)',
+      color: esError ? 'var(--peligro-texto)' : 'var(--exito-texto)',
+      border: `1px solid ${esError ? 'var(--peligro-borde)' : '#1F5C3A'}`,
       padding: '0.75rem 1.1rem', borderRadius: '10px',
       boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
       fontSize: '0.88rem', maxWidth: '340px',

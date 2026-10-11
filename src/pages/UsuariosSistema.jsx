@@ -82,12 +82,12 @@ function UsuariosSistema() {
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-        <h1 style={{ color: '#F8C22E', margin: 0 }}>Usuarios del sistema</h1>
+        <h1 style={{ color: 'var(--acento-texto)', margin: 0 }}>Usuarios del sistema</h1>
         <button
           onClick={abrirCrear}
           style={{
             display: 'flex', alignItems: 'center', gap: '0.5rem',
-            backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+            backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
             padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.95rem',
           }}
         >
@@ -117,7 +117,7 @@ function UsuariosSistema() {
                 <td>{u.email || '—'}</td>
                 <td>
                   {u.is_staff ? (
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: '#F8C22E', fontSize: '0.82rem', fontWeight: 600 }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', color: 'var(--acento-texto)', fontSize: '0.82rem', fontWeight: 600 }}>
                       <ShieldCheck size={14} /> Administrador
                     </span>
                   ) : (
@@ -126,8 +126,8 @@ function UsuariosSistema() {
                 </td>
                 <td>
                   <span style={{
-                    backgroundColor: u.is_active ? '#16412A' : '#4A1515',
-                    color: u.is_active ? '#4ADE80' : '#F87171',
+                    backgroundColor: u.is_active ? 'var(--exito-bg)' : 'var(--peligro-bg-2)',
+                    color: u.is_active ? 'var(--exito-texto)' : 'var(--peligro-texto)',
                     padding: '0.2rem 0.6rem', borderRadius: '999px', fontSize: '0.78rem', fontWeight: 600,
                   }}>
                     {u.is_active ? 'Activo' : 'Inactivo'}
@@ -138,21 +138,21 @@ function UsuariosSistema() {
                     <button
                       onClick={() => setUsuarioReset(u)}
                       title="Restablecer contraseña"
-                      style={{ background: '#132A2A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#2DD4BF', display: 'flex' }}
+                      style={{ background: 'var(--edit-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--edit-texto)', display: 'flex' }}
                     >
                       <KeyRound size={16} />
                     </button>
                     <button
                       onClick={() => abrirEditar(u)}
                       title="Editar"
-                      style={{ background: '#132A3A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#60A5FA', display: 'flex' }}
+                      style={{ background: 'var(--info-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--info-texto)', display: 'flex' }}
                     >
                       <Pencil size={16} />
                     </button>
                     <button
                       onClick={() => setUsuarioAEliminar(u)}
                       title="Eliminar"
-                      style={{ background: '#3A1A1A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#F87171', display: 'flex' }}
+                      style={{ background: 'var(--peligro-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--peligro-texto)', display: 'flex' }}
                     >
                       <Trash2 size={16} />
                     </button>

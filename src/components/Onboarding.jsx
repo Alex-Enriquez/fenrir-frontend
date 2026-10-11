@@ -60,7 +60,7 @@ function Onboarding() {
         <div style={{ textAlign: 'center', padding: '0.5rem 0 1rem' }}>
           <div style={{
             width: '56px', height: '56px', borderRadius: '16px', margin: '0 auto 1rem',
-            backgroundColor: 'rgba(248,194,46,0.12)', color: '#F8C22E',
+            backgroundColor: 'rgba(248,194,46,0.12)', color: 'var(--acento-texto)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}>
             <Lightbulb size={26} />
@@ -76,7 +76,7 @@ function Onboarding() {
           <button
             onClick={cerrarTip}
             style={{
-              backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+              backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
               padding: '0.65rem 1.75rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.95rem',
             }}
           >

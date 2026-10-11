@@ -334,5 +334,55 @@ h1, h2, h3 {
 :root[data-theme="light"] {
   --fondo-glow: #FFFFFF;
   --card-rgb: 255, 255, 255;
-  --acento-texto: #8A6100;
+  --acento-texto: #001D5C;
+}
+
+/* === tema fenrir: acentos (oscuro = igual que hoy) === */
+:root {
+  --acento: #F8C22E;
+  --peligro-texto: #F87171;
+  --exito-texto: #4ADE80;
+  --info-texto: #60A5FA;
+  --edit-texto: #2DD4BF;
+  --naranja-texto: #F97316;
+  --morado-texto: #C084FC;
+  --peligro-bg: #3A1A1A;
+  --peligro-bg-2: #4A1515;
+  --peligro-borde: #5C2626;
+  --edit-bg: #132A2A;
+  --info-bg: #132A3A;
+  --info-bg-2: #1E3A5F;
+  --aviso-bg: #4A3510;
+  --aviso-bg-2: #2A1F10;
+  --aviso-borde: #4A3510;
+  --exito-bg: #16412A;
+}
+:root[data-theme="light"] {
+  --acento: #F8C22E;
+  --peligro-texto: #B42318;
+  --exito-texto: #067647;
+  --info-texto: #175CD3;
+  --edit-texto: #0F766E;
+  --naranja-texto: #C2410C;
+  --morado-texto: #7E22CE;
+  --peligro-bg: #FDE8E6;
+  --peligro-bg-2: #FBD0CB;
+  --peligro-borde: #F5B5AE;
+  --edit-bg: #D5F5F0;
+  --info-bg: #DBEAFE;
+  --info-bg-2: #D3E3FD;
+  --aviso-bg: #FEF3C7;
+  --aviso-bg-2: #FFF8E1;
+  --aviso-borde: #F3D58A;
+  --exito-bg: #DCFAE6;
+}
+
+/* === tema fenrir: botones de acción (oscuro = igual que hoy) === */
+:root {
+  --accion: #F8C22E;
+  --sobre-accion: #0F1420;
+}
+:root[data-theme="light"] {
+  --accion: #001D5C;
+  --sobre-accion: #FFFFFF;
 }

@@ -44,7 +44,7 @@ function Modal({ isOpen, onClose, title, children }) {
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-          <h2 style={{ margin: 0, color: '#F8C22E', fontSize: '1.3rem' }}>{title}</h2>
+          <h2 style={{ margin: 0, color: 'var(--acento-texto)', fontSize: '1.3rem' }}>{title}</h2>
           <button
             onClick={onClose}
             style={{

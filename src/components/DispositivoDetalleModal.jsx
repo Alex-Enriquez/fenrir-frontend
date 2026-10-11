@@ -4,9 +4,9 @@ import DispositivoRedForm from './DispositivoRedForm'
 import PuertoMapModal from './PuertoMapModal'
 
 const BADGE_ESTADO = {
-  operativo: { bg: '#1E3A5F', color: '#60A5FA' },
-  mantenimiento: { bg: '#4A3510', color: '#F8C22E' },
-  fuera_de_linea: { bg: '#4A1515', color: '#F87171' },
+  operativo: { bg: 'var(--info-bg-2)', color: 'var(--info-texto)' },
+  mantenimiento: { bg: 'var(--aviso-bg)', color: 'var(--acento-texto)' },
+  fuera_de_linea: { bg: 'var(--peligro-bg-2)', color: 'var(--peligro-texto)' },
 }
 
 const filaStyle = {
@@ -38,7 +38,7 @@ function DispositivoDetalleModal({ dispositivo, racks, onGuardar, onCerrar }) {
   return (
     <div>
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem', marginBottom: '1rem', paddingBottom: '1rem', borderBottom: '1px solid var(--borde)' }}>
-        <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(96,165,250,0.12)', color: '#60A5FA', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+        <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(96,165,250,0.12)', color: 'var(--info-texto)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
           <Server size={22} />
         </div>
         <div style={{ flex: 1 }}>
@@ -46,7 +46,7 @@ function DispositivoDetalleModal({ dispositivo, racks, onGuardar, onCerrar }) {
           <div style={{ fontSize: '0.8rem', color: 'var(--texto-tenue)' }}>{dispositivo.marca} {dispositivo.modelo} · {dispositivo.rack_nombre || 'Sin rack'}</div>
         </div>
         {!editando && (
-          <button onClick={() => setEditando(true)} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', background: 'rgba(248,194,46,0.12)', border: '1px solid rgba(248,194,46,0.3)', borderRadius: '6px', color: '#F8C22E', padding: '0.4rem 0.7rem', fontSize: '0.8rem', fontWeight: 600 }}>
+          <button onClick={() => setEditando(true)} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', background: 'rgba(248,194,46,0.12)', border: '1px solid rgba(248,194,46,0.3)', borderRadius: '6px', color: 'var(--acento-texto)', padding: '0.4rem 0.7rem', fontSize: '0.8rem', fontWeight: 600 }}>
             <Pencil size={13} /> Editar
           </button>
         )}
@@ -57,11 +57,11 @@ function DispositivoDetalleModal({ dispositivo, racks, onGuardar, onCerrar }) {
       ) : (
         <>
           <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
-            <button onClick={() => setTab('info')} style={{ background: tab === 'info' ? 'rgba(248,194,46,0.12)' : 'transparent', color: tab === 'info' ? '#F8C22E' : 'var(--texto-tenue)', border: 'none', borderRadius: '6px', padding: '0.4rem 0.9rem', fontSize: '0.85rem', fontWeight: 600 }}>
+            <button onClick={() => setTab('info')} style={{ background: tab === 'info' ? 'rgba(248,194,46,0.12)' : 'transparent', color: tab === 'info' ? 'var(--acento-texto)' : 'var(--texto-tenue)', border: 'none', borderRadius: '6px', padding: '0.4rem 0.9rem', fontSize: '0.85rem', fontWeight: 600 }}>
               Información
             </button>
             {dispositivo.tipo === 'switch' && (
-              <button onClick={() => setTab('puertos')} style={{ background: tab === 'puertos' ? 'rgba(248,194,46,0.12)' : 'transparent', color: tab === 'puertos' ? '#F8C22E' : 'var(--texto-tenue)', border: 'none', borderRadius: '6px', padding: '0.4rem 0.9rem', fontSize: '0.85rem', fontWeight: 600 }}>
+              <button onClick={() => setTab('puertos')} style={{ background: tab === 'puertos' ? 'rgba(248,194,46,0.12)' : 'transparent', color: tab === 'puertos' ? 'var(--acento-texto)' : 'var(--texto-tenue)', border: 'none', borderRadius: '6px', padding: '0.4rem 0.9rem', fontSize: '0.85rem', fontWeight: 600 }}>
                 Puertos
               </button>
             )}

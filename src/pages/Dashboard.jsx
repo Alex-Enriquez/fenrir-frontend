@@ -6,11 +6,11 @@ import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveCo
 const API_URL = 'http://127.0.0.1:8000/api'
 
 const tarjetas = [
-  { key: 'total', label: 'Total de equipos', icon: Monitor, color: '#F8C22E' },
-  { key: 'disponible', label: 'Disponibles', icon: CheckCircle2, color: '#4ADE80' },
-  { key: 'asignado', label: 'Asignados', icon: UserCheck, color: '#60A5FA' },
+  { key: 'total', label: 'Total de equipos', icon: Monitor, color: 'var(--acento-texto)' },
+  { key: 'disponible', label: 'Disponibles', icon: CheckCircle2, color: 'var(--exito-texto)' },
+  { key: 'asignado', label: 'Asignados', icon: UserCheck, color: 'var(--info-texto)' },
   { key: 'reparacion', label: 'En reparación', icon: Wrench, color: '#FBBF24' },
-  { key: 'baja', label: 'De baja', icon: XCircle, color: '#F87171' },
+  { key: 'baja', label: 'De baja', icon: XCircle, color: 'var(--peligro-texto)' },
 ]
 
 const COLORES_ESTADO = {
@@ -68,11 +68,11 @@ function Dashboard() {
   }, [])
 
   if (cargando) return <p>Cargando dashboard...</p>
-  if (!conteos) return <p style={{ color: '#F87171' }}>No se pudo cargar la información.</p>
+  if (!conteos) return <p style={{ color: 'var(--peligro-texto)' }}>No se pudo cargar la información.</p>
 
   return (
     <div>
-      <h1 style={{ color: '#F8C22E', marginBottom: '1.5rem' }}>Dashboard</h1>
+      <h1 style={{ color: 'var(--acento-texto)', marginBottom: '1.5rem' }}>Dashboard</h1>
 
       <div style={{
         display: 'grid',
@@ -100,7 +100,7 @@ function Dashboard() {
 
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(280px, 1fr) minmax(320px, 1.4fr)', gap: '1.25rem' }}>
         <div className="card">
-          <h2 style={{ marginTop: 0, color: '#F8C22E', fontSize: '1.1rem' }}>Equipos por estado</h2>
+          <h2 style={{ marginTop: 0, color: 'var(--acento-texto)', fontSize: '1.1rem' }}>Equipos por estado</h2>
           {datosEstado.length === 0 ? (
             <p style={{ color: 'var(--texto-tenue)' }}>Sin datos todavía.</p>
           ) : (
@@ -128,7 +128,7 @@ function Dashboard() {
         </div>
 
         <div className="card">
-          <h2 style={{ marginTop: 0, color: '#F8C22E', fontSize: '1.1rem' }}>Equipos por categoría</h2>
+          <h2 style={{ marginTop: 0, color: 'var(--acento-texto)', fontSize: '1.1rem' }}>Equipos por categoría</h2>
           {datosCategoria.length === 0 ? (
             <p style={{ color: 'var(--texto-tenue)' }}>Sin datos todavía.</p>
           ) : (

@@ -4,7 +4,7 @@ import { LayoutDashboard, Monitor, Lock, FileText, PartyPopper, X } from 'lucide
 const PASOS = [
   {
     icon: PartyPopper,
-    color: '#F8C22E',
+    color: 'var(--acento-texto)',
     titulo: 'Bienvenido a Fenrir',
     subtitulo: 'Alamex · TI',
     bullets: [
@@ -15,7 +15,7 @@ const PASOS = [
   },
   {
     icon: LayoutDashboard,
-    color: '#60A5FA',
+    color: 'var(--info-texto)',
     titulo: 'Dashboard y métricas',
     subtitulo: 'Todo de un vistazo',
     bullets: [
@@ -26,7 +26,7 @@ const PASOS = [
   },
   {
     icon: Monitor,
-    color: '#4ADE80',
+    color: 'var(--exito-texto)',
     titulo: 'Equipos y Licencias',
     subtitulo: 'Activos de la empresa',
     bullets: [
@@ -48,7 +48,7 @@ const PASOS = [
   },
   {
     icon: FileText,
-    color: '#F97316',
+    color: 'var(--naranja-texto)',
     titulo: 'Documentación',
     subtitulo: 'Responsivas y mantenimientos',
     bullets: [

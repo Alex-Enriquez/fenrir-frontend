@@ -98,7 +98,7 @@ function LicenciaCard({ licencia, index, asignados, onEditar, onEliminar }) {
       className="card"
       style={{
         padding: '1.1rem',
-        border: isOver ? '2px dashed #F8C22E' : '1px solid var(--borde)',
+        border: isOver ? '2px dashed var(--acento)' : '1px solid var(--borde)',
         backgroundColor: isOver ? 'rgba(248,194,46,0.06)' : undefined,
         minHeight: '260px',
         display: 'flex',
@@ -109,7 +109,7 @@ function LicenciaCard({ licencia, index, asignados, onEditar, onEliminar }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
           <div style={{
             width: '34px', height: '34px', borderRadius: '9px',
-            backgroundColor: 'rgba(248,194,46,0.12)', color: '#F8C22E',
+            backgroundColor: 'rgba(248,194,46,0.12)', color: 'var(--acento-texto)',
             display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
           }}>
             <Icon size={17} />
@@ -121,7 +121,7 @@ function LicenciaCard({ licencia, index, asignados, onEditar, onEliminar }) {
             </div>
           </div>
         </div>
-        <span style={{ fontSize: '0.8rem', fontWeight: 700, color: lleno ? '#F87171' : '#4ADE80', flexShrink: 0 }}>
+        <span style={{ fontSize: '0.8rem', fontWeight: 700, color: lleno ? 'var(--peligro-texto)' : 'var(--exito-texto)', flexShrink: 0 }}>
           {asignados.length}/{licencia.asientos_totales}
         </span>
       </div>
@@ -140,7 +140,7 @@ function LicenciaCard({ licencia, index, asignados, onEditar, onEliminar }) {
           onClick={() => onEditar(licencia)}
           style={{
             flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem',
-            background: '#132A2A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#2DD4BF', fontSize: '0.8rem',
+            background: 'var(--edit-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--edit-texto)', fontSize: '0.8rem',
           }}
         >
           <Pencil size={13} /> Editar
@@ -149,7 +149,7 @@ function LicenciaCard({ licencia, index, asignados, onEditar, onEliminar }) {
           onClick={() => onEliminar(licencia)}
           style={{
             flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem',
-            background: '#3A1A1A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#F87171', fontSize: '0.8rem',
+            background: 'var(--peligro-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem', color: 'var(--peligro-texto)', fontSize: '0.8rem',
           }}
         >
           <Trash2 size={13} /> Eliminar
@@ -340,7 +340,7 @@ function LicenciaDetalle() {
   }
 
   if (cargando) return <p>Cargando...</p>
-  if (!tipo) return <p style={{ color: '#F87171' }}>No se encontró este tipo de licencia.</p>
+  if (!tipo) return <p style={{ color: 'var(--peligro-texto)' }}>No se encontró este tipo de licencia.</p>
 
   return (
     <DndContext onDragEnd={handleDragEnd}>
@@ -359,7 +359,7 @@ function LicenciaDetalle() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
           <div style={{
             width: '44px', height: '44px', borderRadius: '12px',
-            backgroundColor: 'rgba(248,194,46,0.12)', color: '#F8C22E',
+            backgroundColor: 'rgba(248,194,46,0.12)', color: 'var(--acento-texto)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
           }}>
             <KeyRound size={22} />

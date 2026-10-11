@@ -63,7 +63,7 @@ function MantenimientoForm({ empleados, asignacionActivaPorEmpleado, equipoPorId
             <div style={{
               padding: '0.6rem 0.8rem', borderRadius: '6px', marginBottom: '1rem', fontSize: '0.85rem',
               backgroundColor: equipoActual ? 'rgba(74,222,128,0.08)' : 'rgba(248,113,113,0.08)',
-              color: equipoActual ? '#4ADE80' : '#F87171',
+              color: equipoActual ? 'var(--exito-texto)' : 'var(--peligro-texto)',
             }}>
               {equipoActual
                 ? `Equipo: ${equipoActual.marca} ${equipoActual.modelo} (${equipoActual.numero_serie})`
@@ -74,7 +74,7 @@ function MantenimientoForm({ empleados, asignacionActivaPorEmpleado, equipoPorId
       )}
 
       {esEdicion && equipoActual && (
-        <div style={{ padding: '0.6rem 0.8rem', borderRadius: '6px', marginBottom: '1rem', fontSize: '0.85rem', backgroundColor: 'rgba(96,165,250,0.08)', color: '#60A5FA' }}>
+        <div style={{ padding: '0.6rem 0.8rem', borderRadius: '6px', marginBottom: '1rem', fontSize: '0.85rem', backgroundColor: 'rgba(96,165,250,0.08)', color: 'var(--info-texto)' }}>
           Equipo: {equipoActual.marca} {equipoActual.modelo} ({equipoActual.numero_serie})
         </div>
       )}
@@ -102,7 +102,7 @@ function MantenimientoForm({ empleados, asignacionActivaPorEmpleado, equipoPorId
           type="submit"
           disabled={!equipoId}
           style={{
-            backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+            backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
             padding: '0.65rem 1.25rem', borderRadius: '6px', fontWeight: 'bold', flex: 1,
             opacity: equipoId ? 1 : 0.5,
           }}

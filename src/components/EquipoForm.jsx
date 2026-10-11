@@ -103,7 +103,7 @@ function EquipoForm({ categorias, equipoInicial, onSubmit, onCancel, onCategoria
                 title="Nueva categoría"
                 style={{
                   background: 'rgba(248,194,46,0.12)', border: '1px solid rgba(248,194,46,0.3)',
-                  borderRadius: '6px', color: '#F8C22E', padding: '0 0.7rem', display: 'flex', alignItems: 'center',
+                  borderRadius: '6px', color: 'var(--acento-texto)', padding: '0 0.7rem', display: 'flex', alignItems: 'center',
                 }}
               >
                 <Plus size={16} />
@@ -118,7 +118,7 @@ function EquipoForm({ categorias, equipoInicial, onSubmit, onCancel, onCategoria
                 autoFocus
                 style={{ ...inputStyle, flex: 1 }}
               />
-              <button type="button" onClick={crearCategoria} style={{ background: '#F8C22E', border: 'none', borderRadius: '6px', color: '#0F1420', padding: '0 0.9rem', fontWeight: 700 }}>
+              <button type="button" onClick={crearCategoria} style={{ background: 'var(--accion)', border: 'none', borderRadius: '6px', color: 'var(--sobre-accion)', padding: '0 0.9rem', fontWeight: 700 }}>
                 Crear
               </button>
               <button type="button" onClick={() => setCreandoCategoria(false)} style={{ background: 'transparent', border: '1px solid var(--campo-borde)', borderRadius: '6px', color: 'var(--texto-2)', padding: '0 0.7rem' }}>
@@ -222,7 +222,7 @@ function EquipoForm({ categorias, equipoInicial, onSubmit, onCancel, onCategoria
           type="submit"
           disabled={guardando}
           style={{
-            backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+            backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
             padding: '0.65rem 1.25rem', borderRadius: '6px', fontWeight: 'bold', flex: 1,
             opacity: guardando ? 0.6 : 1,
           }}

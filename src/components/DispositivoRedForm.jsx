@@ -116,7 +116,7 @@ function DispositivoRedForm({ racks, dispositivoInicial, onSubmit, onCancel }) {
       <textarea name="notas" value={form.notas || ''} onChange={handleChange} rows="2" style={inputStyle} />
 
       <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.5rem' }}>
-        <button type="submit" disabled={guardando} style={{ backgroundColor: '#F8C22E', color: '#0F1420', border: 'none', padding: '0.65rem 1.25rem', borderRadius: '6px', fontWeight: 'bold', flex: 1, opacity: guardando ? 0.6 : 1 }}>
+        <button type="submit" disabled={guardando} style={{ backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none', padding: '0.65rem 1.25rem', borderRadius: '6px', fontWeight: 'bold', flex: 1, opacity: guardando ? 0.6 : 1 }}>
           {guardando ? 'Guardando...' : 'Guardar'}
         </button>
         <button type="button" onClick={onCancel} disabled={guardando} style={{ backgroundColor: 'transparent', color: 'var(--texto-2)', border: '1px solid var(--campo-borde)', padding: '0.65rem 1.25rem', borderRadius: '6px', flex: 1 }}>

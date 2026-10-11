@@ -48,7 +48,7 @@ function NuevaCategoriaForm({ onSubmit, onCancel }) {
       />
       <div style={{ display: 'flex', gap: '0.75rem' }}>
         <button type="submit" style={{
-          backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+          backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
           padding: '0.65rem 1.25rem', borderRadius: '6px', fontWeight: 'bold', flex: 1,
         }}>
           Guardar
@@ -128,12 +128,12 @@ function Contrasenas() {
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-        <h1 style={{ color: '#F8C22E', margin: 0 }}>Contraseñas</h1>
+        <h1 style={{ color: 'var(--acento-texto)', margin: 0 }}>Contraseñas</h1>
         <button
           onClick={() => setModalAbierto(true)}
           style={{
             display: 'flex', alignItems: 'center', gap: '0.5rem',
-            backgroundColor: '#F8C22E', color: '#0F1420', border: 'none',
+            backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
             padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.95rem',
           }}
         >
@@ -181,8 +181,8 @@ function Contrasenas() {
                   title="Eliminar categoría"
                   style={{
                     position: 'absolute', top: '0.75rem', right: '0.75rem',
-                    background: '#3A1A1A', border: 'none', borderRadius: '6px',
-                    padding: '0.35rem', color: '#F87171', display: 'flex',
+                    background: 'var(--peligro-bg)', border: 'none', borderRadius: '6px',
+                    padding: '0.35rem', color: 'var(--peligro-texto)', display: 'flex',
                   }}
                 >
                   <Trash2 size={14} />
