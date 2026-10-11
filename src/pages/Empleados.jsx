@@ -163,8 +163,8 @@ function Empleados() {
             onClick={() => descargarArchivo(`${API_URL}/empleados/exportar/`, 'empleados.xlsx')}
             style={{
               display: 'flex', alignItems: 'center', gap: '0.4rem',
-              background: 'transparent', border: '1px solid var(--campo-borde)', borderRadius: '6px',
-              padding: '0.4rem 0.7rem', color: 'var(--texto-tenue)', fontSize: '0.82rem',
+              background: 'var(--exp-bg)', border: '1px solid var(--exp-borde)', borderRadius: '6px',
+              padding: '0.4rem 0.7rem', color: 'var(--exp-texto)', fontSize: '0.82rem',
             }}
           >
             <Download size={14} /> Exportar Excel

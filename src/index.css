@@ -339,3 +339,11 @@ h1, h2, h3 {
   --cancel-texto: var(--peligro-texto);
 }
 /* === fin tema fenrir: botón Cancelar === */
+
+/* === tema fenrir: botones exportar/importar (estilo de Cancelar, en verde) === */
+:root {
+  --exp-bg: rgba(74, 222, 128, 0.08);
+  --exp-borde: rgba(74, 222, 128, 0.2);
+  --exp-texto: var(--exito-texto);
+}
+/* === fin tema fenrir: botones exportar/importar === */
