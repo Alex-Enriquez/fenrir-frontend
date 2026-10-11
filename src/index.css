@@ -275,3 +275,52 @@ h1, h2, h3 {
   font-size: 4rem;
   animation: caida-rebote 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+
+/* === tema fenrir: variables (oscuro = igual que hoy) === */
+:root {
+  --campo-bg: #0F1420;
+  --campo-bg-2: #141A2C;
+  --campo-borde: #2C3450;
+  --borde-suave: #1E2438;
+  --texto-fuerte: #F1F3F9;
+  --texto-2: #9AA3B8;
+  --texto-4: #6B7690;
+  --texto-5: #5B6785;
+  --texto-6: #4C5670;
+  --texto-suave: #C4CAD9;
+  --sidebar-bg: #0D111C;
+  --velo-rgb: 255, 255, 255;
+  --modal-rgb: 26, 32, 51;
+  --topbar-rgb: 22, 28, 46;
+}
+
+/* === tema fenrir: modo claro === */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --fondo-oscuro: #F3F5FA;
+  --fondo-panel: #FFFFFF;
+  --fondo-tabla-header: #EEF1F7;
+  --fondo-hover: #E8ECF5;
+  --borde: #D9DFEA;
+  --sombra: 0 8px 24px rgba(20, 30, 60, 0.12);
+  --texto-claro: #1B2438;
+  --texto-tenue: #5A6781;
+  --campo-bg: #FFFFFF;
+  --campo-bg-2: #F3F5FA;
+  --campo-borde: #C9D1E0;
+  --borde-suave: #E3E8F1;
+  --texto-fuerte: #0B1220;
+  --texto-2: #46526B;
+  --texto-4: #66728B;
+  --texto-5: #7B879F;
+  --texto-6: #8D98AE;
+  --texto-suave: #3A4660;
+  --sidebar-bg: #FFFFFF;
+  --velo-rgb: 15, 23, 42;
+  --modal-rgb: 255, 255, 255;
+  --topbar-rgb: 255, 255, 255;
+}
+
+/* === tema fenrir: extras === */
+:root { --dialogo-bg: #1A2033; --texto-7: #3A4256; }
+:root[data-theme="light"] { --dialogo-bg: #FFFFFF; --texto-7: #A3AEC2; }
