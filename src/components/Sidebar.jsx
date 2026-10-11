@@ -81,8 +81,8 @@ function Sidebar({ abierta, onCerrar }) {
       position: 'relative',
     }}>
       <div style={{ padding: '1.75rem 1.5rem 1.25rem' }}>
-        <div style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--texto-fuerte)', letterSpacing: '-0.02em' }}>
-          Alamex<span style={{ color: 'var(--acento-texto)' }}>.</span>TI
+        <div style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--marca-nombre)', letterSpacing: '-0.02em' }}>
+          Alamex<span style={{ color: 'var(--marca-punto)' }}>.</span><span style={{ color: 'var(--marca-ti)' }}>TI</span>
         </div>
         <div style={{ fontSize: '0.72rem', color: 'var(--texto-6)', marginTop: '0.15rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           Gestión de inventario

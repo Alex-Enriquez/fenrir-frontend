@@ -98,113 +98,6 @@ input:focus, select:focus, textarea:focus {
   border-color: var(--dorado) !important;
 }
 
-@media (max-width: 768px) {
-  .login-mascot-panel {
-    display: none;
-  }
-}
-
-/* Login - mascota animada */
-.wolf-stage {
-  width: 200px;
-  height: 220px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  position: relative;
-}
-.wolf-img {
-  width: 180px;
-  animation: idle-breathe 3.2s ease-in-out infinite;
-  transform-origin: bottom center;
-  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.35));
-}
-@keyframes idle-breathe {
-  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-  50%      { transform: translateY(-6px) rotate(-1.2deg) scale(1.015); }
-}
-.wolf-shadow {
-  width: 110px;
-  height: 16px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(0,0,0,0.35) 0%, transparent 75%);
-  margin: 4px auto 0;
-  animation: shadow-pulse 3.2s ease-in-out infinite;
-}
-@keyframes shadow-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.6; }
-  50%      { transform: scale(0.85); opacity: 0.4; }
-}
-.blink {
-  position: absolute;
-  top: 34%;
-  left: 28%;
-  width: 46%;
-  height: 8px;
-  background: #0B0F1A;
-  border-radius: 50%;
-  opacity: 0;
-  animation: blink-cycle 5s ease-in-out infinite;
-}
-@keyframes blink-cycle {
-  0%, 92%, 100% { opacity: 0; }
-  94%, 97%      { opacity: 1; }
-}
-
-.login-card {
-  width: 100%;
-  max-width: 340px;
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius:0 0 22px 22px;
-  padding: 34px 28px 28px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-  text-align: center;
-}
-.login-btn {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #9B7EDE, #6C4FC9);
-  color: #FFFFFF;
-  font-weight: 700;
-  font-size: 13.5px;
-  cursor: pointer;
-  margin-top: 6px;
-  box-shadow: 0 8px 20px rgba(108,79,201,0.35);
-  transition: transform 0.15s;
-}
-.login-btn:hover { transform: translateY(-1px); }
-
-.mascota-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.mascota-img {
-  animation: mascota-breathe 3.2s ease-in-out infinite;
-  transform-origin: bottom center;
-  filter: drop-shadow(0 10px 16px rgba(0,0,0,0.4));
-}
-@keyframes mascota-breathe {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50%      { transform: translateY(-6px) rotate(-1deg); }
-}
-.mascota-shadow {
-  width: 100px;
-  height: 14px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(0,0,0,0.35) 0%, transparent 75%);
-  margin-top: 2px;
-  animation: mascota-shadow-pulse 3.2s ease-in-out infinite;
-}
-@keyframes mascota-shadow-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.6; }
-  50%      { transform: scale(0.85); opacity: 0.35; }
-}
-
 .empleado-chip {
   display: flex;
   align-items: center;
@@ -416,3 +309,15 @@ h1, h2, h3 {
   color: var(--titulo-dorado) !important;
 }
 /* === fin tema fenrir: barra superior y títulos === */
+
+/* === tema fenrir: marca (oscuro = igual que hoy) === */
+:root {
+  --marca-nombre: #F1F3F9;
+  --marca-punto: #F8C22E;
+  --marca-ti: #F1F3F9;
+}
+:root[data-theme="light"] {
+  --marca-nombre: #001D5C;
+  --marca-punto: #B38000;
+  --marca-ti: #B38000;
+}

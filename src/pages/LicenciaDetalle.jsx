@@ -365,7 +365,7 @@ function LicenciaDetalle() {
             <KeyRound size={22} />
           </div>
           <div>
-            <h1 style={{ color: 'var(--texto-fuerte)', margin: 0 }}>{tipo.nombre}</h1>
+            <h1 style={{ color: 'var(--acento-texto)', margin: 0 }}>{tipo.nombre}</h1>
             <p style={{ color: 'var(--texto-tenue)', margin: 0, fontSize: '0.85rem' }}>
               Arrastra un nombre para asignarlo o moverlo entre licencias
             </p>

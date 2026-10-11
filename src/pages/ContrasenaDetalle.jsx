@@ -158,7 +158,7 @@ function ContrasenaDetalle() {
           <div style={{ width: '44px', height: '44px', borderRadius: '12px', backgroundColor: 'rgba(248,194,46,0.12)', color: 'var(--acento-texto)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Lock size={22} />
           </div>
-          <h1 style={{ color: 'var(--texto-fuerte)', margin: 0 }}>{categoria.nombre}</h1>
+          <h1 style={{ color: 'var(--acento-texto)', margin: 0 }}>{categoria.nombre}</h1>
         </div>
 
         <div style={{ display: 'flex', gap: '0.75rem' }}>
