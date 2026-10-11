@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import axios from 'axios'
 import { Copy, Check, Save } from 'lucide-react'
+import { API_URL } from '../config'
 
-const API_URL = 'http://127.0.0.1:8000/api'
 const NOMBRE_CATEGORIA_USUARIOS = 'Usuarios del sistema'
 
 function ResetPasswordForm({ usuario, onSubmit, onCancel }) {

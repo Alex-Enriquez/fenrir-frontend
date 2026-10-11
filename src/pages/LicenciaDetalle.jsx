@@ -11,8 +11,7 @@ import Modal from '../components/Modal'
 import LicenciaCardForm from '../components/LicenciaCardForm'
 import ConfirmDialog from '../components/ConfirmDialog'
 import Toast from '../components/Toast'
-
-const API_URL = 'http://127.0.0.1:8000/api'
+import { API_URL } from '../config'
 
 function iconoPorArea(nombre) {
   const n = (nombre || '').toLowerCase()

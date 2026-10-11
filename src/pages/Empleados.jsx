@@ -5,8 +5,7 @@ import Modal from '../components/Modal'
 import EmpleadoForm from '../components/EmpleadoForm'
 import ConfirmDialog from '../components/ConfirmDialog'
 import { descargarArchivo } from '../utils/descargarArchivo'
-
-const API_URL = 'http://127.0.0.1:8000/api'
+import { API_URL } from '../config'
 
 const estatusColors = {
   activo: { bg: 'var(--exito-bg)', color: 'var(--exito-texto)' },

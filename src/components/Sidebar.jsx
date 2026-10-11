@@ -8,8 +8,7 @@ import {
 import { useAuth } from '../context/AuthContext'
 import Modal from './Modal'
 import MiPerfilForm from './MiPerfilForm'
-
-const API_URL = 'http://127.0.0.1:8000/api'
+import { API_URL } from '../config'
 
 const itemsGenerales = [
   { to: '/', end: true, label: 'Dashboard', icon: LayoutDashboard, accent: '#F8C22E' },

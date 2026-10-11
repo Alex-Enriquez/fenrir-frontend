@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# configuración local (no se sube)
+.env
+.env.local

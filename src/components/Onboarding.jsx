@@ -4,8 +4,7 @@ import { Lightbulb } from 'lucide-react'
 import Modal from './Modal'
 import OnboardingWizard from './OnboardingWizard'
 import tips from '../data/tips'
-
-const API_URL = 'http://127.0.0.1:8000/api'
+import { API_URL } from '../config'
 
 function diasDesde(fechaStr) {
   if (!fechaStr) return Infinity

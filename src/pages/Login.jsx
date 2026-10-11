@@ -4,8 +4,7 @@ import axios from 'axios'
 import { useAuth } from '../context/AuthContext'
 import './Login.css'
 import LoboLogin from './LoboLogin'
-
-const API_URL = 'http://127.0.0.1:8000/api'
+import { API_URL } from '../config'
 
 function IconoSol() {
   return (

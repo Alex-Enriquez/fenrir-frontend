@@ -6,8 +6,7 @@ import AccesoDenegado from '../components/AccesoDenegado'
 import ResponsivaForm from '../components/ResponsivaForm'
 import ConfirmDialog from '../components/ConfirmDialog'
 import Toast from '../components/Toast'
-
-const API_URL = 'http://127.0.0.1:8000/api'
+import { API_URL } from '../config'
 
 function Responsivas() {
   const [responsivas, setResponsivas] = useState([])

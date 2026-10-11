@@ -6,8 +6,7 @@ import EquipoForm from '../components/EquipoForm'
 import ConfirmDialog from '../components/ConfirmDialog'
 import { descargarArchivo } from '../utils/descargarArchivo'
 import ImportarExcelForm from '../components/ImportarExcelForm'
-
-const API_URL = 'http://127.0.0.1:8000/api'
+import { API_URL } from '../config'
 
 const badgeColors = {
   disponible: { bg: 'var(--exito-bg)', color: 'var(--exito-texto)' },

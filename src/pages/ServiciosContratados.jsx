@@ -6,8 +6,7 @@ import ServicioContratadoForm from '../components/ServicioContratadoForm'
 import HistorialPagosModal from '../components/HistorialPagosModal'
 import ConfirmDialog from '../components/ConfirmDialog'
 import Toast from '../components/Toast'
-
-const API_URL = 'http://127.0.0.1:8000/api'
+import { API_URL } from '../config'
 
 function calcularVigencia(servicio) {
   if (!servicio.fecha_proximo_pago) return { label: 'Sin fecha', bg: 'var(--campo-borde)', color: 'var(--texto-tenue)' }

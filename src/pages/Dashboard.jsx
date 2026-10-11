@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Monitor, CheckCircle2, UserCheck, Wrench, XCircle } from 'lucide-react'
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts'
-
-const API_URL = 'http://127.0.0.1:8000/api'
+import { API_URL } from '../config'
 
 const tarjetas = [
   { key: 'total', label: 'Total de equipos', icon: Monitor, color: 'var(--acento-texto)' },

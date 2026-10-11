@@ -7,8 +7,7 @@ import ReasignarForm from '../components/ReasignarForm'
 import ConfirmDialog from '../components/ConfirmDialog'
 import Toast from '../components/Toast'
 import { descargarArchivo } from '../utils/descargarArchivo'
-
-const API_URL = 'http://127.0.0.1:8000/api'
+import { API_URL } from '../config'
 
 function EquipoInfo({ equipo }) {
   return (

@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import PuertoEditForm from './PuertoEditForm'
-
-const API_URL = 'http://127.0.0.1:8000/api'
+import { API_URL } from '../config'
 
 const COLORES_PUERTO = {
   libre: { bg: 'var(--borde-suave)', color: 'var(--texto-5)', border: 'var(--campo-borde)' },

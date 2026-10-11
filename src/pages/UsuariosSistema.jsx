@@ -7,8 +7,7 @@ import UsuarioForm from '../components/UsuarioForm'
 import ResetPasswordForm from '../components/ResetPasswordForm'
 import ConfirmDialog from '../components/ConfirmDialog'
 import Toast from '../components/Toast'
-
-const API_URL = 'http://127.0.0.1:8000/api'
+import { API_URL } from '../config'
 
 function UsuariosSistema() {
   const [usuarios, setUsuarios] = useState([])

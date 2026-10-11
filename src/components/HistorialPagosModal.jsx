@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Receipt } from 'lucide-react'
-
-const API_URL = 'http://127.0.0.1:8000/api'
+import { API_URL } from '../config'
 
 function HistorialPagosModal({ servicio }) {
   const [pagos, setPagos] = useState([])
