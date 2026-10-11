@@ -332,10 +332,10 @@ h1, h2, h3 {
   --sec-borde: #001D5C;
 }
 
-/* === tema fenrir: borde del botón Cancelar === */
+/* === tema fenrir: botón Cancelar (mismo estilo que cerrar sesión) === */
 :root {
-  --cancel-borde: rgba(248, 113, 113, 0.65);
+  --cancel-bg: rgba(248, 113, 113, 0.08);
+  --cancel-borde: rgba(248, 113, 113, 0.2);
+  --cancel-texto: var(--peligro-texto);
 }
-:root[data-theme="light"] {
-  --cancel-borde: #C4372B;
-}
+/* === fin tema fenrir: botón Cancelar === */

@@ -110,7 +110,7 @@ function MantenimientoForm({ empleados, asignacionActivaPorEmpleado, equipoPorId
           Guardar
         </button>
         <button type="button" onClick={onCancel} style={{
-          backgroundColor: 'transparent', color: 'var(--sec-texto)', border: '1px solid var(--cancel-borde)',
+          backgroundColor: 'var(--cancel-bg)', color: 'var(--cancel-texto)', border: '1px solid var(--cancel-borde)',
           padding: '0.65rem 1.25rem', borderRadius: '6px', flex: 1,
         }}>
           Cancelar
