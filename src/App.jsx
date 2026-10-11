@@ -35,17 +35,17 @@ function Topbar() {
   return (
     <header style={{
       height: '60px',
-      borderBottom: '1px solid #262E48',
+      borderBottom: '1px solid var(--borde)',
       display: 'flex',
       alignItems: 'center',
       padding: '0 2rem',
-      backgroundColor: 'rgba(22, 28, 46, 0.5)',
+      backgroundColor: 'rgba(var(--topbar-rgb), 0.5)',
       backdropFilter: 'blur(6px)',
     }}>
-      <span style={{ color: '#E8EAF0', fontSize: '0.95rem', fontWeight: 600 }}>
+      <span style={{ color: 'var(--texto-claro)', fontSize: '0.95rem', fontWeight: 600 }}>
         {titulo}
       </span>
-      <span style={{ color: '#5B6785', fontSize: '0.85rem', marginLeft: '0.6rem' }}>
+      <span style={{ color: 'var(--texto-5)', fontSize: '0.85rem', marginLeft: '0.6rem' }}>
         · Sistema de Inventario TI
       </span>
     </header>

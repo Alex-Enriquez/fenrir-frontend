@@ -29,20 +29,20 @@ function RackDiagram({ rack, dispositivos }) {
 
   return (
     <div>
-      <div style={{ marginBottom: '0.75rem', color: '#8892AB', fontSize: '0.85rem' }}>
+      <div style={{ marginBottom: '0.75rem', color: 'var(--texto-tenue)', fontSize: '0.85rem' }}>
         {rack.ubicacion} · {rack.altura_u}U
       </div>
       <div style={{
-        border: '2px solid #2C3450', borderRadius: '6px', overflow: 'hidden',
-        backgroundColor: '#0B0F1A',
+        border: '2px solid var(--campo-borde)', borderRadius: '6px', overflow: 'hidden',
+        backgroundColor: 'var(--fondo-oscuro)',
       }}>
         {filas.map((fila, i) => {
           if (fila.tipo === 'vacio') {
             return (
               <div key={i} style={{
-                height: `${ALTURA_FILA}px`, borderBottom: '1px dashed #1E2438',
+                height: `${ALTURA_FILA}px`, borderBottom: '1px dashed var(--borde-suave)',
                 display: 'flex', alignItems: 'center', paddingLeft: '0.5rem',
-                fontSize: '0.65rem', color: '#3A4256',
+                fontSize: '0.65rem', color: 'var(--texto-7)',
               }}>
                 U{fila.u}
               </div>
@@ -53,11 +53,11 @@ function RackDiagram({ rack, dispositivos }) {
           return (
             <div key={i} style={{
               height: `${ALTURA_FILA * d.altura_u}px`, backgroundColor: c.bg,
-              borderBottom: '1px solid #2C3450', borderLeft: `3px solid ${c.border}`,
+              borderBottom: '1px solid var(--campo-borde)', borderLeft: `3px solid ${c.border}`,
               display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               padding: '0 0.75rem',
             }}>
-              <span style={{ color: '#F1F3F9', fontSize: '0.82rem', fontWeight: 600 }}>{d.nombre}</span>
+              <span style={{ color: 'var(--texto-fuerte)', fontSize: '0.82rem', fontWeight: 600 }}>{d.nombre}</span>
               <span style={{ color: c.color, fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase' }}>{d.tipo}</span>
             </div>
           )

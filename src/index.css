@@ -19,7 +19,7 @@
 body {
   margin: 0;
   font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-  background: radial-gradient(circle at top left, #131A2E 0%, #0B0F1A 60%);
+  background: radial-gradient(circle at top left, var(--fondo-glow) 0%, var(--fondo-oscuro) 60%);
   color: var(--texto-claro);
   min-height: 100vh;
 }
@@ -30,7 +30,7 @@ a {
 }
 
 .card {
-  background-color: rgba(22, 28, 46, 0.6);
+  background-color: rgba(var(--card-rgb), 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--borde);
@@ -53,7 +53,7 @@ th, td {
 
 th {
   background-color: var(--fondo-tabla-header);
-  color: var(--dorado);
+  color: var(--acento-texto);
   font-weight: 600;
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -210,8 +210,8 @@ input:focus, select:focus, textarea:focus {
   align-items: center;
   gap: 0.4rem;
   padding: 0.35rem 0.5rem;
-  background-color: #161C2E;
-  border: 1px solid #262E48;
+  background-color: var(--fondo-panel);
+  border: 1px solid var(--borde);
   border-radius: 8px;
   cursor: grab;
   touch-action: none;
@@ -243,7 +243,7 @@ h1, h2, h3 {
 .form-section-title {
   font-size: 0.72rem;
   font-weight: 700;
-  color: #5B6785;
+  color: var(--texto-5);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin: 1.1rem 0 0.6rem;
@@ -324,3 +324,15 @@ h1, h2, h3 {
 /* === tema fenrir: extras === */
 :root { --dialogo-bg: #1A2033; --texto-7: #3A4256; }
 :root[data-theme="light"] { --dialogo-bg: #FFFFFF; --texto-7: #A3AEC2; }
+
+/* === tema fenrir: fondos (oscuro = igual que hoy) === */
+:root {
+  --fondo-glow: #131A2E;
+  --card-rgb: 22, 28, 46;
+  --acento-texto: #F8C22E;
+}
+:root[data-theme="light"] {
+  --fondo-glow: #FFFFFF;
+  --card-rgb: 255, 255, 255;
+  --acento-texto: #8A6100;
+}

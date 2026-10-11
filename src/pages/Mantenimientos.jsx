@@ -117,15 +117,15 @@ function Mantenimientos() {
       </div>
 
       <div style={{ position: 'relative', marginBottom: '1.5rem' }}>
-        <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: '#6B7690' }} />
+        <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--texto-4)' }} />
         <input
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
           placeholder="Buscar por equipo, descripción, solución o técnico..."
           style={{
             width: '100%', padding: '0.65rem 1rem 0.65rem 2.5rem', borderRadius: '10px',
-            border: '1px solid #2C3450', backgroundColor: '#141A2C',
-            color: '#E8EAF0', fontSize: '0.9rem', boxSizing: 'border-box',
+            border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg-2)',
+            color: 'var(--texto-claro)', fontSize: '0.9rem', boxSizing: 'border-box',
           }}
         />
       </div>
@@ -146,14 +146,14 @@ function Mantenimientos() {
           <tbody>
             {mantenimientosFiltrados.length === 0 ? (
               <tr>
-                <td colSpan={7} style={{ textAlign: 'center', color: '#6B7690', padding: '2rem' }}>
+                <td colSpan={7} style={{ textAlign: 'center', color: 'var(--texto-4)', padding: '2rem' }}>
                   <Wrench size={24} style={{ marginBottom: '0.5rem', opacity: 0.5, display: 'block', margin: '0 auto 0.5rem' }} />
                   No hay mantenimientos registrados todavía.
                 </td>
               </tr>
             ) : (
               mantenimientosFiltrados.map((m, i) => (
-                <tr key={m.id} style={{ backgroundColor: i % 2 === 1 ? 'rgba(255,255,255,0.015)' : 'transparent' }}>
+                <tr key={m.id} style={{ backgroundColor: i % 2 === 1 ? 'rgba(var(--velo-rgb), 0.015)' : 'transparent' }}>
                   <td>{m.fecha}</td>
                   <td>{m.equipoInfo ? `${m.equipoInfo.marca} ${m.equipoInfo.modelo} (${m.equipoInfo.numero_serie})` : '—'}</td>
                   <td style={{ maxWidth: '220px' }}>{m.descripcion}</td>

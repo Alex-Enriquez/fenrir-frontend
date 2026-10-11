@@ -5,7 +5,7 @@ import PuertoEditForm from './PuertoEditForm'
 const API_URL = 'http://127.0.0.1:8000/api'
 
 const COLORES_PUERTO = {
-  libre: { bg: '#1E2438', color: '#5B6785', border: '#2C3450' },
+  libre: { bg: 'var(--borde-suave)', color: 'var(--texto-5)', border: 'var(--campo-borde)' },
   activo: { bg: 'rgba(74,222,128,0.15)', color: '#4ADE80', border: '#4ADE80' },
   inactivo: { bg: 'rgba(248,113,113,0.15)', color: '#F87171', border: '#F87171' },
 }
@@ -38,7 +38,7 @@ function PuertoMapModal({ dispositivo }) {
     <div>
       <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', fontSize: '0.82rem' }}>
         <span style={{ color: '#4ADE80' }}>● {activos} activos</span>
-        <span style={{ color: '#5B6785' }}>● {libres} libres</span>
+        <span style={{ color: 'var(--texto-5)' }}>● {libres} libres</span>
         <span style={{ color: '#F87171' }}>● {puertos.length - activos - libres} inactivos</span>
       </div>
 

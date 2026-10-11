@@ -15,8 +15,8 @@ function ConfirmDialog({ isOpen, title, message, onConfirm, onCancel }) {
       <div
         onClick={(e) => e.stopPropagation()}
         style={{
-          backgroundColor: '#1A2033', borderRadius: '14px', padding: '1.75rem',
-          width: '90%', maxWidth: '380px', border: '1px solid #2C3450',
+          backgroundColor: 'var(--dialogo-bg)', borderRadius: '14px', padding: '1.75rem',
+          width: '90%', maxWidth: '380px', border: '1px solid var(--campo-borde)',
           boxShadow: '0 10px 40px rgba(0,0,0,0.5)', textAlign: 'center',
         }}
       >
@@ -28,15 +28,15 @@ function ConfirmDialog({ isOpen, title, message, onConfirm, onCancel }) {
         }}>
           <AlertTriangle size={24} />
         </div>
-        <h3 style={{ color: '#F1F3F9', margin: '0 0 0.5rem', fontSize: '1.05rem' }}>{title}</h3>
-        <p style={{ color: '#8892AB', fontSize: '0.88rem', margin: '0 0 1.5rem' }}>{message}</p>
+        <h3 style={{ color: 'var(--texto-fuerte)', margin: '0 0 0.5rem', fontSize: '1.05rem' }}>{title}</h3>
+        <p style={{ color: 'var(--texto-tenue)', fontSize: '0.88rem', margin: '0 0 1.5rem' }}>{message}</p>
         <div style={{ display: 'flex', gap: '0.75rem' }}>
           <button
             onClick={onCancel}
             style={{
               flex: 1, padding: '0.6rem', borderRadius: '8px',
-              border: '1px solid #2C3450', backgroundColor: 'transparent',
-              color: '#9AA3B8', fontSize: '0.9rem',
+              border: '1px solid var(--campo-borde)', backgroundColor: 'transparent',
+              color: 'var(--texto-2)', fontSize: '0.9rem',
             }}
           >
             Cancelar

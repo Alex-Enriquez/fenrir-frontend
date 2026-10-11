@@ -91,7 +91,7 @@ function Dashboard() {
               }}>
                 <Icon size={20} />
               </div>
-              <span style={{ color: '#8892AB', fontSize: '0.85rem' }}>{label}</span>
+              <span style={{ color: 'var(--texto-tenue)', fontSize: '0.85rem' }}>{label}</span>
             </div>
             <div style={{ fontSize: '1.8rem', fontWeight: 700 }}>{conteos[key]}</div>
           </div>
@@ -102,7 +102,7 @@ function Dashboard() {
         <div className="card">
           <h2 style={{ marginTop: 0, color: '#F8C22E', fontSize: '1.1rem' }}>Equipos por estado</h2>
           {datosEstado.length === 0 ? (
-            <p style={{ color: '#8892AB' }}>Sin datos todavía.</p>
+            <p style={{ color: 'var(--texto-tenue)' }}>Sin datos todavía.</p>
           ) : (
             <ResponsiveContainer width="100%" height={260}>
               <PieChart>
@@ -118,9 +118,9 @@ function Dashboard() {
                     <Cell key={i} fill={entry.color} stroke="none" />
                   ))}
                 </Pie>
-                <Tooltip contentStyle={{ backgroundColor: '#161C2E', border: '1px solid #262E48', borderRadius: '8px' }} />
+                <Tooltip contentStyle={{ backgroundColor: 'var(--fondo-panel)', border: '1px solid var(--borde)', borderRadius: '8px' }} />
                 <Legend
-                  formatter={(value) => <span style={{ color: '#C4CAD9', fontSize: '0.85rem' }}>{value}</span>}
+                  formatter={(value) => <span style={{ color: 'var(--texto-suave)', fontSize: '0.85rem' }}>{value}</span>}
                 />
               </PieChart>
             </ResponsiveContainer>
@@ -130,7 +130,7 @@ function Dashboard() {
         <div className="card">
           <h2 style={{ marginTop: 0, color: '#F8C22E', fontSize: '1.1rem' }}>Equipos por categoría</h2>
           {datosCategoria.length === 0 ? (
-            <p style={{ color: '#8892AB' }}>Sin datos todavía.</p>
+            <p style={{ color: 'var(--texto-tenue)' }}>Sin datos todavía.</p>
           ) : (
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={datosCategoria} layout="vertical" margin={{ left: 10, right: 20 }}>
@@ -138,7 +138,7 @@ function Dashboard() {
                 <YAxis type="category" dataKey="nombre" stroke="#8892AB" fontSize={12} width={90} />
                 <Tooltip
                   cursor={{ fill: 'rgba(255,255,255,0.03)' }}
-                  contentStyle={{ backgroundColor: '#161C2E', border: '1px solid #262E48', borderRadius: '8px' }}
+                  contentStyle={{ backgroundColor: 'var(--fondo-panel)', border: '1px solid var(--borde)', borderRadius: '8px' }}
                 />
                 <Bar dataKey="cantidad" fill="#F8C22E" radius={[0, 6, 6, 0]} barSize={22} />
               </BarChart>

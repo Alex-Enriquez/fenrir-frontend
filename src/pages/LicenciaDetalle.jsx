@@ -50,13 +50,13 @@ function EmpleadoChip({ empleado, asignacionId, licenciaActualId }) {
       <GripVertical size={12} color="#5B6785" />
       <div style={{
         width: '22px', height: '22px', borderRadius: '50%',
-        backgroundColor: '#2C3450', color: '#C4CAD9',
+        backgroundColor: 'var(--campo-borde)', color: 'var(--texto-suave)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         fontSize: '0.7rem', fontWeight: 700, flexShrink: 0,
       }}>
         {empleado.nombre_completo.charAt(0).toUpperCase()}
       </div>
-      <span style={{ fontSize: '0.82rem', color: '#E8EAF0', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+      <span style={{ fontSize: '0.82rem', color: 'var(--texto-claro)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
         {empleado.nombre_completo}
       </span>
     </div>
@@ -69,7 +69,7 @@ function AreaGroup({ nombre, empleados }) {
     <div style={{ marginBottom: '1rem' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.5rem' }}>
         <Icon size={14} color="#8892AB" />
-        <span style={{ fontSize: '0.78rem', color: '#8892AB', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.03em' }}>
+        <span style={{ fontSize: '0.78rem', color: 'var(--texto-tenue)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.03em' }}>
           {nombre}
         </span>
       </div>
@@ -98,7 +98,7 @@ function LicenciaCard({ licencia, index, asignados, onEditar, onEliminar }) {
       className="card"
       style={{
         padding: '1.1rem',
-        border: isOver ? '2px dashed #F8C22E' : '1px solid #262E48',
+        border: isOver ? '2px dashed #F8C22E' : '1px solid var(--borde)',
         backgroundColor: isOver ? 'rgba(248,194,46,0.06)' : undefined,
         minHeight: '260px',
         display: 'flex',
@@ -115,8 +115,8 @@ function LicenciaCard({ licencia, index, asignados, onEditar, onEliminar }) {
             <Icon size={17} />
           </div>
           <div>
-            <div style={{ fontWeight: 700, color: '#F1F3F9', fontSize: '1rem' }}>{titulo}</div>
-            <div style={{ fontSize: '0.72rem', color: '#5B6785', letterSpacing: '0.03em' }}>
+            <div style={{ fontWeight: 700, color: 'var(--texto-fuerte)', fontSize: '1rem' }}>{titulo}</div>
+            <div style={{ fontSize: '0.72rem', color: 'var(--texto-5)', letterSpacing: '0.03em' }}>
               {enmascarar(licencia.clave_producto)}
             </div>
           </div>
@@ -128,14 +128,14 @@ function LicenciaCard({ licencia, index, asignados, onEditar, onEliminar }) {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', flex: 1 }}>
         {asignados.length === 0 && (
-          <p style={{ fontSize: '0.8rem', color: '#5B6785', margin: 0 }}>Sin asignar — arrastra aquí</p>
+          <p style={{ fontSize: '0.8rem', color: 'var(--texto-5)', margin: 0 }}>Sin asignar — arrastra aquí</p>
         )}
         {asignados.map(({ empleado, asignacionId }) => (
           <EmpleadoChip key={empleado.id} empleado={empleado} asignacionId={asignacionId} licenciaActualId={licencia.id} />
         ))}
       </div>
 
-      <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.85rem', paddingTop: '0.75rem', borderTop: '1px solid #1E2438' }}>
+      <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.85rem', paddingTop: '0.75rem', borderTop: '1px solid var(--borde-suave)' }}>
         <button
           onClick={() => onEditar(licencia)}
           style={{
@@ -167,7 +167,7 @@ function TarjetaNueva({ onClick }) {
       style={{
         minHeight: '260px', display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
-        border: '1px dashed #2C3450', background: 'transparent', color: '#6B7690',
+        border: '1px dashed var(--campo-borde)', background: 'transparent', color: 'var(--texto-4)',
       }}
     >
       <Plus size={22} />
@@ -183,16 +183,16 @@ function ZonaSinAsignar({ grupos }) {
       ref={setNodeRef}
       className="card"
       style={{
-        border: isOver ? '2px dashed #F87171' : '1px solid #262E48',
+        border: isOver ? '2px dashed #F87171' : '1px solid var(--borde)',
         backgroundColor: isOver ? 'rgba(248,113,113,0.06)' : undefined,
         maxHeight: '640px', overflowY: 'auto',
       }}
     >
-      <h3 style={{ margin: '0 0 0.75rem', color: '#8892AB', fontSize: '0.85rem' }}>
+      <h3 style={{ margin: '0 0 0.75rem', color: 'var(--texto-tenue)', fontSize: '0.85rem' }}>
         Sin asignar ({grupos.reduce((s, g) => s + g.empleados.length, 0)})
       </h3>
       {grupos.length === 0 ? (
-        <p style={{ fontSize: '0.8rem', color: '#5B6785' }}>Todos los empleados tienen esta licencia asignada.</p>
+        <p style={{ fontSize: '0.8rem', color: 'var(--texto-5)' }}>Todos los empleados tienen esta licencia asignada.</p>
       ) : (
         grupos.map(g => <AreaGroup key={g.nombre} nombre={g.nombre} empleados={g.empleados} />)
       )}
@@ -349,7 +349,7 @@ function LicenciaDetalle() {
           onClick={() => navigate('/licencias')}
           style={{
             display: 'flex', alignItems: 'center', gap: '0.4rem',
-            background: 'none', border: 'none', color: '#8892AB',
+            background: 'none', border: 'none', color: 'var(--texto-tenue)',
             fontSize: '0.85rem', marginBottom: '1rem', padding: 0,
           }}
         >
@@ -365,8 +365,8 @@ function LicenciaDetalle() {
             <KeyRound size={22} />
           </div>
           <div>
-            <h1 style={{ color: '#F1F3F9', margin: 0 }}>{tipo.nombre}</h1>
-            <p style={{ color: '#8892AB', margin: 0, fontSize: '0.85rem' }}>
+            <h1 style={{ color: 'var(--texto-fuerte)', margin: 0 }}>{tipo.nombre}</h1>
+            <p style={{ color: 'var(--texto-tenue)', margin: 0, fontSize: '0.85rem' }}>
               Arrastra un nombre para asignarlo o moverlo entre licencias
             </p>
           </div>

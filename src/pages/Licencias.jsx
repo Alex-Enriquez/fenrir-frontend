@@ -130,8 +130,8 @@ function Licencias() {
             onClick={() => descargarArchivo(`${API_URL}/licencias/exportar/`, 'licencias.xlsx')}
             style={{
               display: 'flex', alignItems: 'center', gap: '0.4rem',
-              background: 'transparent', border: '1px solid #2C3450', borderRadius: '6px',
-              padding: '0.4rem 0.7rem', color: '#8892AB', fontSize: '0.82rem',
+              background: 'transparent', border: '1px solid var(--campo-borde)', borderRadius: '6px',
+              padding: '0.4rem 0.7rem', color: 'var(--texto-tenue)', fontSize: '0.82rem',
             }}
           >
             <Download size={14} /> Exportar Excel
@@ -150,21 +150,21 @@ function Licencias() {
       </div>
 
       <div style={{ position: 'relative', marginBottom: '1.5rem' }}>
-        <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: '#6B7690' }} />
+        <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--texto-4)' }} />
         <input
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
           placeholder="Buscar por nombre o proveedor..."
           style={{
             width: '100%', padding: '0.65rem 1rem 0.65rem 2.5rem', borderRadius: '10px',
-            border: '1px solid #2C3450', backgroundColor: '#141A2C',
-            color: '#E8EAF0', fontSize: '0.9rem', boxSizing: 'border-box',
+            border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg-2)',
+            color: 'var(--texto-claro)', fontSize: '0.9rem', boxSizing: 'border-box',
           }}
         />
       </div>
 
       {tarjetas.length === 0 ? (
-        <div className="card" style={{ textAlign: 'center', color: '#6B7690', padding: '2rem' }}>
+        <div className="card" style={{ textAlign: 'center', color: 'var(--texto-4)', padding: '2rem' }}>
           <KeyRound size={28} style={{ marginBottom: '0.5rem', opacity: 0.5 }} />
           <p>No hay tipos de licencia registrados. Agrega uno desde el admin de Django (Licencias → Tipo licencias).</p>
         </div>
@@ -209,10 +209,10 @@ function Licencias() {
                 }}>
                   <Icon size={20} />
                 </div>
-                <div style={{ fontWeight: 700, color: '#F1F3F9', fontSize: '1rem', marginBottom: '0.2rem' }}>
+                <div style={{ fontWeight: 700, color: 'var(--texto-fuerte)', fontSize: '1rem', marginBottom: '0.2rem' }}>
                   {t.tipo.nombre}
                 </div>
-                <div style={{ fontSize: '0.8rem', color: '#8892AB', marginBottom: '0.5rem' }}>
+                <div style={{ fontSize: '0.8rem', color: 'var(--texto-tenue)', marginBottom: '0.5rem' }}>
                   {t.items.length} licencia{t.items.length !== 1 ? 's' : ''}
                 </div>
 

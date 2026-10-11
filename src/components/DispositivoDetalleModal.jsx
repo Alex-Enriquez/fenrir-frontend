@@ -11,10 +11,10 @@ const BADGE_ESTADO = {
 
 const filaStyle = {
   display: 'flex', gap: '0.75rem', padding: '0.55rem 0',
-  borderBottom: '1px solid #1E2438', fontSize: '0.85rem',
+  borderBottom: '1px solid var(--borde-suave)', fontSize: '0.85rem',
 }
-const labelFila = { color: '#8892AB', width: '110px', flexShrink: 0, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.04em' }
-const valorFila = { color: '#E8EAF0', flex: 1 }
+const labelFila = { color: 'var(--texto-tenue)', width: '110px', flexShrink: 0, fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.04em' }
+const valorFila = { color: 'var(--texto-claro)', flex: 1 }
 
 function InfoRow({ label, valor }) {
   return (
@@ -37,13 +37,13 @@ function DispositivoDetalleModal({ dispositivo, racks, onGuardar, onCerrar }) {
 
   return (
     <div>
-      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem', marginBottom: '1rem', paddingBottom: '1rem', borderBottom: '1px solid #262E48' }}>
+      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.85rem', marginBottom: '1rem', paddingBottom: '1rem', borderBottom: '1px solid var(--borde)' }}>
         <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(96,165,250,0.12)', color: '#60A5FA', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
           <Server size={22} />
         </div>
         <div style={{ flex: 1 }}>
-          <div style={{ fontWeight: 700, color: '#F1F3F9', fontSize: '1.05rem' }}>{dispositivo.nombre}</div>
-          <div style={{ fontSize: '0.8rem', color: '#8892AB' }}>{dispositivo.marca} {dispositivo.modelo} · {dispositivo.rack_nombre || 'Sin rack'}</div>
+          <div style={{ fontWeight: 700, color: 'var(--texto-fuerte)', fontSize: '1.05rem' }}>{dispositivo.nombre}</div>
+          <div style={{ fontSize: '0.8rem', color: 'var(--texto-tenue)' }}>{dispositivo.marca} {dispositivo.modelo} · {dispositivo.rack_nombre || 'Sin rack'}</div>
         </div>
         {!editando && (
           <button onClick={() => setEditando(true)} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', background: 'rgba(248,194,46,0.12)', border: '1px solid rgba(248,194,46,0.3)', borderRadius: '6px', color: '#F8C22E', padding: '0.4rem 0.7rem', fontSize: '0.8rem', fontWeight: 600 }}>
@@ -57,11 +57,11 @@ function DispositivoDetalleModal({ dispositivo, racks, onGuardar, onCerrar }) {
       ) : (
         <>
           <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
-            <button onClick={() => setTab('info')} style={{ background: tab === 'info' ? 'rgba(248,194,46,0.12)' : 'transparent', color: tab === 'info' ? '#F8C22E' : '#8892AB', border: 'none', borderRadius: '6px', padding: '0.4rem 0.9rem', fontSize: '0.85rem', fontWeight: 600 }}>
+            <button onClick={() => setTab('info')} style={{ background: tab === 'info' ? 'rgba(248,194,46,0.12)' : 'transparent', color: tab === 'info' ? '#F8C22E' : 'var(--texto-tenue)', border: 'none', borderRadius: '6px', padding: '0.4rem 0.9rem', fontSize: '0.85rem', fontWeight: 600 }}>
               Información
             </button>
             {dispositivo.tipo === 'switch' && (
-              <button onClick={() => setTab('puertos')} style={{ background: tab === 'puertos' ? 'rgba(248,194,46,0.12)' : 'transparent', color: tab === 'puertos' ? '#F8C22E' : '#8892AB', border: 'none', borderRadius: '6px', padding: '0.4rem 0.9rem', fontSize: '0.85rem', fontWeight: 600 }}>
+              <button onClick={() => setTab('puertos')} style={{ background: tab === 'puertos' ? 'rgba(248,194,46,0.12)' : 'transparent', color: tab === 'puertos' ? '#F8C22E' : 'var(--texto-tenue)', border: 'none', borderRadius: '6px', padding: '0.4rem 0.9rem', fontSize: '0.85rem', fontWeight: 600 }}>
                 Puertos
               </button>
             )}

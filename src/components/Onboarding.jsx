@@ -65,11 +65,11 @@ function Onboarding() {
           }}>
             <Lightbulb size={26} />
           </div>
-          <h2 style={{ color: '#F1F3F9', margin: '0 0 0.5rem' }}>Tip del día</h2>
-          <p style={{ color: '#C4CAD9', fontSize: '0.92rem', lineHeight: 1.5, margin: '0 0 1.5rem' }}>
+          <h2 style={{ color: 'var(--texto-fuerte)', margin: '0 0 0.5rem' }}>Tip del día</h2>
+          <p style={{ color: 'var(--texto-suave)', fontSize: '0.92rem', lineHeight: 1.5, margin: '0 0 1.5rem' }}>
             {tipActual}
           </p>
-          <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: '#9AA3B8', fontSize: '0.85rem', marginBottom: '1.25rem', cursor: 'pointer' }}>
+          <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'var(--texto-2)', fontSize: '0.85rem', marginBottom: '1.25rem', cursor: 'pointer' }}>
             <input type="checkbox" onChange={(e) => setNoMostrarMas(e.target.checked ? false : true)} />
             No volver a mostrar tips
           </label>

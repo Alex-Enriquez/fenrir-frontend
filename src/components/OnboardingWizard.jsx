@@ -71,15 +71,15 @@ function OnboardingWizard({ onTerminar }) {
       display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000,
     }}>
       <div className="modal-content" style={{
-        backgroundColor: 'rgba(26, 32, 51, 0.9)', backdropFilter: 'blur(16px)',
+        backgroundColor: 'rgba(var(--modal-rgb), 0.9)', backdropFilter: 'blur(16px)',
         borderRadius: '16px', padding: '1.75rem', width: '90%', maxWidth: '460px',
-        border: '1px solid #2C3450', boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
+        border: '1px solid var(--campo-borde)', boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
           <span style={{ fontSize: '0.75rem', fontWeight: 700, color: actual.color, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
             {paso + 1} · {actual.titulo}
           </span>
-          <button onClick={onTerminar} style={{ background: 'none', border: 'none', color: '#6B7690', display: 'flex', padding: 0 }}>
+          <button onClick={onTerminar} style={{ background: 'none', border: 'none', color: 'var(--texto-4)', display: 'flex', padding: 0 }}>
             <X size={18} />
           </button>
         </div>
@@ -102,7 +102,7 @@ function OnboardingWizard({ onTerminar }) {
           <Icon size={26} />
         </div>
 
-        <h2 style={{ color: '#F1F3F9', textAlign: 'center', margin: '0 0 0.2rem', fontSize: '1.2rem' }}>
+        <h2 style={{ color: 'var(--texto-fuerte)', textAlign: 'center', margin: '0 0 0.2rem', fontSize: '1.2rem' }}>
           {actual.titulo}
         </h2>
         <p style={{ color: actual.color, textAlign: 'center', fontSize: '0.82rem', margin: '0 0 1.1rem', fontWeight: 600 }}>
@@ -111,19 +111,19 @@ function OnboardingWizard({ onTerminar }) {
 
         <ul style={{ margin: '0 0 1.5rem', padding: 0, listStyle: 'none' }}>
           {actual.bullets.map((b, i) => (
-            <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.5rem', fontSize: '0.85rem', color: '#C4CAD9' }}>
+            <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--texto-suave)' }}>
               <span style={{ color: actual.color, marginTop: '0.15rem' }}>●</span> {b}
             </li>
           ))}
         </ul>
 
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1rem', borderTop: '1px solid #262E48' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1rem', borderTop: '1px solid var(--borde)' }}>
           {paso > 0 ? (
-            <button onClick={() => setPaso(p => p - 1)} style={{ background: 'none', border: 'none', color: '#8892AB', fontSize: '0.88rem' }}>
+            <button onClick={() => setPaso(p => p - 1)} style={{ background: 'none', border: 'none', color: 'var(--texto-tenue)', fontSize: '0.88rem' }}>
               ← Anterior
             </button>
           ) : (
-            <button onClick={onTerminar} style={{ background: 'none', border: 'none', color: '#5B6785', fontSize: '0.85rem' }}>
+            <button onClick={onTerminar} style={{ background: 'none', border: 'none', color: 'var(--texto-5)', fontSize: '0.85rem' }}>
               Saltar tutorial
             </button>
           )}

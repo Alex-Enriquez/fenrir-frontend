@@ -30,7 +30,7 @@ function Modal({ isOpen, onClose, title, children }) {
         className="modal-content"
         onClick={(e) => e.stopPropagation()}
         style={{
-          backgroundColor: 'rgba(26, 32, 51, 0.85)',
+          backgroundColor: 'rgba(var(--modal-rgb), 0.85)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           borderRadius: '12px',
@@ -39,7 +39,7 @@ function Modal({ isOpen, onClose, title, children }) {
           maxWidth: '500px',
           maxHeight: '85vh',
           overflowY: 'auto',
-          border: '1px solid #2C3450',
+          border: '1px solid var(--campo-borde)',
           boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
         }}
       >
@@ -48,7 +48,7 @@ function Modal({ isOpen, onClose, title, children }) {
           <button
             onClick={onClose}
             style={{
-              background: 'none', border: 'none', color: '#9AA3B8',
+              background: 'none', border: 'none', color: 'var(--texto-2)',
               fontSize: '1.5rem', cursor: 'pointer', lineHeight: 1,
             }}
           >

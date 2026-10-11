@@ -13,28 +13,28 @@ const API_URL = 'http://127.0.0.1:8000/api'
 function EquipoInfo({ equipo }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem', marginBottom: '0.85rem' }}>
-      <div style={{ fontWeight: 700, color: '#F1F3F9', fontSize: '0.95rem' }}>
+      <div style={{ fontWeight: 700, color: 'var(--texto-fuerte)', fontSize: '0.95rem' }}>
         {equipo.marca} {equipo.modelo}
       </div>
-      <div style={{ fontSize: '0.78rem', color: '#5B6785' }}>N° Serie: {equipo.numero_serie}</div>
+      <div style={{ fontSize: '0.78rem', color: 'var(--texto-5)' }}>N° Serie: {equipo.numero_serie}</div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.2rem', marginTop: '0.4rem' }}>
         {equipo.procesador && (
-          <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', color: '#8892AB' }}>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', color: 'var(--texto-tenue)' }}>
             <Cpu size={13} /> {equipo.procesador}
           </span>
         )}
         {equipo.memoria_ram && (
-          <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', color: '#8892AB' }}>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', color: 'var(--texto-tenue)' }}>
             <MemoryStick size={13} /> {equipo.memoria_ram}
           </span>
         )}
         {(equipo.disco_tipo || equipo.disco_capacidad) && (
-          <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', color: '#8892AB' }}>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.8rem', color: 'var(--texto-tenue)' }}>
             <HardDrive size={13} /> {equipo.disco_tipo} {equipo.disco_capacidad}
           </span>
         )}
         {equipo.sistema_operativo && (
-          <span style={{ fontSize: '0.8rem', color: '#8892AB' }}>{equipo.sistema_operativo}</span>
+          <span style={{ fontSize: '0.8rem', color: 'var(--texto-tenue)' }}>{equipo.sistema_operativo}</span>
         )}
       </div>
     </div>
@@ -141,7 +141,7 @@ function Asignaciones() {
   if (cargando) return <p>Cargando...</p>
 
   const BotonesVista = () => (
-    <div style={{ display: 'flex', gap: '0.3rem', backgroundColor: '#141A2C', borderRadius: '8px', padding: '0.25rem' }}>
+    <div style={{ display: 'flex', gap: '0.3rem', backgroundColor: 'var(--campo-bg-2)', borderRadius: '8px', padding: '0.25rem' }}>
       <button
         onClick={() => setVista('tarjetas')}
         title="Vista de tarjetas"
@@ -149,7 +149,7 @@ function Asignaciones() {
           display: 'flex', alignItems: 'center', gap: '0.35rem', border: 'none', borderRadius: '6px',
           padding: '0.4rem 0.7rem', fontSize: '0.82rem',
           backgroundColor: vista === 'tarjetas' ? '#F8C22E' : 'transparent',
-          color: vista === 'tarjetas' ? '#0F1420' : '#8892AB',
+          color: vista === 'tarjetas' ? '#0F1420' : 'var(--texto-tenue)',
         }}
       >
         <LayoutGrid size={14} /> Tarjetas
@@ -161,7 +161,7 @@ function Asignaciones() {
           display: 'flex', alignItems: 'center', gap: '0.35rem', border: 'none', borderRadius: '6px',
           padding: '0.4rem 0.7rem', fontSize: '0.82rem',
           backgroundColor: vista === 'tabla' ? '#F8C22E' : 'transparent',
-          color: vista === 'tabla' ? '#0F1420' : '#8892AB',
+          color: vista === 'tabla' ? '#0F1420' : 'var(--texto-tenue)',
         }}
       >
         <List size={14} /> Tabla
@@ -178,8 +178,8 @@ function Asignaciones() {
             onClick={() => descargarArchivo(`${API_URL}/asignaciones/exportar/`, 'asignaciones.xlsx')}
             style={{
               display: 'flex', alignItems: 'center', gap: '0.4rem',
-              background: 'transparent', border: '1px solid #2C3450', borderRadius: '6px',
-              padding: '0.4rem 0.7rem', color: '#8892AB', fontSize: '0.82rem',
+              background: 'transparent', border: '1px solid var(--campo-borde)', borderRadius: '6px',
+              padding: '0.4rem 0.7rem', color: 'var(--texto-tenue)', fontSize: '0.82rem',
             }}
           >
             <Download size={14} /> Exportar Excel
@@ -189,15 +189,15 @@ function Asignaciones() {
       </div>
 
       <div style={{ position: 'relative', marginBottom: '1.5rem' }}>
-        <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: '#6B7690' }} />
+        <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--texto-4)' }} />
         <input
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
           placeholder="Buscar empleado o área..."
           style={{
             width: '100%', padding: '0.65rem 1rem 0.65rem 2.5rem', borderRadius: '10px',
-            border: '1px solid #2C3450', backgroundColor: '#141A2C',
-            color: '#E8EAF0', fontSize: '0.9rem', boxSizing: 'border-box',
+            border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg-2)',
+            color: 'var(--texto-claro)', fontSize: '0.9rem', boxSizing: 'border-box',
           }}
         />
       </div>
@@ -215,21 +215,21 @@ function Asignaciones() {
             return (
               <div key={emp.id} className="card" style={{ minHeight: '200px', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ marginBottom: '0.75rem' }}>
-                  <div style={{ fontWeight: 700, color: '#F1F3F9', fontSize: '0.95rem' }}>{emp.nombre_completo}</div>
-                  <div style={{ fontSize: '0.78rem', color: '#8892AB' }}>{emp.departamento_nombre}</div>
+                  <div style={{ fontWeight: 700, color: 'var(--texto-fuerte)', fontSize: '0.95rem' }}>{emp.nombre_completo}</div>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--texto-tenue)' }}>{emp.departamento_nombre}</div>
                 </div>
 
                 <div style={{ flex: 1 }}>
                   {equipo ? (
                     <EquipoInfo equipo={equipo} />
                   ) : (
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#5B6785', fontSize: '0.85rem', margin: '0.5rem 0' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--texto-5)', fontSize: '0.85rem', margin: '0.5rem 0' }}>
                       <Monitor size={16} /> Sin equipo asignado
                     </div>
                   )}
                 </div>
 
-                <div style={{ display: 'flex', gap: '0.5rem', paddingTop: '0.75rem', borderTop: '1px solid #1E2438' }}>
+                <div style={{ display: 'flex', gap: '0.5rem', paddingTop: '0.75rem', borderTop: '1px solid var(--borde-suave)' }}>
                   {equipo ? (
                     <>
                       <button
@@ -288,10 +288,10 @@ function Asignaciones() {
                 const equipo = asignacion ? equipoPorId[asignacion.equipo] : null
 
                 return (
-                  <tr key={emp.id} style={{ backgroundColor: i % 2 === 1 ? 'rgba(255,255,255,0.015)' : 'transparent' }}>
+                  <tr key={emp.id} style={{ backgroundColor: i % 2 === 1 ? 'rgba(var(--velo-rgb), 0.015)' : 'transparent' }}>
                     <td>{emp.nombre_completo}</td>
                     <td>{emp.departamento_nombre}</td>
-                    <td>{equipo ? `${equipo.marca} ${equipo.modelo}` : <span style={{ color: '#5B6785' }}>Sin equipo</span>}</td>
+                    <td>{equipo ? `${equipo.marca} ${equipo.modelo}` : <span style={{ color: 'var(--texto-5)' }}>Sin equipo</span>}</td>
                     <td>{equipo?.numero_serie || '—'}</td>
                     <td>{equipo?.procesador || '—'}</td>
                     <td>{equipo?.memoria_ram || '—'}</td>

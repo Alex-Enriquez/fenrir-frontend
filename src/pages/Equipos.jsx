@@ -37,7 +37,7 @@ function IconoCategoria({ nombre }) {
 }
 
 function EstadoBadge({ estado }) {
-  const style = badgeColors[estado] || { bg: '#2C3450', color: '#E8EAF0' }
+  const style = badgeColors[estado] || { bg: 'var(--campo-borde)', color: 'var(--texto-claro)' }
   return (
     <span style={{
       backgroundColor: style.bg, color: style.color,
@@ -183,8 +183,8 @@ function Equipos() {
             onClick={() => descargarArchivo(`${API_URL}/equipos/exportar/`, 'equipos.xlsx')}
             style={{
               display: 'flex', alignItems: 'center', gap: '0.4rem',
-              background: 'transparent', border: '1px solid #2C3450', borderRadius: '6px',
-              padding: '0.4rem 0.7rem', color: '#8892AB', fontSize: '0.82rem',
+              background: 'transparent', border: '1px solid var(--campo-borde)', borderRadius: '6px',
+              padding: '0.4rem 0.7rem', color: 'var(--texto-tenue)', fontSize: '0.82rem',
             }}
           >
             <Download size={14} /> Exportar Excel
@@ -193,8 +193,8 @@ function Equipos() {
             onClick={() => setModalImportar(true)}
             style={{
               display: 'flex', alignItems: 'center', gap: '0.4rem',
-              background: 'transparent', border: '1px solid #2C3450', borderRadius: '6px',
-              padding: '0.4rem 0.7rem', color: '#8892AB', fontSize: '0.82rem',
+              background: 'transparent', border: '1px solid var(--campo-borde)', borderRadius: '6px',
+              padding: '0.4rem 0.7rem', color: 'var(--texto-tenue)', fontSize: '0.82rem',
             }}
           >
             <Download size={14} style={{ transform: 'rotate(180deg)' }} /> Importar Excel
@@ -214,15 +214,15 @@ function Equipos() {
       </div>
 
       <div style={{ position: 'relative', marginBottom: '1rem' }}>
-        <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: '#6B7690' }} />
+        <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--texto-4)' }} />
         <input
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
           placeholder="Buscar por marca, modelo, número de serie o categoría..."
           style={{
             width: '100%', padding: '0.65rem 1rem 0.65rem 2.5rem', borderRadius: '10px',
-            border: '1px solid #2C3450', backgroundColor: '#141A2C',
-            color: '#E8EAF0', fontSize: '0.9rem', boxSizing: 'border-box',
+            border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg-2)',
+            color: 'var(--texto-claro)', fontSize: '0.9rem', boxSizing: 'border-box',
           }}
         />
       </div>
@@ -234,9 +234,9 @@ function Equipos() {
             onClick={() => setFiltroActivo(f.key)}
             style={{
               padding: '0.4rem 0.9rem', borderRadius: '999px',
-              border: filtroActivo === f.key ? '1px solid #F8C22E' : '1px solid #2C3450',
+              border: filtroActivo === f.key ? '1px solid #F8C22E' : '1px solid var(--campo-borde)',
               backgroundColor: filtroActivo === f.key ? 'rgba(248,194,46,0.12)' : 'transparent',
-              color: filtroActivo === f.key ? '#F8C22E' : '#8892AB',
+              color: filtroActivo === f.key ? '#F8C22E' : 'var(--texto-tenue)',
               fontSize: '0.82rem', fontWeight: filtroActivo === f.key ? 600 : 500,
             }}
           >
@@ -265,13 +265,13 @@ function Equipos() {
           <tbody>
             {equiposFiltrados.length === 0 ? (
               <tr>
-                <td colSpan={8} style={{ textAlign: 'center', color: '#6B7690', padding: '2rem' }}>
+                <td colSpan={8} style={{ textAlign: 'center', color: 'var(--texto-4)', padding: '2rem' }}>
                   No se encontraron equipos con esos criterios.
                 </td>
               </tr>
             ) : (
               equiposFiltrados.map((equipo, i) => (
-                <tr key={equipo.id} style={{ backgroundColor: i % 2 === 1 ? 'rgba(255,255,255,0.015)' : 'transparent' }}>
+                <tr key={equipo.id} style={{ backgroundColor: i % 2 === 1 ? 'rgba(var(--velo-rgb), 0.015)' : 'transparent' }}>
                   <td>{equipo.marca}</td>
                   <td>{equipo.modelo}</td>
                   <td>{equipo.numero_serie}</td>

@@ -51,7 +51,7 @@ function ImportarExcelForm({ urlPlantilla, urlImportar, nombrePlantilla, onTermi
                   <AlertTriangle size={15} /> {resultado.errores.length} fila(s) con problemas
                 </div>
                 {resultado.errores.map((e, i) => (
-                  <div key={i} style={{ fontSize: '0.8rem', color: '#C4CAD9', marginBottom: '0.25rem' }}>{e}</div>
+                  <div key={i} style={{ fontSize: '0.8rem', color: 'var(--texto-suave)', marginBottom: '0.25rem' }}>{e}</div>
                 ))}
               </div>
             )}
@@ -72,7 +72,7 @@ function ImportarExcelForm({ urlPlantilla, urlImportar, nombrePlantilla, onTermi
 
   return (
     <div>
-      <p style={{ color: '#8892AB', fontSize: '0.88rem', marginBottom: '1.25rem', lineHeight: 1.5 }}>
+      <p style={{ color: 'var(--texto-tenue)', fontSize: '0.88rem', marginBottom: '1.25rem', lineHeight: 1.5 }}>
         1) Descarga la plantilla, 2) llénala con tus datos, 3) súbela aquí para crear los registros automáticamente.
       </p>
 
@@ -80,8 +80,8 @@ function ImportarExcelForm({ urlPlantilla, urlImportar, nombrePlantilla, onTermi
         onClick={() => descargarArchivo(urlPlantilla, nombrePlantilla)}
         style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', width: '100%',
-          background: 'transparent', border: '1px solid #2C3450', borderRadius: '8px',
-          padding: '0.65rem', color: '#C4CAD9', fontSize: '0.9rem', marginBottom: '1.25rem',
+          background: 'transparent', border: '1px solid var(--campo-borde)', borderRadius: '8px',
+          padding: '0.65rem', color: 'var(--texto-suave)', fontSize: '0.9rem', marginBottom: '1.25rem',
         }}
       >
         <Download size={16} /> Descargar plantilla
@@ -89,11 +89,11 @@ function ImportarExcelForm({ urlPlantilla, urlImportar, nombrePlantilla, onTermi
 
       <label style={{
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
-        border: '1.5px dashed #2C3450', borderRadius: '8px', padding: '1.5rem',
+        border: '1.5px dashed var(--campo-borde)', borderRadius: '8px', padding: '1.5rem',
         cursor: 'pointer', marginBottom: '1.25rem', textAlign: 'center',
       }}>
         <Upload size={22} color="#6B7690" />
-        <span style={{ fontSize: '0.85rem', color: archivo ? '#4ADE80' : '#8892AB' }}>
+        <span style={{ fontSize: '0.85rem', color: archivo ? '#4ADE80' : 'var(--texto-tenue)' }}>
           {archivo ? archivo.name : 'Haz clic para elegir tu archivo .xlsx'}
         </span>
         <input
@@ -117,7 +117,7 @@ function ImportarExcelForm({ urlPlantilla, urlImportar, nombrePlantilla, onTermi
           {subiendo ? 'Importando...' : 'Importar'}
         </button>
         <button type="button" onClick={onCancel} style={{
-          backgroundColor: 'transparent', color: '#9AA3B8', border: '1px solid #2C3450',
+          backgroundColor: 'transparent', color: 'var(--texto-2)', border: '1px solid var(--campo-borde)',
           padding: '0.65rem 1.25rem', borderRadius: '6px', flex: 1,
         }}>
           Cancelar

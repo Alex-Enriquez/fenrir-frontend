@@ -90,15 +90,15 @@ function Responsivas() {
       </div>
 
       <div style={{ position: 'relative', marginBottom: '1.5rem' }}>
-        <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: '#6B7690' }} />
+        <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--texto-4)' }} />
         <input
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
           placeholder="Buscar por folio, empleado o quien entrega..."
           style={{
             width: '100%', padding: '0.65rem 1rem 0.65rem 2.5rem', borderRadius: '10px',
-            border: '1px solid #2C3450', backgroundColor: '#141A2C',
-            color: '#E8EAF0', fontSize: '0.9rem', boxSizing: 'border-box',
+            border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg-2)',
+            color: 'var(--texto-claro)', fontSize: '0.9rem', boxSizing: 'border-box',
           }}
         />
       </div>
@@ -118,14 +118,14 @@ function Responsivas() {
           <tbody>
             {responsivasFiltradas.length === 0 ? (
               <tr>
-                <td colSpan={6} style={{ textAlign: 'center', color: '#6B7690', padding: '2rem' }}>
+                <td colSpan={6} style={{ textAlign: 'center', color: 'var(--texto-4)', padding: '2rem' }}>
                   <FileText size={24} style={{ marginBottom: '0.5rem', opacity: 0.5, display: 'block', margin: '0 auto 0.5rem' }} />
                   No hay responsivas generadas todavía.
                 </td>
               </tr>
             ) : (
               responsivasFiltradas.map((r, i) => (
-                <tr key={r.id} style={{ backgroundColor: i % 2 === 1 ? 'rgba(255,255,255,0.015)' : 'transparent' }}>
+                <tr key={r.id} style={{ backgroundColor: i % 2 === 1 ? 'rgba(var(--velo-rgb), 0.015)' : 'transparent' }}>
                   <td style={{ fontFamily: 'monospace' }}>{r.folio}</td>
                   <td>{r.empleado_nombre}</td>
                   <td>{r.fecha}</td>

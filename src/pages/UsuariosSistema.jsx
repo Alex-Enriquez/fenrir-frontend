@@ -121,7 +121,7 @@ function UsuariosSistema() {
                       <ShieldCheck size={14} /> Administrador
                     </span>
                   ) : (
-                    <span style={{ color: '#8892AB', fontSize: '0.82rem' }}>Usuario estándar</span>
+                    <span style={{ color: 'var(--texto-tenue)', fontSize: '0.82rem' }}>Usuario estándar</span>
                   )}
                 </td>
                 <td>

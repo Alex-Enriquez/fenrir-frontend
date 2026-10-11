@@ -8,15 +8,15 @@ const inputStyle = {
   width: '100%',
   padding: '0.6rem 0.8rem',
   borderRadius: '6px',
-  border: '1px solid #2C3450',
-  backgroundColor: '#0F1420',
-  color: '#E8EAF0',
+  border: '1px solid var(--campo-borde)',
+  backgroundColor: 'var(--campo-bg)',
+  color: 'var(--texto-claro)',
   marginBottom: '1rem',
   fontSize: '0.95rem',
 }
 
 const rowStyle = { display: 'flex', gap: '0.75rem' }
-const labelStyle = { display: 'block', marginBottom: '0.35rem', color: '#9AA3B8', fontSize: '0.85rem' }
+const labelStyle = { display: 'block', marginBottom: '0.35rem', color: 'var(--texto-2)', fontSize: '0.85rem' }
 
 const initialState = {
   categoria: '', marca: '', modelo: '', numero_serie: '', numero_inventario: '',
@@ -121,7 +121,7 @@ function EquipoForm({ categorias, equipoInicial, onSubmit, onCancel, onCategoria
               <button type="button" onClick={crearCategoria} style={{ background: '#F8C22E', border: 'none', borderRadius: '6px', color: '#0F1420', padding: '0 0.9rem', fontWeight: 700 }}>
                 Crear
               </button>
-              <button type="button" onClick={() => setCreandoCategoria(false)} style={{ background: 'transparent', border: '1px solid #2C3450', borderRadius: '6px', color: '#9AA3B8', padding: '0 0.7rem' }}>
+              <button type="button" onClick={() => setCreandoCategoria(false)} style={{ background: 'transparent', border: '1px solid var(--campo-borde)', borderRadius: '6px', color: 'var(--texto-2)', padding: '0 0.7rem' }}>
                 X
               </button>
             </div>
@@ -234,7 +234,7 @@ function EquipoForm({ categorias, equipoInicial, onSubmit, onCancel, onCategoria
           onClick={onCancel}
           disabled={guardando}
           style={{
-            backgroundColor: 'transparent', color: '#9AA3B8', border: '1px solid #2C3450',
+            backgroundColor: 'transparent', color: 'var(--texto-2)', border: '1px solid var(--campo-borde)',
             padding: '0.65rem 1.25rem', borderRadius: '6px', flex: 1,
           }}
         >

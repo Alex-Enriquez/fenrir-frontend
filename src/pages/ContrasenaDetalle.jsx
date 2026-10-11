@@ -18,7 +18,7 @@ function FilaRegistro({ registro, seleccionado, onToggleSeleccion, onEditar, onE
         <input type="checkbox" checked={seleccionado} onChange={() => onToggleSeleccion(registro.id)} />
       </td>
       <td>{registro.plataforma}</td>
-      <td>{registro.empleado_nombre || <span style={{ color: '#5B6785' }}>Sin asignar</span>}</td>
+      <td>{registro.empleado_nombre || <span style={{ color: 'var(--texto-5)' }}>Sin asignar</span>}</td>
       <td>{registro.usuario || '—'}</td>
       <td>{registro.correo || '—'}</td>
       <td>
@@ -26,10 +26,10 @@ function FilaRegistro({ registro, seleccionado, onToggleSeleccion, onEditar, onE
           <span style={{ fontFamily: 'monospace', fontSize: '0.85rem' }}>
             {verPassword ? registro.contrasena : '•'.repeat(10)}
           </span>
-          <button onClick={() => setVerPassword(v => !v)} style={{ background: 'none', border: 'none', color: '#6B7690', display: 'flex', padding: 0 }}>
+          <button onClick={() => setVerPassword(v => !v)} style={{ background: 'none', border: 'none', color: 'var(--texto-4)', display: 'flex', padding: 0 }}>
             {verPassword ? <EyeOff size={15} /> : <Eye size={15} />}
           </button>
-          <button onClick={() => onCopiar(registro.contrasena)} title="Copiar" style={{ background: 'none', border: 'none', color: '#6B7690', display: 'flex', padding: 0 }}>
+          <button onClick={() => onCopiar(registro.contrasena)} title="Copiar" style={{ background: 'none', border: 'none', color: 'var(--texto-4)', display: 'flex', padding: 0 }}>
             <Copy size={15} />
           </button>
         </div>
@@ -148,7 +148,7 @@ function ContrasenaDetalle() {
     <div>
       <button
         onClick={() => navigate('/contrasenas')}
-        style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'none', border: 'none', color: '#8892AB', fontSize: '0.85rem', marginBottom: '1rem', padding: 0 }}
+        style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'none', border: 'none', color: 'var(--texto-tenue)', fontSize: '0.85rem', marginBottom: '1rem', padding: 0 }}
       >
         <ArrowLeft size={16} /> Volver a Contraseñas
       </button>
@@ -158,7 +158,7 @@ function ContrasenaDetalle() {
           <div style={{ width: '44px', height: '44px', borderRadius: '12px', backgroundColor: 'rgba(248,194,46,0.12)', color: '#F8C22E', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Lock size={22} />
           </div>
-          <h1 style={{ color: '#F1F3F9', margin: 0 }}>{categoria.nombre}</h1>
+          <h1 style={{ color: 'var(--texto-fuerte)', margin: 0 }}>{categoria.nombre}</h1>
         </div>
 
         <div style={{ display: 'flex', gap: '0.75rem' }}>
@@ -196,7 +196,7 @@ function ContrasenaDetalle() {
           </thead>
           <tbody>
             {registros.length === 0 ? (
-              <tr><td colSpan={7} style={{ textAlign: 'center', color: '#6B7690', padding: '2rem' }}>No hay registros en esta categoría.</td></tr>
+              <tr><td colSpan={7} style={{ textAlign: 'center', color: 'var(--texto-4)', padding: '2rem' }}>No hay registros en esta categoría.</td></tr>
             ) : (
               registros.map(reg => (
                 <FilaRegistro

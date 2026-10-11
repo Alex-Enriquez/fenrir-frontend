@@ -74,22 +74,22 @@ function Sidebar({ abierta, onCerrar }) {
     <aside className={`app-sidebar${abierta ? ' sidebar-abierta' : ''}`} style={{
       width: '250px',
       minHeight: '100vh',
-      backgroundColor: '#0D111C',
-      borderRight: '1px solid #1E2438',
+      backgroundColor: 'var(--sidebar-bg)',
+      borderRight: '1px solid var(--borde-suave)',
       display: 'flex',
       flexDirection: 'column',
       position: 'relative',
     }}>
       <div style={{ padding: '1.75rem 1.5rem 1.25rem' }}>
-        <div style={{ fontSize: '1.35rem', fontWeight: 800, color: '#F1F3F9', letterSpacing: '-0.02em' }}>
+        <div style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--texto-fuerte)', letterSpacing: '-0.02em' }}>
           Alamex<span style={{ color: '#F8C22E' }}>.</span>TI
         </div>
-        <div style={{ fontSize: '0.72rem', color: '#4C5670', marginTop: '0.15rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+        <div style={{ fontSize: '0.72rem', color: 'var(--texto-6)', marginTop: '0.15rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
           Gestión de inventario
         </div>
       </div>
 
-      <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, #1E2438, transparent)', margin: '0 1.5rem 1rem' }} />
+      <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, var(--borde-suave), transparent)', margin: '0 1.5rem 1rem' }} />
 
       <nav style={{ padding: '0 0.75rem', flex: 1, overflowY: 'auto' }}>
         {items.map(({ to, end, label, icon: Icon, accent }) => (
@@ -103,11 +103,11 @@ function Sidebar({ abierta, onCerrar }) {
                 marginBottom: '0.2rem',
                 borderRadius: '10px',
                 borderLeft: isActive ? `3px solid ${accent}` : '3px solid transparent',
-                backgroundColor: isActive ? 'rgba(255,255,255,0.04)' : 'transparent',
+                backgroundColor: isActive ? 'rgba(var(--velo-rgb), 0.04)' : 'transparent',
               }}>
                 <div style={{
                   width: '30px', height: '30px', borderRadius: '8px',
-                  backgroundColor: isActive ? `${accent}26` : 'rgba(255,255,255,0.03)',
+                  backgroundColor: isActive ? `${accent}26` : 'rgba(var(--velo-rgb), 0.03)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   flexShrink: 0,
                 }}>
@@ -115,7 +115,7 @@ function Sidebar({ abierta, onCerrar }) {
                 </div>
                 <span style={{
                   fontSize: '0.88rem',
-                  color: isActive ? '#F1F3F9' : '#8892AB',
+                  color: isActive ? 'var(--texto-fuerte)' : 'var(--texto-tenue)',
                   fontWeight: isActive ? 600 : 500,
                 }}>
                   {label}
@@ -144,13 +144,13 @@ function Sidebar({ abierta, onCerrar }) {
           </div>
           <div style={{ minWidth: 0 }}>
             <div style={{
-              fontSize: '0.82rem', fontWeight: 600, color: '#E8EAF0',
+              fontSize: '0.82rem', fontWeight: 600, color: 'var(--texto-claro)',
               overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
             }}>
               {nombreMostrado}
             </div>
             <div style={{
-              fontSize: '0.7rem', color: '#4C5670',
+              fontSize: '0.7rem', color: 'var(--texto-6)',
               overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
             }}>
               {puestoMostrado}

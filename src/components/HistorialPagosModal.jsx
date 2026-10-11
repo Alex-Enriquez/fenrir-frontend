@@ -20,7 +20,7 @@ function HistorialPagosModal({ servicio }) {
   return (
     <div>
       {pagos.length === 0 ? (
-        <div style={{ textAlign: 'center', color: '#6B7690', padding: '1.5rem 0' }}>
+        <div style={{ textAlign: 'center', color: 'var(--texto-4)', padding: '1.5rem 0' }}>
           <Receipt size={24} style={{ opacity: 0.5, marginBottom: '0.5rem' }} />
           <p>Sin pagos registrados todavía.</p>
         </div>

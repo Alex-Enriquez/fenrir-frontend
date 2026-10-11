@@ -5,10 +5,10 @@ const TECNICOS = ['Irving Sammer González', 'Alexis Acosta', 'Celia Hernández'
 
 const inputStyle = {
   width: '100%', padding: '0.6rem 0.8rem', borderRadius: '6px',
-  border: '1px solid #2C3450', backgroundColor: '#0F1420',
-  color: '#E8EAF0', marginBottom: '1rem', fontSize: '0.95rem', boxSizing: 'border-box',
+  border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg)',
+  color: 'var(--texto-claro)', marginBottom: '1rem', fontSize: '0.95rem', boxSizing: 'border-box',
 }
-const labelStyle = { display: 'block', marginBottom: '0.35rem', color: '#9AA3B8', fontSize: '0.85rem' }
+const labelStyle = { display: 'block', marginBottom: '0.35rem', color: 'var(--texto-2)', fontSize: '0.85rem' }
 
 function ResponsivaForm({ empleados, equipos, empleadoInicial, onSubmit, onCancel }) {
   const [empleadoId, setEmpleadoId] = useState(empleadoInicial || '')
@@ -97,7 +97,7 @@ function ResponsivaForm({ empleados, equipos, empleadoInicial, onSubmit, onCance
       )}
 
       <div style={{ position: 'relative', marginBottom: '1rem' }}>
-        <Search size={16} style={{ position: 'absolute', left: '0.7rem', top: '50%', transform: 'translateY(-50%)', color: '#6B7690' }} />
+        <Search size={16} style={{ position: 'absolute', left: '0.7rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--texto-4)' }} />
         <input
           value={busquedaEquipo}
           onChange={(e) => setBusquedaEquipo(e.target.value)}
@@ -110,12 +110,12 @@ function ResponsivaForm({ empleados, equipos, empleadoInicial, onSubmit, onCance
         {mostrarSugerencias && (
           <div style={{
             position: 'absolute', top: '100%', left: 0, right: 0, zIndex: 20,
-            backgroundColor: '#141A2C', border: '1px solid #2C3450', borderRadius: '8px',
+            backgroundColor: 'var(--campo-bg-2)', border: '1px solid var(--campo-borde)', borderRadius: '8px',
             marginTop: '0.3rem', maxHeight: '220px', overflowY: 'auto',
             boxShadow: '0 10px 25px rgba(0,0,0,0.4)',
           }}>
             {sugerencias.length === 0 ? (
-              <div style={{ padding: '0.7rem', color: '#5B6785', fontSize: '0.85rem' }}>
+              <div style={{ padding: '0.7rem', color: 'var(--texto-5)', fontSize: '0.85rem' }}>
                 No hay equipos disponibles que coincidan.
               </div>
             ) : (
@@ -124,12 +124,12 @@ function ResponsivaForm({ empleados, equipos, empleadoInicial, onSubmit, onCance
                   key={eq.id}
                   onMouseDown={() => agregarEquipo(eq.id)}
                   style={{
-                    padding: '0.6rem 0.8rem', cursor: 'pointer', fontSize: '0.88rem', color: '#E8EAF0',
-                    borderBottom: '1px solid #1E2438',
+                    padding: '0.6rem 0.8rem', cursor: 'pointer', fontSize: '0.88rem', color: 'var(--texto-claro)',
+                    borderBottom: '1px solid var(--borde-suave)',
                   }}
                 >
                   <div style={{ fontWeight: 600 }}>{eq.marca} {eq.modelo}</div>
-                  <div style={{ fontSize: '0.78rem', color: '#8892AB' }}>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--texto-tenue)' }}>
                     {eq.categoria_nombre} · {eq.numero_serie || eq.numero_inventario || 'sin serie'}
                   </div>
                 </div>
@@ -161,7 +161,7 @@ function ResponsivaForm({ empleados, equipos, empleadoInicial, onSubmit, onCance
           Generar responsiva
         </button>
         <button type="button" onClick={onCancel} style={{
-          backgroundColor: 'transparent', color: '#9AA3B8', border: '1px solid #2C3450',
+          backgroundColor: 'transparent', color: 'var(--texto-2)', border: '1px solid var(--campo-borde)',
           padding: '0.65rem 1.25rem', borderRadius: '6px', flex: 1,
         }}>
           Cancelar

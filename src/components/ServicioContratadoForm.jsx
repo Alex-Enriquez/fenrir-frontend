@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 
 const inputStyle = {
   width: '100%', padding: '0.6rem 0.8rem', borderRadius: '6px',
-  border: '1px solid #2C3450', backgroundColor: '#0F1420',
-  color: '#E8EAF0', marginBottom: '1rem', fontSize: '0.95rem', boxSizing: 'border-box',
+  border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg)',
+  color: 'var(--texto-claro)', marginBottom: '1rem', fontSize: '0.95rem', boxSizing: 'border-box',
 }
-const labelStyle = { display: 'block', marginBottom: '0.35rem', color: '#9AA3B8', fontSize: '0.85rem' }
+const labelStyle = { display: 'block', marginBottom: '0.35rem', color: 'var(--texto-2)', fontSize: '0.85rem' }
 const rowStyle = { display: 'flex', gap: '0.75rem' }
 
 const initialState = {
@@ -74,7 +74,7 @@ function ServicioContratadoForm({ proveedores, servicioInicial, onSubmit, onCanc
       <label style={labelStyle}>Próximo pago</label>
       <input type="date" name="fecha_proximo_pago" value={form.fecha_proximo_pago || ''} onChange={handleChange} style={inputStyle} />
 
-      <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#9AA3B8', fontSize: '0.88rem', marginBottom: '1rem', cursor: 'pointer' }}>
+      <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--texto-2)', fontSize: '0.88rem', marginBottom: '1rem', cursor: 'pointer' }}>
         <input type="checkbox" name="activo" checked={form.activo} onChange={handleChange} />
         Servicio activo
       </label>
@@ -95,7 +95,7 @@ function ServicioContratadoForm({ proveedores, servicioInicial, onSubmit, onCanc
           {guardando ? 'Guardando...' : 'Guardar'}
         </button>
         <button type="button" onClick={onCancel} disabled={guardando} style={{
-          backgroundColor: 'transparent', color: '#9AA3B8', border: '1px solid #2C3450',
+          backgroundColor: 'transparent', color: 'var(--texto-2)', border: '1px solid var(--campo-borde)',
           padding: '0.65rem 1.25rem', borderRadius: '6px', flex: 1,
         }}>
           Cancelar

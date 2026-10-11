@@ -112,11 +112,11 @@ function Infraestructura() {
   if (cargando) return <p>Cargando...</p>
 
   const BotonesVista = () => (
-    <div style={{ display: 'flex', gap: '0.3rem', backgroundColor: '#141A2C', borderRadius: '8px', padding: '0.25rem' }}>
-      <button onClick={() => setVista('dispositivos')} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', border: 'none', borderRadius: '6px', padding: '0.4rem 0.7rem', fontSize: '0.82rem', backgroundColor: vista === 'dispositivos' ? '#F8C22E' : 'transparent', color: vista === 'dispositivos' ? '#0F1420' : '#8892AB' }}>
+    <div style={{ display: 'flex', gap: '0.3rem', backgroundColor: 'var(--campo-bg-2)', borderRadius: '8px', padding: '0.25rem' }}>
+      <button onClick={() => setVista('dispositivos')} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', border: 'none', borderRadius: '6px', padding: '0.4rem 0.7rem', fontSize: '0.82rem', backgroundColor: vista === 'dispositivos' ? '#F8C22E' : 'transparent', color: vista === 'dispositivos' ? '#0F1420' : 'var(--texto-tenue)' }}>
         <List size={14} /> Dispositivos
       </button>
-      <button onClick={() => setVista('racks')} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', border: 'none', borderRadius: '6px', padding: '0.4rem 0.7rem', fontSize: '0.82rem', backgroundColor: vista === 'racks' ? '#F8C22E' : 'transparent', color: vista === 'racks' ? '#0F1420' : '#8892AB' }}>
+      <button onClick={() => setVista('racks')} style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', border: 'none', borderRadius: '6px', padding: '0.4rem 0.7rem', fontSize: '0.82rem', backgroundColor: vista === 'racks' ? '#F8C22E' : 'transparent', color: vista === 'racks' ? '#0F1420' : 'var(--texto-tenue)' }}>
         <Grid3x3 size={14} /> Racks
       </button>
     </div>
@@ -133,12 +133,12 @@ function Infraestructura() {
         <>
           <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', marginBottom: '1.5rem' }}>
             <div style={{ position: 'relative', flex: 1 }}>
-              <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: '#6B7690' }} />
+              <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--texto-4)' }} />
               <input
                 value={busqueda}
                 onChange={(e) => setBusqueda(e.target.value)}
                 placeholder="Buscar por nombre, marca, modelo o IP..."
-                style={{ width: '100%', padding: '0.65rem 1rem 0.65rem 2.5rem', borderRadius: '10px', border: '1px solid #2C3450', backgroundColor: '#141A2C', color: '#E8EAF0', fontSize: '0.9rem', boxSizing: 'border-box' }}
+                style={{ width: '100%', padding: '0.65rem 1rem 0.65rem 2.5rem', borderRadius: '10px', border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg-2)', color: 'var(--texto-claro)', fontSize: '0.9rem', boxSizing: 'border-box' }}
               />
             </div>
             <button onClick={() => setModalNuevoDispositivo(true)} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', backgroundColor: '#F8C22E', color: '#0F1420', border: 'none', padding: '0.6rem 1.1rem', borderRadius: '8px', fontWeight: 'bold', fontSize: '0.95rem', whiteSpace: 'nowrap' }}>
@@ -155,10 +155,10 @@ function Infraestructura() {
               </thead>
               <tbody>
                 {dispositivosFiltrados.length === 0 ? (
-                  <tr><td colSpan={7} style={{ textAlign: 'center', color: '#6B7690', padding: '2rem' }}><Network size={24} style={{ opacity: 0.5, marginBottom: '0.5rem' }} /><br />No hay dispositivos registrados.</td></tr>
+                  <tr><td colSpan={7} style={{ textAlign: 'center', color: 'var(--texto-4)', padding: '2rem' }}><Network size={24} style={{ opacity: 0.5, marginBottom: '0.5rem' }} /><br />No hay dispositivos registrados.</td></tr>
                 ) : (
                   dispositivosFiltrados.map((d, i) => (
-                    <tr key={d.id} style={{ backgroundColor: i % 2 === 1 ? 'rgba(255,255,255,0.015)' : 'transparent' }}>
+                    <tr key={d.id} style={{ backgroundColor: i % 2 === 1 ? 'rgba(var(--velo-rgb), 0.015)' : 'transparent' }}>
                       <td style={{ textTransform: 'capitalize' }}>{d.tipo.replace('_', ' ')}</td>
                       <td>{d.nombre}</td>
                       <td>{d.marca} {d.modelo}</td>
@@ -191,7 +191,7 @@ function Infraestructura() {
           </div>
 
           {racks.length === 0 ? (
-            <div className="card" style={{ textAlign: 'center', color: '#6B7690', padding: '2rem' }}>
+            <div className="card" style={{ textAlign: 'center', color: 'var(--texto-4)', padding: '2rem' }}>
               <Server size={28} style={{ opacity: 0.5, marginBottom: '0.5rem' }} />
               <p>No hay racks registrados todavía.</p>
             </div>
@@ -207,8 +207,8 @@ function Infraestructura() {
                     <div style={{ width: '42px', height: '42px', borderRadius: '11px', backgroundColor: 'rgba(96,165,250,0.12)', color: '#60A5FA', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '0.85rem' }}>
                       <Server size={20} />
                     </div>
-                    <div style={{ fontWeight: 700, color: '#F1F3F9', fontSize: '1rem', marginBottom: '0.2rem' }}>{r.nombre}</div>
-                    <div style={{ fontSize: '0.8rem', color: '#8892AB' }}>{r.altura_u}U · {cantidad} dispositivo{cantidad !== 1 ? 's' : ''}</div>
+                    <div style={{ fontWeight: 700, color: 'var(--texto-fuerte)', fontSize: '1rem', marginBottom: '0.2rem' }}>{r.nombre}</div>
+                    <div style={{ fontSize: '0.8rem', color: 'var(--texto-tenue)' }}>{r.altura_u}U · {cantidad} dispositivo{cantidad !== 1 ? 's' : ''}</div>
                   </div>
                 )
               })}

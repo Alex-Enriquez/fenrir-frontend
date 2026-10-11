@@ -10,7 +10,7 @@ import Toast from '../components/Toast'
 const API_URL = 'http://127.0.0.1:8000/api'
 
 function calcularVigencia(servicio) {
-  if (!servicio.fecha_proximo_pago) return { label: 'Sin fecha', bg: '#2C3450', color: '#8892AB' }
+  if (!servicio.fecha_proximo_pago) return { label: 'Sin fecha', bg: 'var(--campo-borde)', color: 'var(--texto-tenue)' }
   const hoy = new Date()
   const dias = Math.ceil((new Date(servicio.fecha_proximo_pago) - hoy) / (1000 * 60 * 60 * 24))
   if (dias < 0) return { label: `Vencido (${Math.abs(dias)}d)`, bg: '#4A1515', color: '#F87171' }
@@ -99,15 +99,15 @@ function ServiciosContratados() {
       </div>
 
       <div style={{ position: 'relative', marginBottom: '1.5rem' }}>
-        <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: '#6B7690' }} />
+        <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--texto-4)' }} />
         <input
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
           placeholder="Buscar por nombre, tipo o proveedor..."
           style={{
             width: '100%', padding: '0.65rem 1rem 0.65rem 2.5rem', borderRadius: '10px',
-            border: '1px solid #2C3450', backgroundColor: '#141A2C',
-            color: '#E8EAF0', fontSize: '0.9rem', boxSizing: 'border-box',
+            border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg-2)',
+            color: 'var(--texto-claro)', fontSize: '0.9rem', boxSizing: 'border-box',
           }}
         />
       </div>
@@ -129,7 +129,7 @@ function ServiciosContratados() {
           <tbody>
             {serviciosFiltrados.length === 0 ? (
               <tr>
-                <td colSpan={8} style={{ textAlign: 'center', color: '#6B7690', padding: '2rem' }}>
+                <td colSpan={8} style={{ textAlign: 'center', color: 'var(--texto-4)', padding: '2rem' }}>
                   <CircleDollarSign size={24} style={{ marginBottom: '0.5rem', opacity: 0.5, display: 'block', margin: '0 auto 0.5rem' }} />
                   No hay servicios contratados todavía.
                 </td>
@@ -138,7 +138,7 @@ function ServiciosContratados() {
               serviciosFiltrados.map((s, i) => {
                 const v = calcularVigencia(s)
                 return (
-                  <tr key={s.id} style={{ backgroundColor: i % 2 === 1 ? 'rgba(255,255,255,0.015)' : 'transparent' }}>
+                  <tr key={s.id} style={{ backgroundColor: i % 2 === 1 ? 'rgba(var(--velo-rgb), 0.015)' : 'transparent' }}>
                     <td>{s.nombre}</td>
                     <td>{s.tipo || '—'}</td>
                     <td>{s.proveedor_nombre || '—'}</td>

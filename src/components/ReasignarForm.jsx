@@ -11,7 +11,7 @@ function ReasignarForm({ empleadosDisponibles, onSubmit, onCancel }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label style={{ display: 'block', marginBottom: '0.35rem', color: '#9AA3B8', fontSize: '0.85rem' }}>
+      <label style={{ display: 'block', marginBottom: '0.35rem', color: 'var(--texto-2)', fontSize: '0.85rem' }}>
         Nuevo responsable del equipo
       </label>
       <select
@@ -20,8 +20,8 @@ function ReasignarForm({ empleadosDisponibles, onSubmit, onCancel }) {
         required
         style={{
           width: '100%', padding: '0.6rem 0.8rem', borderRadius: '6px',
-          border: '1px solid #2C3450', backgroundColor: '#0F1420',
-          color: '#E8EAF0', marginBottom: '1.25rem', fontSize: '0.95rem', boxSizing: 'border-box',
+          border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg)',
+          color: 'var(--texto-claro)', marginBottom: '1.25rem', fontSize: '0.95rem', boxSizing: 'border-box',
         }}
       >
         <option value="">-- Selecciona --</option>
@@ -41,7 +41,7 @@ function ReasignarForm({ empleadosDisponibles, onSubmit, onCancel }) {
           Reasignar
         </button>
         <button type="button" onClick={onCancel} style={{
-          backgroundColor: 'transparent', color: '#9AA3B8', border: '1px solid #2C3450',
+          backgroundColor: 'transparent', color: 'var(--texto-2)', border: '1px solid var(--campo-borde)',
           padding: '0.65rem 1.25rem', borderRadius: '6px', flex: 1,
         }}>
           Cancelar

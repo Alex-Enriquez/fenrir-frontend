@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 
 const inputStyle = {
   width: '100%', padding: '0.6rem 0.8rem', borderRadius: '6px',
-  border: '1px solid #2C3450', backgroundColor: '#0F1420',
-  color: '#E8EAF0', marginBottom: '1rem', fontSize: '0.95rem', boxSizing: 'border-box',
+  border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg)',
+  color: 'var(--texto-claro)', marginBottom: '1rem', fontSize: '0.95rem', boxSizing: 'border-box',
 }
 const rowStyle = { display: 'flex', gap: '0.75rem' }
-const labelStyle = { display: 'block', marginBottom: '0.35rem', color: '#9AA3B8', fontSize: '0.85rem' }
+const labelStyle = { display: 'block', marginBottom: '0.35rem', color: 'var(--texto-2)', fontSize: '0.85rem' }
 
 const initialState = {
   tipo: '', clave_producto: '', modalidad: 'suscripcion', asientos_totales: 1,
@@ -94,7 +94,7 @@ function LicenciaForm({ tipos, licenciaInicial, onSubmit, onCancel }) {
           Guardar
         </button>
         <button type="button" onClick={onCancel} style={{
-          backgroundColor: 'transparent', color: '#9AA3B8', border: '1px solid #2C3450',
+          backgroundColor: 'transparent', color: 'var(--texto-2)', border: '1px solid var(--campo-borde)',
           padding: '0.65rem 1.25rem', borderRadius: '6px', flex: 1,
         }}>
           Cancelar

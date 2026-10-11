@@ -86,21 +86,21 @@ function Proveedores() {
       </div>
 
       <div style={{ position: 'relative', marginBottom: '1.5rem' }}>
-        <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: '#6B7690' }} />
+        <Search size={17} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--texto-4)' }} />
         <input
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
           placeholder="Buscar por nombre, servicio o contacto..."
           style={{
             width: '100%', padding: '0.65rem 1rem 0.65rem 2.5rem', borderRadius: '10px',
-            border: '1px solid #2C3450', backgroundColor: '#141A2C',
-            color: '#E8EAF0', fontSize: '0.9rem', boxSizing: 'border-box',
+            border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg-2)',
+            color: 'var(--texto-claro)', fontSize: '0.9rem', boxSizing: 'border-box',
           }}
         />
       </div>
 
       {proveedoresFiltrados.length === 0 ? (
-        <div className="card" style={{ textAlign: 'center', color: '#6B7690', padding: '2rem' }}>
+        <div className="card" style={{ textAlign: 'center', color: 'var(--texto-4)', padding: '2rem' }}>
           <Truck size={28} style={{ marginBottom: '0.5rem', opacity: 0.5 }} />
           <p>No hay proveedores registrados todavía.</p>
         </div>
@@ -114,19 +114,19 @@ function Proveedores() {
             <div key={p.id} className="card">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.6rem' }}>
                 <div>
-                  <div style={{ fontWeight: 700, color: '#F1F3F9', fontSize: '0.98rem' }}>{p.nombre}</div>
-                  {p.servicio && <div style={{ fontSize: '0.78rem', color: '#8892AB' }}>{p.servicio}</div>}
+                  <div style={{ fontWeight: 700, color: 'var(--texto-fuerte)', fontSize: '0.98rem' }}>{p.nombre}</div>
+                  {p.servicio && <div style={{ fontSize: '0.78rem', color: 'var(--texto-tenue)' }}>{p.servicio}</div>}
                 </div>
                 <Estrellas calificacion={p.calificacion} />
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem', marginBottom: '0.85rem', fontSize: '0.82rem', color: '#8892AB' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem', marginBottom: '0.85rem', fontSize: '0.82rem', color: 'var(--texto-tenue)' }}>
                 {p.contacto && <span>{p.contacto}</span>}
                 {p.telefono && <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}><Phone size={12} /> {p.telefono}</span>}
                 {p.correo && <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}><Mail size={12} /> {p.correo}</span>}
               </div>
 
-              <div style={{ display: 'flex', gap: '0.5rem', paddingTop: '0.75rem', borderTop: '1px solid #1E2438' }}>
+              <div style={{ display: 'flex', gap: '0.5rem', paddingTop: '0.75rem', borderTop: '1px solid var(--borde-suave)' }}>
                 <button
                   onClick={() => abrirEditar(p)}
                   style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', background: '#132A2A', border: 'none', borderRadius: '6px', padding: '0.4rem', color: '#2DD4BF', fontSize: '0.8rem' }}

@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 
 const inputStyle = {
   width: '100%', padding: '0.55rem 0.7rem', borderRadius: '6px',
-  border: '1px solid #2C3450', backgroundColor: '#0F1420',
-  color: '#E8EAF0', marginBottom: '0.85rem', fontSize: '0.88rem', boxSizing: 'border-box',
+  border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg)',
+  color: 'var(--texto-claro)', marginBottom: '0.85rem', fontSize: '0.88rem', boxSizing: 'border-box',
 }
-const labelStyle = { display: 'block', marginBottom: '0.3rem', color: '#9AA3B8', fontSize: '0.8rem' }
+const labelStyle = { display: 'block', marginBottom: '0.3rem', color: 'var(--texto-2)', fontSize: '0.8rem' }
 
 function PuertoEditForm({ puerto, onSubmit, onCancel }) {
   const [form, setForm] = useState(puerto)
@@ -21,7 +21,7 @@ function PuertoEditForm({ puerto, onSubmit, onCancel }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p style={{ color: '#F1F3F9', fontWeight: 700, marginBottom: '1rem' }}>Puerto {form.numero}</p>
+      <p style={{ color: 'var(--texto-fuerte)', fontWeight: 700, marginBottom: '1rem' }}>Puerto {form.numero}</p>
 
       <label style={labelStyle}>Estado</label>
       <select name="estado" value={form.estado} onChange={handleChange} style={inputStyle}>
@@ -53,7 +53,7 @@ function PuertoEditForm({ puerto, onSubmit, onCancel }) {
         <button type="submit" style={{ backgroundColor: '#F8C22E', color: '#0F1420', border: 'none', padding: '0.5rem 1rem', borderRadius: '6px', fontWeight: 'bold', flex: 1, fontSize: '0.85rem' }}>
           Guardar
         </button>
-        <button type="button" onClick={onCancel} style={{ backgroundColor: 'transparent', color: '#9AA3B8', border: '1px solid #2C3450', padding: '0.5rem 1rem', borderRadius: '6px', flex: 1, fontSize: '0.85rem' }}>
+        <button type="button" onClick={onCancel} style={{ backgroundColor: 'transparent', color: 'var(--texto-2)', border: '1px solid var(--campo-borde)', padding: '0.5rem 1rem', borderRadius: '6px', flex: 1, fontSize: '0.85rem' }}>
           Cerrar
         </button>
       </div>

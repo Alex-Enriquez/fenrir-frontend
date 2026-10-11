@@ -60,20 +60,20 @@ function ResetPasswordForm({ usuario, onSubmit, onCancel }) {
   if (resultado) {
     return (
       <div>
-        <p style={{ color: '#8892AB', fontSize: '0.9rem', marginBottom: '0.75rem' }}>
-          Nueva contraseña para <strong style={{ color: '#F1F3F9' }}>{usuario.username}</strong>:
+        <p style={{ color: 'var(--texto-tenue)', fontSize: '0.9rem', marginBottom: '0.75rem' }}>
+          Nueva contraseña para <strong style={{ color: 'var(--texto-fuerte)' }}>{usuario.username}</strong>:
         </p>
         <div style={{
           display: 'flex', alignItems: 'center', gap: '0.5rem',
-          backgroundColor: '#0F1420', border: '1px solid #2C3450', borderRadius: '8px',
+          backgroundColor: 'var(--campo-bg)', border: '1px solid var(--campo-borde)', borderRadius: '8px',
           padding: '0.75rem 1rem', marginBottom: '1rem',
         }}>
           <code style={{ flex: 1, color: '#4ADE80', fontSize: '1rem' }}>{resultado}</code>
-          <button onClick={copiar} style={{ background: 'none', border: 'none', color: '#6B7690', display: 'flex' }}>
+          <button onClick={copiar} style={{ background: 'none', border: 'none', color: 'var(--texto-4)', display: 'flex' }}>
             {copiado ? <Check size={18} color="#4ADE80" /> : <Copy size={18} />}
           </button>
         </div>
-        <p style={{ color: '#5B6785', fontSize: '0.8rem', marginBottom: '1rem' }}>
+        <p style={{ color: 'var(--texto-5)', fontSize: '0.8rem', marginBottom: '1rem' }}>
           Compártela directamente con el usuario — no queda guardada en ningún otro lugar del sistema, a menos que la guardes tú mismo abajo.
         </p>
 
@@ -83,8 +83,8 @@ function ResetPasswordForm({ usuario, onSubmit, onCancel }) {
           style={{
             width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
             backgroundColor: guardado ? 'rgba(74,222,128,0.12)' : 'transparent',
-            border: guardado ? '1px solid rgba(74,222,128,0.4)' : '1px solid #2C3450',
-            color: guardado ? '#4ADE80' : '#9AA3B8',
+            border: guardado ? '1px solid rgba(74,222,128,0.4)' : '1px solid var(--campo-borde)',
+            color: guardado ? '#4ADE80' : 'var(--texto-2)',
             padding: '0.6rem', borderRadius: '6px', fontSize: '0.85rem', marginBottom: '1rem',
           }}
         >
@@ -104,16 +104,16 @@ function ResetPasswordForm({ usuario, onSubmit, onCancel }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p style={{ color: '#8892AB', fontSize: '0.9rem', marginBottom: '1rem' }}>
-        Restablecer contraseña de <strong style={{ color: '#F1F3F9' }}>{usuario.username}</strong>
+      <p style={{ color: 'var(--texto-tenue)', fontSize: '0.9rem', marginBottom: '1rem' }}>
+        Restablecer contraseña de <strong style={{ color: 'var(--texto-fuerte)' }}>{usuario.username}</strong>
       </p>
 
       <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '1.25rem' }}>
         <label style={{
           flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem',
           padding: '0.6rem', borderRadius: '8px', cursor: 'pointer', fontSize: '0.88rem',
-          border: modo === 'auto' ? '1px solid #F8C22E' : '1px solid #2C3450',
-          color: modo === 'auto' ? '#F8C22E' : '#9AA3B8',
+          border: modo === 'auto' ? '1px solid #F8C22E' : '1px solid var(--campo-borde)',
+          color: modo === 'auto' ? '#F8C22E' : 'var(--texto-2)',
         }}>
           <input type="radio" checked={modo === 'auto'} onChange={() => setModo('auto')} style={{ display: 'none' }} />
           Generar automática
@@ -121,8 +121,8 @@ function ResetPasswordForm({ usuario, onSubmit, onCancel }) {
         <label style={{
           flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem',
           padding: '0.6rem', borderRadius: '8px', cursor: 'pointer', fontSize: '0.88rem',
-          border: modo === 'manual' ? '1px solid #F8C22E' : '1px solid #2C3450',
-          color: modo === 'manual' ? '#F8C22E' : '#9AA3B8',
+          border: modo === 'manual' ? '1px solid #F8C22E' : '1px solid var(--campo-borde)',
+          color: modo === 'manual' ? '#F8C22E' : 'var(--texto-2)',
         }}>
           <input type="radio" checked={modo === 'manual'} onChange={() => setModo('manual')} style={{ display: 'none' }} />
           Escribir manual
@@ -137,8 +137,8 @@ function ResetPasswordForm({ usuario, onSubmit, onCancel }) {
           placeholder="Nueva contraseña"
           style={{
             width: '100%', padding: '0.6rem 0.8rem', borderRadius: '6px',
-            border: '1px solid #2C3450', backgroundColor: '#0F1420',
-            color: '#E8EAF0', marginBottom: '1rem', fontSize: '0.95rem', boxSizing: 'border-box',
+            border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg)',
+            color: 'var(--texto-claro)', marginBottom: '1rem', fontSize: '0.95rem', boxSizing: 'border-box',
           }}
         />
       )}
@@ -151,7 +151,7 @@ function ResetPasswordForm({ usuario, onSubmit, onCancel }) {
           Restablecer
         </button>
         <button type="button" onClick={onCancel} style={{
-          backgroundColor: 'transparent', color: '#9AA3B8', border: '1px solid #2C3450',
+          backgroundColor: 'transparent', color: 'var(--texto-2)', border: '1px solid var(--campo-borde)',
           padding: '0.65rem 1.25rem', borderRadius: '6px', flex: 1,
         }}>
           Cancelar
