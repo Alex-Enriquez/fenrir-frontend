@@ -117,7 +117,7 @@ function ImportarExcelForm({ urlPlantilla, urlImportar, nombrePlantilla, onTermi
           {subiendo ? 'Importando...' : 'Importar'}
         </button>
         <button type="button" onClick={onCancel} style={{
-          backgroundColor: 'transparent', color: 'var(--texto-2)', border: '1px solid var(--campo-borde)',
+          backgroundColor: 'transparent', color: 'var(--sec-texto)', border: '1px solid var(--sec-borde)',
           padding: '0.65rem 1.25rem', borderRadius: '6px', flex: 1,
         }}>
           Cancelar

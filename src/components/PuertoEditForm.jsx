@@ -53,7 +53,7 @@ function PuertoEditForm({ puerto, onSubmit, onCancel }) {
         <button type="submit" style={{ backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none', padding: '0.5rem 1rem', borderRadius: '6px', fontWeight: 'bold', flex: 1, fontSize: '0.85rem' }}>
           Guardar
         </button>
-        <button type="button" onClick={onCancel} style={{ backgroundColor: 'transparent', color: 'var(--texto-2)', border: '1px solid var(--campo-borde)', padding: '0.5rem 1rem', borderRadius: '6px', flex: 1, fontSize: '0.85rem' }}>
+        <button type="button" onClick={onCancel} style={{ backgroundColor: 'transparent', color: 'var(--sec-texto)', border: '1px solid var(--sec-borde)', padding: '0.5rem 1rem', borderRadius: '6px', flex: 1, fontSize: '0.85rem' }}>
           Cerrar
         </button>
       </div>

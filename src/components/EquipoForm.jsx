@@ -121,7 +121,7 @@ function EquipoForm({ categorias, equipoInicial, onSubmit, onCancel, onCategoria
               <button type="button" onClick={crearCategoria} style={{ background: 'var(--accion)', border: 'none', borderRadius: '6px', color: 'var(--sobre-accion)', padding: '0 0.9rem', fontWeight: 700 }}>
                 Crear
               </button>
-              <button type="button" onClick={() => setCreandoCategoria(false)} style={{ background: 'transparent', border: '1px solid var(--campo-borde)', borderRadius: '6px', color: 'var(--texto-2)', padding: '0 0.7rem' }}>
+              <button type="button" onClick={() => setCreandoCategoria(false)} style={{ background: 'transparent', border: '1px solid var(--sec-borde)', borderRadius: '6px', color: 'var(--sec-texto)', padding: '0 0.7rem' }}>
                 X
               </button>
             </div>
@@ -234,7 +234,7 @@ function EquipoForm({ categorias, equipoInicial, onSubmit, onCancel, onCategoria
           onClick={onCancel}
           disabled={guardando}
           style={{
-            backgroundColor: 'transparent', color: 'var(--texto-2)', border: '1px solid var(--campo-borde)',
+            backgroundColor: 'transparent', color: 'var(--sec-texto)', border: '1px solid var(--sec-borde)',
             padding: '0.65rem 1.25rem', borderRadius: '6px', flex: 1,
           }}
         >

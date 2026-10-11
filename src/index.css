@@ -321,3 +321,13 @@ h1, h2, h3 {
   --marca-punto: #B38000;
   --marca-ti: #B38000;
 }
+
+/* === tema fenrir: botones secundarios (oscuro = igual que hoy) === */
+:root {
+  --sec-texto: #9AA3B8;
+  --sec-borde: #2C3450;
+}
+:root[data-theme="light"] {
+  --sec-texto: #001D5C;
+  --sec-borde: #001D5C;
+}

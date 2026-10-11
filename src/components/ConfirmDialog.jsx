@@ -35,8 +35,8 @@ function ConfirmDialog({ isOpen, title, message, onConfirm, onCancel }) {
             onClick={onCancel}
             style={{
               flex: 1, padding: '0.6rem', borderRadius: '8px',
-              border: '1px solid var(--campo-borde)', backgroundColor: 'transparent',
-              color: 'var(--texto-2)', fontSize: '0.9rem',
+              border: '1px solid var(--sec-borde)', backgroundColor: 'transparent',
+              color: 'var(--sec-texto)', fontSize: '0.9rem',
             }}
           >
             Cancelar
