@@ -80,8 +80,8 @@ function ImportarExcelForm({ urlPlantilla, urlImportar, nombrePlantilla, onTermi
         onClick={() => descargarArchivo(urlPlantilla, nombrePlantilla)}
         style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', width: '100%',
-          background: 'transparent', border: '1px solid var(--campo-borde)', borderRadius: '8px',
-          padding: '0.65rem', color: 'var(--texto-suave)', fontSize: '0.9rem', marginBottom: '1.25rem',
+          background: 'var(--exp-bg)', border: '1px solid var(--exp-borde)', borderRadius: '8px',
+          padding: '0.65rem', color: 'var(--exp-texto)', fontSize: '0.9rem', marginBottom: '1.25rem',
         }}
       >
         <Download size={16} /> Descargar plantilla
