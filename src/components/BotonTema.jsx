@@ -15,7 +15,7 @@ function BotonTema() {
       style={{
         marginLeft: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center',
         width: '36px', height: '36px', borderRadius: '10px',
-        border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg-2)', color: 'var(--texto-2)',
+        border: '1px solid var(--top-btn-borde)', backgroundColor: 'var(--top-btn-bg)', color: 'var(--top-btn-color)',
       }}
     >
       {esClaro ? <Moon size={17} /> : <Sun size={17} />}

@@ -28,26 +28,42 @@ const titulos = {
   '/licencias': 'Licencias',
   '/asignaciones': 'Asignaciones',
   '/mantenimientos': 'Mantenimientos',
+  '/responsivas': 'Responsivas',
+  '/proveedores': 'Proveedores',
+  '/servicios-contratados': 'Servicios contratados',
+  '/infraestructura': 'Infraestructura de red',
+  '/contrasenas': 'Contraseñas',
+  '/usuarios-sistema': 'Usuarios del sistema',
+}
+
+// Título de la barra superior: la ruta exacta o, si no, la que coincide al inicio
+// (así /licencias/3 también dice "Licencias")
+function tituloDe(ruta) {
+  if (titulos[ruta]) return titulos[ruta]
+  const base = Object.keys(titulos)
+    .filter((k) => k !== '/' && ruta.startsWith(k + '/'))
+    .sort((a, b) => b.length - a.length)[0]
+  return base ? titulos[base] : 'Alamex TI'
 }
 
 function Topbar() {
   const location = useLocation()
-  const titulo = titulos[location.pathname] || 'Alamex TI'
+  const titulo = tituloDe(location.pathname)
 
   return (
     <header style={{
       height: '60px',
-      borderBottom: '1px solid var(--borde)',
+      borderBottom: '1px solid var(--top-borde)',
       display: 'flex',
       alignItems: 'center',
       padding: '0 2rem',
-      backgroundColor: 'rgba(var(--topbar-rgb), 0.5)',
+      backgroundColor: 'var(--top-bg)',
       backdropFilter: 'blur(6px)',
     }}>
-      <span style={{ color: 'var(--texto-claro)', fontSize: '0.95rem', fontWeight: 600 }}>
+      <span className="titulo-barra" style={{ color: 'var(--top-titulo)', fontSize: '0.95rem', fontWeight: 600 }}>
         {titulo}
       </span>
-      <span style={{ color: 'var(--texto-5)', fontSize: '0.85rem', marginLeft: '0.6rem' }}>
+      <span style={{ color: 'var(--top-sub)', fontSize: '0.85rem', marginLeft: '0.6rem' }}>
         · Sistema de Inventario TI
       </span>
       <BotonTema />

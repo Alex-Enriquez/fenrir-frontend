@@ -386,3 +386,33 @@ h1, h2, h3 {
   --accion: #001D5C;
   --sobre-accion: #FFFFFF;
 }
+
+/* === tema fenrir: barra superior y títulos (oscuro = igual que hoy) === */
+:root {
+  --top-bg: rgba(22, 28, 46, 0.5);
+  --top-borde: #262E48;
+  --top-titulo: #E8EAF0;
+  --top-sub: #5B6785;
+  --top-btn-bg: #141A2C;
+  --top-btn-borde: #2C3450;
+  --top-btn-color: #9AA3B8;
+  --titulo-dorado: #F8C22E;
+}
+:root[data-theme="light"] {
+  --top-bg: rgba(255, 255, 255, 0.7);
+  --top-borde: #D9DFEA;
+  --top-titulo: #B38000;
+  --top-sub: #5A6781;
+  --top-btn-bg: #F3F5FA;
+  --top-btn-borde: #C9D1E0;
+  --top-btn-color: #46526B;
+  --titulo-dorado: #B38000;
+}
+:root[data-theme="light"] .titulo-barra {
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+}
+:root[data-theme="light"] main h1 {
+  color: var(--titulo-dorado) !important;
+}
+/* === fin tema fenrir: barra superior y títulos === */
