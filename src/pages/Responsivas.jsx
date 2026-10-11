@@ -62,7 +62,12 @@ function Responsivas() {
   }
 
   const verPdf = (id) => {
-    window.open(`${API_URL}/responsivas/${id}/pdf/`, '_blank')
+    axios.get(`${API_URL}/responsivas/${id}/pdf/`, { responseType: 'blob' })
+      .then((res) => {
+        const url = window.URL.createObjectURL(new Blob([res.data], { type: 'application/pdf' }))
+        window.open(url, '_blank')
+      })
+      .catch(() => mostrarToast('No se pudo abrir el PDF.'))
   }
 
   const responsivasFiltradas = responsivas.filter(r => {
