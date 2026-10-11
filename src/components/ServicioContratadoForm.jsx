@@ -95,7 +95,7 @@ function ServicioContratadoForm({ proveedores, servicioInicial, onSubmit, onCanc
           {guardando ? 'Guardando...' : 'Guardar'}
         </button>
         <button type="button" onClick={onCancel} disabled={guardando} style={{
-          backgroundColor: 'transparent', color: 'var(--sec-texto)', border: '1px solid var(--sec-borde)',
+          backgroundColor: 'transparent', color: 'var(--sec-texto)', border: '1px solid var(--cancel-borde)',
           padding: '0.65rem 1.25rem', borderRadius: '6px', flex: 1,
         }}>
           Cancelar
