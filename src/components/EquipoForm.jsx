@@ -18,7 +18,7 @@ const rowStyle = { display: 'flex', gap: '0.75rem' }
 const labelStyle = { display: 'block', marginBottom: '0.35rem', color: 'var(--texto-2)', fontSize: '0.85rem' }
 
 const initialState = {
-  categoria: '', marca: '', modelo: '', numero_serie: '', numero_inventario: '',
+  categoria: '', marca: '', modelo: '', numero_serie: '', numero_inventario: '', imei: '',
   procesador: '',
   ram_capacidad: '', ram_tipo: '', ram_formato: '',
   disco_tipo: '', disco_capacidad: '',
@@ -157,6 +157,14 @@ function EquipoForm({ categorias, equipoInicial, onSubmit, onCancel, onCategoria
           <label style={labelStyle}>Número de inventario</label>
           <input name="numero_inventario" value={form.numero_inventario || ''} onChange={handleChange} style={inputStyle} placeholder="ej. ALX-PER-0001" />
         </div>
+      </div>
+
+      <div style={rowStyle}>
+        <div style={{ flex: 1 }}>
+          <label style={labelStyle}>IMEI</label>
+          <input name="imei" value={form.imei || ''} onChange={handleChange} style={inputStyle} placeholder="Solo celulares y tablets con SIM" maxLength={20} />
+        </div>
+        <div style={{ flex: 1 }} />
       </div>
 
       <div className="form-section-title">Especificaciones técnicas</div>

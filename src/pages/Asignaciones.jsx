@@ -291,7 +291,7 @@ function Asignaciones() {
                     <td>{emp.nombre_completo}</td>
                     <td>{emp.departamento_nombre}</td>
                     <td>{equipo ? `${equipo.marca} ${equipo.modelo}` : <span style={{ color: 'var(--texto-5)' }}>Sin equipo</span>}</td>
-                    <td>{equipo?.numero_serie || '—'}</td>
+                    <td>{equipo?.numero_serie || equipo?.imei || '—'}</td>
                     <td>{equipo?.procesador || '—'}</td>
                     <td>{equipo?.memoria_ram || '—'}</td>
                     <td>

@@ -95,7 +95,7 @@ function Equipos() {
     let lista = equipos.filter(e => {
       const coincideFiltro = filtroActivo === 'todos' || e.estado === filtroActivo
       const texto = busqueda.trim().toLowerCase()
-      const coincideBusqueda = !texto || [e.marca, e.modelo, e.numero_serie, e.categoria_nombre]
+      const coincideBusqueda = !texto || [e.marca, e.modelo, e.numero_serie, e.imei, e.categoria_nombre]
         .some(campo => (campo || '').toLowerCase().includes(texto))
       return coincideFiltro && coincideBusqueda
     })
@@ -217,7 +217,7 @@ function Equipos() {
         <input
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
-          placeholder="Buscar por marca, modelo, número de serie o categoría..."
+          placeholder="Buscar por marca, modelo, número de serie, IMEI o categoría..."
           style={{
             width: '100%', padding: '0.65rem 1rem 0.65rem 2.5rem', borderRadius: '10px',
             border: '1px solid var(--campo-borde)', backgroundColor: 'var(--campo-bg-2)',
@@ -273,7 +273,10 @@ function Equipos() {
                 <tr key={equipo.id} style={{ backgroundColor: i % 2 === 1 ? 'rgba(var(--velo-rgb), 0.015)' : 'transparent' }}>
                   <td>{equipo.marca}</td>
                   <td>{equipo.modelo}</td>
-                  <td>{equipo.numero_serie}</td>
+                  <td>
+                    {equipo.numero_serie}
+                    {equipo.imei && <div style={{ fontSize: '0.72rem', color: 'var(--texto-5)' }}>IMEI: {equipo.imei}</div>}
+                  </td>
                   <td>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
                       <IconoCategoria nombre={equipo.categoria_nombre} /> {equipo.categoria_nombre}

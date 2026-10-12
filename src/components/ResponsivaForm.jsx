@@ -27,7 +27,7 @@ function ResponsivaForm({ empleados, equipos, empleadoInicial, onSubmit, onCance
     const texto = busquedaEquipo.trim().toLowerCase()
     return equiposElegibles
       .filter(eq => !equiposSeleccionados.includes(eq.id))
-      .filter(eq => !texto || `${eq.marca} ${eq.modelo} ${eq.numero_serie} ${eq.numero_inventario || ''}`.toLowerCase().includes(texto))
+      .filter(eq => !texto || `${eq.marca} ${eq.modelo} ${eq.numero_serie} ${eq.imei || ''} ${eq.numero_inventario || ''}`.toLowerCase().includes(texto))
       .slice(0, 8)
   }, [equiposElegibles, equiposSeleccionados, busquedaEquipo])
 
@@ -130,7 +130,7 @@ function ResponsivaForm({ empleados, equipos, empleadoInicial, onSubmit, onCance
                 >
                   <div style={{ fontWeight: 600 }}>{eq.marca} {eq.modelo}</div>
                   <div style={{ fontSize: '0.78rem', color: 'var(--texto-tenue)' }}>
-                    {eq.categoria_nombre} · {eq.numero_serie || eq.numero_inventario || 'sin serie'}
+                    {eq.categoria_nombre} · {eq.numero_serie || eq.imei || eq.numero_inventario || 'sin serie'}
                   </div>
                 </div>
               ))
