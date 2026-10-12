@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Plus } from 'lucide-react'
 import { API_URL } from '../config'
+import { useEsAdmin } from '../context/perfil'
 
 const inputStyle = {
   width: '100%',
@@ -43,6 +44,7 @@ function EquipoForm({ categorias, equipoInicial, onSubmit, onCancel, onCategoria
   const [creandoCategoria, setCreandoCategoria] = useState(false)
   const [nombreNuevaCategoria, setNombreNuevaCategoria] = useState('')
   const [guardando, setGuardando] = useState(false)
+  const esAdmin = useEsAdmin()
 
   useEffect(() => {
     if (equipoInicial) {
@@ -78,7 +80,11 @@ function EquipoForm({ categorias, equipoInicial, onSubmit, onCancel, onCategoria
         setCreandoCategoria(false)
         if (onCategoriaCreada) onCategoriaCreada()
       })
-      .catch(() => alert('No se pudo crear la categoría (¿ya existe?).'))
+      .catch((err) => alert(
+        err.response?.status === 403
+          ? 'Solo un administrador puede crear categorías.'
+          : (err.response?.data?.nombre?.[0] || err.response?.data?.detail || 'No se pudo crear la categoría.')
+      ))
   }
 
   return (
@@ -96,7 +102,7 @@ function EquipoForm({ categorias, equipoInicial, onSubmit, onCancel, onCategoria
                   <option key={cat.id} value={cat.id}>{cat.nombre}</option>
                 ))}
               </select>
-              <button
+              {esAdmin && <button
                 type="button"
                 onClick={() => setCreandoCategoria(true)}
                 title="Nueva categoría"
@@ -106,7 +112,7 @@ function EquipoForm({ categorias, equipoInicial, onSubmit, onCancel, onCategoria
                 }}
               >
                 <Plus size={16} />
-              </button>
+              </button>}
             </div>
           ) : (
             <div style={{ display: 'flex', gap: '0.4rem' }}>

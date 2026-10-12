@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import {
   LayoutDashboard, Monitor, KeyRound, Users, ClipboardList, Wrench,
-  Lock, LogOut, ShieldCheck, FileText, Truck, CircleDollarSign, Network,
+  Lock, LogOut, ShieldCheck, FileText, Truck, CircleDollarSign, Network, ListChecks,
 } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import Modal from './Modal'
@@ -26,6 +26,7 @@ const itemsSoloAdmin = [
   { to: '/contrasenas', label: 'Contraseñas', icon: Lock, accent: '#EAB308' },
   { to: '/usuarios-sistema', label: 'Usuarios', icon: ShieldCheck, accent: '#4ADE80' },
   { to: '/responsivas', label: 'Responsivas', icon: FileText, accent: '#F97316' },
+  { to: '/catalogos', label: 'Catálogos', icon: ListChecks, accent: '#60A5FA' },
 ]
 
 function Sidebar({ abierta, onCerrar }) {
