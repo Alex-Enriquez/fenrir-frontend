@@ -34,6 +34,8 @@ function EstatusBadge({ estatus }) {
 function Empleados() {
   const [empleados, setEmpleados] = useState([])
   const [departamentos, setDepartamentos] = useState([])
+  // Recarga solo la lista de departamentos (para el "+" del formulario), sin "Cargando..." ni tocar el resto.
+  const recargarDepartamentos = () => axios.get(`${API_URL}/departamentos/`).then(res => setDepartamentos(res.data))
   const [cargando, setCargando] = useState(true)
   const [error, setError] = useState(null)
 
@@ -287,6 +289,7 @@ function Empleados() {
       >
         <EmpleadoForm
           departamentos={departamentos}
+          onDepartamentoCreado={recargarDepartamentos}
           empleadoInicial={empleadoEditando}
           onSubmit={handleGuardar}
           onCancel={cerrarModal}

@@ -13,7 +13,9 @@ const initialState = {
   fecha_ingreso: '', estatus: 'activo', telefono: '', observaciones: '',
 }
 
-function EmpleadoForm({ departamentos, empleadoInicial, onSubmit, onCancel }) {
+import SelectConCrear from './SelectConCrear'
+
+function EmpleadoForm({ departamentos, empleadoInicial, onSubmit, onCancel, onDepartamentoCreado }) {
   const [form, setForm] = useState(initialState)
 
   useEffect(() => {
@@ -45,12 +47,11 @@ function EmpleadoForm({ departamentos, empleadoInicial, onSubmit, onCancel }) {
       <div style={rowStyle}>
         <div style={{ flex: 1 }}>
           <label style={labelStyle}>Departamento</label>
-          <select name="departamento" value={form.departamento} onChange={handleChange} required style={inputStyle}>
-            <option value="">-- Selecciona --</option>
-            {departamentos.map(dep => (
-              <option key={dep.id} value={dep.id}>{dep.nombre}</option>
-            ))}
-          </select>
+          <SelectConCrear
+            name="departamento" value={form.departamento} onChange={handleChange} required
+            opciones={departamentos} ruta="departamentos" ejemplo="ej. Compras"
+            tituloNuevo="Nuevo departamento" onCreada={onDepartamentoCreado} inputStyle={inputStyle}
+          />
         </div>
         <div style={{ flex: 1 }}>
           <label style={labelStyle}>Estatus</label>

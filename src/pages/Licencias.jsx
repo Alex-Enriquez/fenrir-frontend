@@ -35,6 +35,8 @@ const coloresGrupo = ['#F8C22E', '#60A5FA', '#C084FC', '#4ADE80', '#F97316', '#F
 function Licencias() {
   const [licencias, setLicencias] = useState([])
   const [tipos, setTipos] = useState([])
+  // Recarga solo la lista de tipos (para el "+" del formulario), sin "Cargando..." ni tocar el resto.
+  const recargarTipos = () => axios.get(`${API_URL}/tipos-licencia/`).then(res => setTipos(res.data))
   const [asignaciones, setAsignaciones] = useState([])
   const [cargando, setCargando] = useState(true)
   const [error, setError] = useState(null)
@@ -111,8 +113,10 @@ function Licencias() {
     if (!tipoAEliminar) return
     axios.delete(`${API_URL}/tipos-licencia/${tipoAEliminar.id}/`)
       .then(() => { setTipoAEliminar(null); cargarDatos(); mostrarToast('Tipo de licencia eliminado.', 'exito') })
-      .catch(() => {
-        mostrarToast('No se pudo eliminar: aún tiene licencias asociadas. Elimínalas primero.')
+      .catch((err) => {
+        mostrarToast(err.response?.status === 403
+          ? 'Solo un administrador puede eliminar tipos de licencia.'
+          : (err.response?.data?.detail || 'No se pudo eliminar el tipo de licencia.'))
         setTipoAEliminar(null)
       })
   }
@@ -165,7 +169,7 @@ function Licencias() {
       {tarjetas.length === 0 ? (
         <div className="card" style={{ textAlign: 'center', color: 'var(--texto-4)', padding: '2rem' }}>
           <KeyRound size={28} style={{ marginBottom: '0.5rem', opacity: 0.5 }} />
-          <p>No hay tipos de licencia registrados. Agrega uno desde el admin de Django (Licencias → Tipo licencias).</p>
+          <p>No hay tipos de licencia registrados. Créalos en Catálogos (menú lateral).</p>
         </div>
       ) : (
         <div style={{
@@ -250,6 +254,7 @@ function Licencias() {
       <Modal isOpen={modalAbierto} onClose={() => setModalAbierto(false)} title="Nueva licencia">
         <LicenciaForm
           tipos={tipos}
+          onTipoCreado={recargarTipos}
           licenciaInicial={null}
           onSubmit={handleGuardar}
           onCancel={() => setModalAbierto(false)}

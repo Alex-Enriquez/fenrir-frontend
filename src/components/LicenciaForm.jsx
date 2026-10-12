@@ -13,7 +13,9 @@ const initialState = {
   fecha_compra: '', fecha_vencimiento: '', proveedor_compra: '', costo: '', observaciones: '',
 }
 
-function LicenciaForm({ tipos, licenciaInicial, onSubmit, onCancel }) {
+import SelectConCrear from './SelectConCrear'
+
+function LicenciaForm({ tipos, licenciaInicial, onSubmit, onCancel, onTipoCreado }) {
   const [form, setForm] = useState(initialState)
 
   useEffect(() => {
@@ -37,12 +39,12 @@ function LicenciaForm({ tipos, licenciaInicial, onSubmit, onCancel }) {
   return (
     <form onSubmit={handleSubmit}>
       <label style={labelStyle}>Tipo de licencia</label>
-      <select name="tipo" value={form.tipo} onChange={handleChange} required style={inputStyle}>
-        <option value="">-- Selecciona --</option>
-        {tipos.map(t => (
-          <option key={t.id} value={t.id}>{t.nombre}{t.proveedor ? ` (${t.proveedor})` : ''}</option>
-        ))}
-      </select>
+      <SelectConCrear
+        name="tipo" value={form.tipo} onChange={handleChange} required
+        opciones={tipos} renderEtiqueta={(t) => `${t.nombre}${t.proveedor ? ` (${t.proveedor})` : ''}`}
+        ruta="tipos-licencia" ejemplo="ej. Office 365, Antivirus"
+        tituloNuevo="Nuevo tipo de licencia" onCreada={onTipoCreado} inputStyle={inputStyle}
+      />
 
       <div style={rowStyle}>
         <div style={{ flex: 1 }}>

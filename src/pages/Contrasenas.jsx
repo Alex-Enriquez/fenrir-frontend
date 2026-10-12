@@ -108,15 +108,19 @@ function Contrasenas() {
   const handleCrearCategoria = (nombre) => {
     axios.post(`${API_URL}/categorias-contrasena/`, { nombre })
       .then(() => { setModalAbierto(false); cargarDatos() })
-      .catch(() => mostrarToast('No se pudo crear la categoría.'))
+      .catch((err) => mostrarToast(err.response?.status === 403
+        ? 'Solo un administrador puede cambiar las categorías.'
+        : (err.response?.data?.nombre?.[0] || err.response?.data?.detail || 'No se pudo crear la categoría.')))
   }
 
   const confirmarEliminar = () => {
     if (!categoriaAEliminar) return
     axios.delete(`${API_URL}/categorias-contrasena/${categoriaAEliminar.id}/`)
       .then(() => { setCategoriaAEliminar(null); cargarDatos(); mostrarToast('Categoría eliminada.', 'exito') })
-      .catch(() => {
-        mostrarToast('No se pudo eliminar: aún tiene registros dentro. Elimínalos primero.')
+      .catch((err) => {
+        mostrarToast(err.response?.status === 403
+          ? 'Solo un administrador puede cambiar las categorías.'
+          : (err.response?.data?.detail || 'No se pudo eliminar la categoría.'))
         setCategoriaAEliminar(null)
       })
   }
