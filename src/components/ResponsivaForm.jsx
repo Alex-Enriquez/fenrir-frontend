@@ -10,17 +10,21 @@ const inputStyle = {
 }
 const labelStyle = { display: 'block', marginBottom: '0.35rem', color: 'var(--texto-2)', fontSize: '0.85rem' }
 
-function ResponsivaForm({ empleados, equipos, empleadoInicial, onSubmit, onCancel }) {
+function ResponsivaForm({
+  empleados, equipos, empleadoInicial, equiposIniciales = [], equiposExtraElegibles = [],
+  incluirTodo = null, textoEnviar = 'Generar responsiva', onSubmit, onCancel,
+}) {
   const [empleadoId, setEmpleadoId] = useState(empleadoInicial || '')
   const [quienEntrega, setQuienEntrega] = useState('')
   const [observaciones, setObservaciones] = useState('')
   const [busquedaEquipo, setBusquedaEquipo] = useState('')
   const [mostrarSugerencias, setMostrarSugerencias] = useState(false)
-  const [equiposSeleccionados, setEquiposSeleccionados] = useState([])
+  const [equiposSeleccionados, setEquiposSeleccionados] = useState(equiposIniciales)
+  const [enviando, setEnviando] = useState(false)
 
   const equiposElegibles = useMemo(
-    () => equipos.filter(eq => eq.estado === 'disponible'),
-    [equipos]
+    () => equipos.filter(eq => eq.estado === 'disponible' || equiposExtraElegibles.includes(eq.id)),
+    [equipos, equiposExtraElegibles]
   )
 
   const sugerencias = useMemo(() => {
@@ -49,12 +53,14 @@ function ResponsivaForm({ empleados, equipos, empleadoInicial, onSubmit, onCance
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    onSubmit({
+    if (enviando) return
+    setEnviando(true)
+    Promise.resolve(onSubmit({
       empleado: empleadoId,
       quien_entrega: quienEntrega,
       observaciones,
       items: equiposSeleccionados.map(id => ({ equipo: id, cantidad: 1 })),
-    })
+    })).finally(() => setEnviando(false))
   }
 
   return (
@@ -73,7 +79,9 @@ function ResponsivaForm({ empleados, equipos, empleadoInicial, onSubmit, onCance
         {TECNICOS.map(t => <option key={t} value={t}>{t}</option>)}
       </select>
 
-      <label style={labelStyle}>Equipos a incluir (solo disponibles)</label>
+      <label style={labelStyle}>
+        {equiposExtraElegibles.length > 0 ? 'Equipos a incluir (disponibles y los de esa persona)' : 'Equipos a incluir (solo disponibles)'}
+      </label>
 
       {equiposSeleccionados.length > 0 && (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '0.5rem' }}>
@@ -94,6 +102,19 @@ function ResponsivaForm({ empleados, equipos, empleadoInicial, onSubmit, onCance
             )
           })}
         </div>
+      )}
+
+      {incluirTodo && incluirTodo.ids.some(id => !equiposSeleccionados.includes(id)) && (
+        <button
+          type="button"
+          onClick={() => setEquiposSeleccionados(prev => [...prev, ...incluirTodo.ids.filter(id => !prev.includes(id))])}
+          style={{
+            background: 'transparent', border: '1px solid var(--sec-borde)', color: 'var(--sec-texto)',
+            borderRadius: '6px', padding: '0.35rem 0.7rem', fontSize: '0.82rem', marginBottom: '0.6rem',
+          }}
+        >
+          {incluirTodo.texto}
+        </button>
       )}
 
       <div style={{ position: 'relative', marginBottom: '1rem' }}>
@@ -151,14 +172,14 @@ function ResponsivaForm({ empleados, equipos, empleadoInicial, onSubmit, onCance
       <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.5rem' }}>
         <button
           type="submit"
-          disabled={!empleadoId || !quienEntrega || equiposSeleccionados.length === 0}
+          disabled={enviando || !empleadoId || !quienEntrega || equiposSeleccionados.length === 0}
           style={{
             backgroundColor: 'var(--accion)', color: 'var(--sobre-accion)', border: 'none',
             padding: '0.65rem 1.25rem', borderRadius: '6px', fontWeight: 'bold', flex: 1,
-            opacity: (!empleadoId || !quienEntrega || equiposSeleccionados.length === 0) ? 0.5 : 1,
+            opacity: (enviando || !empleadoId || !quienEntrega || equiposSeleccionados.length === 0) ? 0.5 : 1,
           }}
         >
-          Generar responsiva
+          {enviando ? 'Generando...' : textoEnviar}
         </button>
         <button type="button" onClick={onCancel} style={{
           backgroundColor: 'var(--cancel-bg)', color: 'var(--cancel-texto)', border: '1px solid var(--cancel-borde)',

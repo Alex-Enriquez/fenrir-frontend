@@ -45,7 +45,7 @@ function Responsivas() {
   useEffect(() => { cargarDatos() }, [])
 
   const handleCrear = (form) => {
-    axios.post(`${API_URL}/responsivas/`, form)
+    return axios.post(`${API_URL}/responsivas/`, form)
       .then(() => { setModalAbierto(false); cargarDatos(); mostrarToast('Responsiva generada correctamente.', 'exito') })
       .catch(err => {
         console.error(err.response?.data || err)

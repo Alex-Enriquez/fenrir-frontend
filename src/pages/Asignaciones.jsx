@@ -4,6 +4,7 @@ import { Search, Monitor, Plus, Repeat, Undo2, Cpu, HardDrive, MemoryStick, Layo
 import Modal from '../components/Modal'
 import AsignarEquipoForm from '../components/AsignarEquipoForm'
 import ReasignarForm from '../components/ReasignarForm'
+import ReasignarEquipo from '../components/ReasignarEquipo'
 import ConfirmDialog from '../components/ConfirmDialog'
 import Toast from '../components/Toast'
 import { descargarArchivo } from '../utils/descargarArchivo'
@@ -336,7 +337,18 @@ function Asignaciones() {
         <AsignarEquipoForm equiposDisponibles={equiposDisponibles} onSubmit={handleAsignar} onCancel={() => setEmpleadoParaAsignar(null)} />
       </Modal>
 
-      <Modal isOpen={!!asignacionParaReasignar} onClose={() => setAsignacionParaReasignar(null)} title="Reasignar equipo">
+      <ReasignarEquipo
+        asignacion={asignacionParaReasignar?.equipo && !asignacionParaReasignar?.licencia ? asignacionParaReasignar : null}
+        empleados={empleados}
+        equipos={equipos}
+        asignaciones={asignaciones}
+        mostrarToast={mostrarToast}
+        onClose={() => setAsignacionParaReasignar(null)}
+        onHecho={() => Promise.all([axios.get(`${API_URL}/asignaciones/`), axios.get(`${API_URL}/equipos/`)])
+          .then(([a, e]) => { setAsignaciones(a.data); setEquipos(e.data) })}
+      />
+
+      <Modal isOpen={!!asignacionParaReasignar && !(asignacionParaReasignar.equipo && !asignacionParaReasignar.licencia)} onClose={() => setAsignacionParaReasignar(null)} title="Reasignar licencia">
         <ReasignarForm
           empleadosDisponibles={empleados.filter(e => e.id !== asignacionParaReasignar?.empleado)}
           onSubmit={handleReasignar}
