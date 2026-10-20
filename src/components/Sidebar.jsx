@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import {
   LayoutDashboard, Monitor, KeyRound, Users, ClipboardList, Wrench,
-  Lock, LogOut, ShieldCheck, FileText, Truck, CircleDollarSign, Network, ListChecks,
+  Lock, LogOut, ShieldCheck, FileText, Truck, CircleDollarSign, Network, ListChecks, Phone,
 } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import Modal from './Modal'
@@ -20,6 +20,7 @@ const itemsGenerales = [
   { to: '/proveedores', label: 'Proveedores', icon: Truck, accent: '#C084FC' },
   { to: '/servicios-contratados', label: 'Servicios', icon: CircleDollarSign, accent: '#4ADE80' },
   { to: '/infraestructura', label: 'Infraestructura', icon: Network, accent: '#60A5FA' },
+  { to: '/directorio', label: 'Directorio', icon: Phone, accent: '#2DD4BF' },
 ]
 
 const itemsSoloAdmin = [

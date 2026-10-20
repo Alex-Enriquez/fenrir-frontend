@@ -18,6 +18,7 @@ import Proveedores from './pages/Proveedores'
 import ServiciosContratados from './pages/ServiciosContratados'
 import Infraestructura from './pages/Infraestructura'
 import Catalogos from './pages/Catalogos'
+import Directorio from './pages/Directorio'
 import Login from './pages/Login'
 import BotonTema from './components/BotonTema'
 import { useAplicarTema } from './context/tema'
@@ -36,6 +37,7 @@ const titulos = {
   '/contrasenas': 'Contraseñas',
   '/usuarios-sistema': 'Usuarios del sistema',
   '/catalogos': 'Catálogos',
+  '/directorio': 'Directorio',
 }
 
 // Título de la barra superior: la ruta exacta o, si no, la que coincide al inicio
@@ -113,6 +115,7 @@ function AppLayout() {
             <Route path="/servicios-contratados" element={<ServiciosContratados />} />
             <Route path="/infraestructura" element={<Infraestructura />} />
             <Route path="/catalogos" element={<Catalogos />} />
+            <Route path="/directorio" element={<Directorio />} />
           </Routes>
         </main>
       </div>
