@@ -119,7 +119,7 @@ function Login() {
         correo: regCorreo.trim(),
         password: regPassword,
       })
-      mostrarToast('Cuenta creada. Ya puedes iniciar sesión.', 'exito')
+      mostrarToast('Cuenta creada. Falta que un administrador la apruebe.', 'exito')
       setLoginCorreo(regCorreo.trim())
       setRegNombre(''); setRegCorreo(''); setRegPassword('')
       cambiarPane('login')
