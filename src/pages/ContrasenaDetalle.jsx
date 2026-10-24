@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { ArrowLeft, Plus, Pencil, Trash2, Eye, EyeOff, Copy, Lock } from 'lucide-react'
+import { ArrowLeft, Plus, Pencil, Trash2, Eye, EyeOff, Copy, Lock } from '../ui/icons'
 import Modal from '../components/Modal'
 import AccesoDenegado from '../components/AccesoDenegado'
 import ContrasenaForm from '../components/ContrasenaForm'

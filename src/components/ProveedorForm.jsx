@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Star } from 'lucide-react'
+import { Star } from '../ui/icons'
 
 const inputStyle = {
   width: '100%', padding: '0.6rem 0.8rem', borderRadius: '6px',

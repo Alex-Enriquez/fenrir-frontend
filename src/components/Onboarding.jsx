@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Lightbulb } from 'lucide-react'
+import { Lightbulb } from '../ui/icons'
 import Modal from './Modal'
 import OnboardingWizard from './OnboardingWizard'
 import tips from '../data/tips'

@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { Plus, Search, Lock, Mail, Layout, Server, Globe, Trash2, FileBadge, FileText, User } from 'lucide-react'
+import { Plus, Search, Lock, Mail, Layout, Server, Globe, Trash2, FileBadge, FileText, User } from '../ui/icons'
 import Modal from '../components/Modal'
 import AccesoDenegado from '../components/AccesoDenegado'
 import ConfirmDialog from '../components/ConfirmDialog'

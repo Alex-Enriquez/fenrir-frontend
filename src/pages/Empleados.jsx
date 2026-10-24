@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
-import { Plus, Pencil, Trash2, Search, ArrowUpDown, Mail, Phone, Download } from 'lucide-react'
+import { Plus, Pencil, Trash2, Search, ArrowUpDown, Mail, Phone, Download } from '../ui/icons'
 import Modal from '../components/Modal'
 import EmpleadoForm from '../components/EmpleadoForm'
 import ConfirmDialog from '../components/ConfirmDialog'

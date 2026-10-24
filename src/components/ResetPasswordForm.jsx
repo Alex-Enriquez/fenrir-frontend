@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-import { Copy, Check, Save } from 'lucide-react'
+import { Copy, Check, Save } from '../ui/icons'
 import { API_URL } from '../config'
 
 const NOMBRE_CATEGORIA_USUARIOS = 'Usuarios del sistema'

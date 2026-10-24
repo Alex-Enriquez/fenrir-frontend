@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
-import { Plus, Search, Pencil, Trash2, CircleDollarSign, CheckCircle2, History } from 'lucide-react'
+import { Plus, Search, Pencil, Trash2, CircleDollarSign, CheckCircle2, History } from '../ui/icons'
 import Modal from '../components/Modal'
 import ServicioContratadoForm from '../components/ServicioContratadoForm'
 import HistorialPagosModal from '../components/HistorialPagosModal'

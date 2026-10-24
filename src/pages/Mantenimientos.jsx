@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
-import { Plus, Search, Pencil, Trash2, Wrench } from 'lucide-react'
+import { Plus, Search, Pencil, Trash2, Wrench } from '../ui/icons'
 import Modal from '../components/Modal'
 import MantenimientoForm from '../components/MantenimientoForm'
 import ConfirmDialog from '../components/ConfirmDialog'

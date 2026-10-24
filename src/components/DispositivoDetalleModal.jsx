@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Pencil, Server } from 'lucide-react'
+import { Pencil, Server } from '../ui/icons'
 import DispositivoRedForm from './DispositivoRedForm'
 import PuertoMapModal from './PuertoMapModal'
 

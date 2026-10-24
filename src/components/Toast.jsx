@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { AlertCircle, CheckCircle2 } from 'lucide-react'
+import { AlertCircle, CheckCircle2 } from '../ui/icons'
 
 function Toast({ mensaje, tipo = 'error', onClose }) {
   useEffect(() => {
@@ -14,18 +14,9 @@ function Toast({ mensaje, tipo = 'error', onClose }) {
   const Icon = esError ? AlertCircle : CheckCircle2
 
   return (
-    <div style={{
-      position: 'fixed', bottom: '1.5rem', right: '1.5rem', zIndex: 1200,
-      display: 'flex', alignItems: 'center', gap: '0.6rem',
-      backgroundColor: esError ? 'var(--peligro-bg)' : 'var(--exito-bg)',
-      color: esError ? 'var(--peligro-texto)' : 'var(--exito-texto)',
-      border: `1px solid ${esError ? 'var(--peligro-borde)' : '#1F5C3A'}`,
-      padding: '0.75rem 1.1rem', borderRadius: '10px',
-      boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
-      fontSize: '0.88rem', maxWidth: '340px',
-    }}>
-      <Icon size={18} />
-      {mensaje}
+    <div className={`fx-toast ${esError ? 'error' : 'exito'}`} role={esError ? 'alert' : 'status'}>
+      <Icon size={20} weight="duotone" />
+      <span>{mensaje}</span>
     </div>
   )
 }

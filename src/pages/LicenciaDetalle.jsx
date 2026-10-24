@@ -6,7 +6,7 @@ import {
   ArrowLeft, KeyRound, Crown, Calculator, Megaphone, PenTool, Monitor,
   Settings, TrendingUp, Package, Users, BadgeCheck, Warehouse, GripVertical,
   Plus, Pencil, Trash2,
-} from 'lucide-react'
+} from '../ui/icons'
 import Modal from '../components/Modal'
 import LicenciaCardForm from '../components/LicenciaCardForm'
 import ConfirmDialog from '../components/ConfirmDialog'

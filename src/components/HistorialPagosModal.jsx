@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Receipt } from 'lucide-react'
+import { Receipt } from '../ui/icons'
 import { API_URL } from '../config'
 
 function HistorialPagosModal({ servicio }) {

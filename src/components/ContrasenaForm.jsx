@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Eye, EyeOff, Wand2 } from 'lucide-react'
+import { Eye, EyeOff, Wand2 } from '../ui/icons'
 
 const inputStyle = {
   width: '100%', padding: '0.6rem 0.8rem', borderRadius: '6px',

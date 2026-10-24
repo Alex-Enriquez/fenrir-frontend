@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { X } from '../ui/icons'
 
 function Modal({ isOpen, onClose, title, children }) {
   useEffect(() => {
@@ -27,35 +28,19 @@ function Modal({ isOpen, onClose, title, children }) {
       }}
     >
       <div
-        className="modal-content"
+        className="modal-content fx-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label={title || undefined}
         onClick={(e) => e.stopPropagation()}
-        style={{
-          backgroundColor: 'rgba(var(--modal-rgb), 0.85)',
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)',
-          borderRadius: '12px',
-          padding: '1.5rem 2rem',
-          width: '90%',
-          maxWidth: '500px',
-          maxHeight: '85vh',
-          overflowY: 'auto',
-          border: '1px solid var(--campo-borde)',
-          boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
-        }}
       >
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-          <h2 style={{ margin: 0, color: 'var(--acento-texto)', fontSize: '1.3rem' }}>{title}</h2>
-          <button
-            onClick={onClose}
-            style={{
-              background: 'none', border: 'none', color: 'var(--texto-2)',
-              fontSize: '1.5rem', cursor: 'pointer', lineHeight: 1,
-            }}
-          >
-            ×
+        <div className="fx-modal-head" style={title ? undefined : { borderBottom: 'none', paddingBottom: 0, justifyContent: 'flex-end' }}>
+          {title ? <h2>{title}</h2> : null}
+          <button type="button" className="fx-modal-x" onClick={onClose} aria-label="Cerrar">
+            <X size={18} />
           </button>
         </div>
-        {children}
+        <div className="fx-modal-body">{children}</div>
       </div>
     </div>
   )

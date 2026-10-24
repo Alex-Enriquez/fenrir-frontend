@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { X, Search } from 'lucide-react'
+import { X, Search } from '../ui/icons'
 
 const TECNICOS = ['Irving Sammer González', 'Alexis Acosta', 'Celia Hernández']
 

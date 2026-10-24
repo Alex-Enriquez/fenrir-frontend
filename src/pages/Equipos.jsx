@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
-import { Plus, Pencil, Trash2, Search, ArrowUpDown, Laptop, Monitor as MonitorIcon, Server, HelpCircle, Download } from 'lucide-react'
+import { Plus, Pencil, Trash2, Search, ArrowUpDown, Laptop, Monitor as MonitorIcon, Server, HelpCircle, Download, Printer, Tablet, Display, Smartphone, Phone } from '../ui/icons'
 import Modal from '../components/Modal'
 import EquipoForm from '../components/EquipoForm'
 import ConfirmDialog from '../components/ConfirmDialog'
@@ -23,15 +23,21 @@ const filtros = [
   { key: 'baja', label: 'De baja' },
 ]
 
-const iconosCategoria = {
-  laptop: Laptop,
-  pc: MonitorIcon,
-  servidor: Server,
-}
+// Ícono por categoría (se busca por palabra, así "PC de escritorio" o "Teléfono IP" también tienen el suyo)
+const iconosCategoria = [
+  [/laptop|port[aá]til|notebook/, Laptop],
+  [/escritorio|^pc\b|computadora|all.?in.?one/, MonitorIcon],
+  [/monitor|pantalla/, Display],
+  [/celular|smartphone|m[oó]vil/, Smartphone],
+  [/tablet/, Tablet],
+  [/impresora|printer/, Printer],
+  [/tel[eé]fono/, Phone],
+  [/servidor|server/, Server],
+]
 
 function IconoCategoria({ nombre }) {
   const key = (nombre || '').toLowerCase()
-  const Icon = iconosCategoria[key] || HelpCircle
+  const Icon = (iconosCategoria.find(([patron]) => patron.test(key)) || [null, HelpCircle])[1]
   return <Icon size={15} color="#8892AB" />
 }
 
@@ -273,7 +279,7 @@ function Equipos() {
                 <tr key={equipo.id} style={{ backgroundColor: i % 2 === 1 ? 'rgba(var(--velo-rgb), 0.015)' : 'transparent' }}>
                   <td>{equipo.marca}</td>
                   <td>{equipo.modelo}</td>
-                  <td>
+                  <td className="fx-mono">
                     {equipo.numero_serie}
                     {equipo.imei && <div style={{ fontSize: '0.72rem', color: 'var(--texto-5)' }}>IMEI: {equipo.imei}</div>}
                   </td>

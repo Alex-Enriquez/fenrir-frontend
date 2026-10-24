@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
-import { Plus, Search, Pencil, Trash2, Copy, Phone, Smartphone, PhoneCall, Download } from 'lucide-react'
+import { Plus, Search, Pencil, Trash2, Copy, Phone, Smartphone, PhoneCall, Download } from '../ui/icons'
 import Modal from '../components/Modal'
 import ConfirmDialog from '../components/ConfirmDialog'
 import DirectorioForm, { TIPOS, formatearNumero } from '../components/DirectorioForm'
@@ -208,6 +208,7 @@ function Directorio() {
           </p>
         </div>
       ) : (
+        <div className="card">
         <table>
           <thead>
             <tr>
@@ -230,7 +231,7 @@ function Directorio() {
                     {!l.activo && <span style={{ marginLeft: '0.5rem', fontSize: '0.72rem', color: 'var(--texto-4)', border: '1px solid var(--borde-suave)', borderRadius: '999px', padding: '0.05rem 0.45rem' }}>Inactivo</span>}
                   </td>
                   <td>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', fontVariantNumeric: 'tabular-nums' }}>
+                    <span className="fx-mono" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}>
                       <Icono size={14} color="var(--texto-4)" /> {formatearNumero(l.tipo, l.numero)}
                     </span>
                   </td>
@@ -261,6 +262,7 @@ function Directorio() {
             })}
           </tbody>
         </table>
+        </div>
       )}
 
       <Modal isOpen={modalAbierto} onClose={cerrarModal} title={editando ? 'Editar entrada' : 'Nueva entrada del directorio'}>

@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
-import { Plus, Search, Eye, Trash2, Network, List, Server, Grid3x3 } from 'lucide-react'
+import { Plus, Search, Eye, Trash2, Network, List, Server, Grid3x3 } from '../ui/icons'
 import Modal from '../components/Modal'
 import DispositivoRedForm from '../components/DispositivoRedForm'
 import DispositivoDetalleModal from '../components/DispositivoDetalleModal'

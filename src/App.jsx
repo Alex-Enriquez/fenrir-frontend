@@ -22,6 +22,8 @@ import Directorio from './pages/Directorio'
 import Login from './pages/Login'
 import BotonTema from './components/BotonTema'
 import { useAplicarTema } from './context/tema'
+import { List, CaretRight } from './ui/icons'
+import { grupoDe } from './ui/navegacion'
 
 const titulos = {
   '/': 'Dashboard',
@@ -50,26 +52,25 @@ function tituloDe(ruta) {
   return base ? titulos[base] : 'Alamex TI'
 }
 
-function Topbar() {
+function Topbar({ onAbrirMenu }) {
   const location = useLocation()
   const titulo = tituloDe(location.pathname)
+  const grupo = grupoDe(location.pathname)
 
   return (
-    <header style={{
-      height: '60px',
-      borderBottom: '1px solid var(--top-borde)',
-      display: 'flex',
-      alignItems: 'center',
-      padding: '0 2rem',
-      backgroundColor: 'var(--top-bg)',
-      backdropFilter: 'blur(6px)',
-    }}>
-      <span className="titulo-barra" style={{ color: 'var(--top-titulo)', fontSize: '0.95rem', fontWeight: 600 }}>
-        {titulo}
-      </span>
-      <span style={{ color: 'var(--top-sub)', fontSize: '0.85rem', marginLeft: '0.6rem' }}>
-        · Sistema de Inventario TI
-      </span>
+    <header className="fx-top">
+      <button type="button" className="fx-hamburguesa" onClick={onAbrirMenu} aria-label="Abrir el menú">
+        <List size={20} />
+      </button>
+      <div className="fx-crumb">
+        {grupo && (
+          <>
+            <span>{grupo}</span>
+            <CaretRight size={12} />
+          </>
+        )}
+        <b>{titulo}</b>
+      </div>
       <BotonTema />
     </header>
   )
@@ -92,13 +93,14 @@ function RutaPublica({ children }) {
 
 function AppLayout() {
   useAplicarTema()
+  const [menuAbierto, setMenuAbierto] = useState(false)
   return (
-    <div style={{ display: 'flex', minHeight: '100vh' }}>
-      <Sidebar />
+    <div className="fx-app">
+      <Sidebar abierta={menuAbierto} onCerrar={() => setMenuAbierto(false)} />
       <Onboarding />
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-        <Topbar />
-        <main style={{ flex: 1, padding: '2rem' }}>
+      <div className="fx-main-col">
+        <Topbar onAbrirMenu={() => setMenuAbierto(true)} />
+        <main className="fx-main">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/equipos" element={<Equipos />} />

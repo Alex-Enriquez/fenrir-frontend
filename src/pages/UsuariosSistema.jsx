@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Plus, KeyRound, ShieldCheck, User, Pencil, Trash2 } from 'lucide-react'
+import { Plus, KeyRound, ShieldCheck, User, Pencil, Trash2 } from '../ui/icons'
 import Modal from '../components/Modal'
 import AccesoDenegado from '../components/AccesoDenegado'
 import UsuarioForm from '../components/UsuarioForm'

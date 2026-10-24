@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { Plus, Search, KeyRound, FileSpreadsheet, PenTool, Image as ImageIcon, ShieldCheck, Trash2, Download } from 'lucide-react'
+import { Plus, Search, KeyRound, FileSpreadsheet, PenTool, Image as ImageIcon, ShieldCheck, Trash2, Download } from '../ui/icons'
 import Modal from '../components/Modal'
 import LicenciaForm from '../components/LicenciaForm'
 import ConfirmDialog from '../components/ConfirmDialog'

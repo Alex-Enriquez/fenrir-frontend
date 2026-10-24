@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Plus } from 'lucide-react'
+import { Plus } from '../ui/icons'
 import { API_URL } from '../config'
 import { useEsAdmin } from '../context/perfil'
 

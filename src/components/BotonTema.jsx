@@ -1,4 +1,4 @@
-import { Sun, Moon } from 'lucide-react'
+import { Sun, Moon } from '../ui/icons'
 import { useTema, cambiarTema } from '../context/tema'
 
 function BotonTema() {

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-import { Download, Upload, CheckCircle2, AlertTriangle } from 'lucide-react'
+import { Download, Upload, CheckCircle2, AlertTriangle } from '../ui/icons'
 import { descargarArchivo } from '../utils/descargarArchivo'
 
 function ImportarExcelForm({ urlPlantilla, urlImportar, nombrePlantilla, onTerminado, onCancel }) {

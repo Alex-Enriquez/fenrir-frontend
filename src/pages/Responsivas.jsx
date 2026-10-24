@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Plus, FileText, Trash2, Search } from 'lucide-react'
+import { Plus, FileText, Trash2, Search } from '../ui/icons'
 import Modal from '../components/Modal'
 import AccesoDenegado from '../components/AccesoDenegado'
 import ResponsivaForm from '../components/ResponsivaForm'
@@ -130,7 +130,7 @@ function Responsivas() {
             ) : (
               responsivasFiltradas.map((r, i) => (
                 <tr key={r.id} style={{ backgroundColor: i % 2 === 1 ? 'rgba(var(--velo-rgb), 0.015)' : 'transparent' }}>
-                  <td style={{ fontFamily: 'monospace' }}>{r.folio}</td>
+                  <td className="fx-mono">{r.folio}</td>
                   <td>{r.empleado_nombre}</td>
                   <td>{r.fecha}</td>
                   <td>{r.quien_entrega}</td>

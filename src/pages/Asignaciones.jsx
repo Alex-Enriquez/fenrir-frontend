@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
-import { Search, Monitor, Plus, Repeat, Undo2, Cpu, HardDrive, MemoryStick, LayoutGrid, List, Download } from 'lucide-react'
+import { Search, Monitor, Plus, Repeat, Undo2, Cpu, HardDrive, MemoryStick, LayoutGrid, List, Download } from '../ui/icons'
 import Modal from '../components/Modal'
 import AsignarEquipoForm from '../components/AsignarEquipoForm'
 import ReasignarForm from '../components/ReasignarForm'

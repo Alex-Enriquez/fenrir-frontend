@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { LayoutDashboard, Monitor, Lock, FileText, PartyPopper, X } from 'lucide-react'
+import { LayoutDashboard, Monitor, Lock, FileText, PartyPopper, X } from '../ui/icons'
 
 const PASOS = [
   {
