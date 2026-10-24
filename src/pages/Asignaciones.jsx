@@ -9,6 +9,7 @@ import ConfirmDialog from '../components/ConfirmDialog'
 import Toast from '../components/Toast'
 import { descargarArchivo } from '../utils/descargarArchivo'
 import { API_URL } from '../config'
+import { mensajeServidor } from '../ui/mensajes'
 
 function EquipoInfo({ equipo }) {
   return (
@@ -105,7 +106,7 @@ function Asignaciones() {
         cargarDatos()
         mostrarToast('Equipo asignado correctamente.', 'exito')
       })
-      .catch(() => mostrarToast('No se pudo asignar el equipo.'))
+      .catch(err => mostrarToast(mensajeServidor(err, 'No se pudo asignar el equipo.')))
   }
 
   const handleReasignar = (nuevoEmpleadoId) => {
@@ -122,7 +123,7 @@ function Asignaciones() {
         cargarDatos()
         mostrarToast('Equipo reasignado correctamente.', 'exito')
       })
-      .catch(() => mostrarToast('No se pudo reasignar el equipo.'))
+      .catch(err => mostrarToast(mensajeServidor(err, 'No se pudo reasignar el equipo.')))
   }
 
   const confirmarLiberar = () => {

@@ -12,6 +12,7 @@ import LicenciaCardForm from '../components/LicenciaCardForm'
 import ConfirmDialog from '../components/ConfirmDialog'
 import Toast from '../components/Toast'
 import { API_URL } from '../config'
+import { mensajeServidor } from '../ui/mensajes'
 
 function iconoPorArea(nombre) {
   const n = (nombre || '').toLowerCase()
@@ -307,11 +308,11 @@ function LicenciaDetalle() {
       if (asignacionId) {
         axios.patch(`${API_URL}/asignaciones/${asignacionId}/`, { licencia: licenciaId })
           .then(cargarDatos)
-          .catch(() => mostrarToast('No se pudo mover la asignación.'))
+          .catch(err => { cargarDatos(); mostrarToast(mensajeServidor(err, 'No se pudo mover la asignación.')) })
       } else {
         axios.post(`${API_URL}/asignaciones/`, { empleado: empleadoId, licencia: licenciaId })
           .then(() => { cargarDatos(); mostrarToast('Empleado asignado correctamente.', 'exito') })
-          .catch(() => mostrarToast('No se pudo asignar.'))
+          .catch(err => mostrarToast(mensajeServidor(err, 'No se pudo asignar.')))
       }
     }
   }

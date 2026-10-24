@@ -8,6 +8,10 @@ import ResetPasswordForm from '../components/ResetPasswordForm'
 import ConfirmDialog from '../components/ConfirmDialog'
 import Toast from '../components/Toast'
 import { API_URL } from '../config'
+import { mensajeServidor } from '../ui/mensajes'
+
+// Clave de cada aviso (antes Date.now(), que el análisis de código marca como impuro en cuanto se usa desde otro botón)
+let contadorAvisos = 0
 
 function UsuariosSistema() {
   const [usuarios, setUsuarios] = useState([])
@@ -20,7 +24,7 @@ function UsuariosSistema() {
   const [usuarioReset, setUsuarioReset] = useState(null)
   const [usuarioAEliminar, setUsuarioAEliminar] = useState(null)
 
-  const mostrarToast = (mensaje, tipo = 'error') => setToast({ mensaje, tipo, key: Date.now() })
+  const mostrarToast = (mensaje, tipo = 'error') => setToast({ mensaje, tipo, key: ++contadorAvisos })
 
   const cargarDatos = () => {
     setCargando(true)
@@ -54,7 +58,7 @@ function UsuariosSistema() {
         mostrarToast(usuarioEditando ? 'Usuario actualizado.' : 'Usuario creado correctamente.', 'exito')
       })
       .catch(err => {
-        const msg = err.response?.data?.username?.[0] || 'No se pudo guardar el usuario.'
+        const msg = mensajeServidor(err, 'No se pudo guardar el usuario.')
         mostrarToast(msg)
       })
   }
@@ -65,14 +69,20 @@ function UsuariosSistema() {
       password: passwordManual,
     })
       .then(res => callback(res.data.password))
-      .catch(() => mostrarToast('No se pudo restablecer la contraseña.'))
+      .catch(err => mostrarToast(mensajeServidor(err, 'No se pudo restablecer la contraseña.')))
+  }
+
+  const aprobarUsuario = (u) => {
+    axios.patch(`${API_URL}/usuarios-sistema/${u.id}/`, { is_active: true })
+      .then(() => { cargarDatos(); mostrarToast(`${u.username} ya puede entrar.`, 'exito') })
+      .catch(err => mostrarToast(mensajeServidor(err, 'No se pudo aprobar la cuenta.')))
   }
 
   const confirmarEliminar = () => {
     if (!usuarioAEliminar) return
     axios.delete(`${API_URL}/usuarios-sistema/${usuarioAEliminar.id}/`)
       .then(() => { setUsuarioAEliminar(null); cargarDatos(); mostrarToast('Usuario eliminado.', 'exito') })
-      .catch(() => mostrarToast('No se pudo eliminar el usuario.'))
+      .catch(err => { setUsuarioAEliminar(null); mostrarToast(mensajeServidor(err, 'No se pudo eliminar el usuario.')) })
   }
 
   if (cargando) return <p>Cargando...</p>
@@ -134,6 +144,15 @@ function UsuariosSistema() {
                 </td>
                 <td>
                   <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'flex-end' }}>
+                    {!u.is_active && (
+                      <button
+                        onClick={() => aprobarUsuario(u)}
+                        title="Aprobar"
+                        style={{ background: 'var(--exito-bg)', border: 'none', borderRadius: '6px', padding: '0.4rem 0.75rem', color: 'var(--exito-texto)', fontWeight: 600, fontSize: '0.82rem', display: 'flex' }}
+                      >
+                        Aprobar
+                      </button>
+                    )}
                     <button
                       onClick={() => setUsuarioReset(u)}
                       title="Restablecer contraseña"

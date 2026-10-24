@@ -9,6 +9,7 @@ import RackDiagram from '../components/RackDiagram'
 import ConfirmDialog from '../components/ConfirmDialog'
 import Toast from '../components/Toast'
 import { API_URL } from '../config'
+import { mensajeServidor } from '../ui/mensajes'
 
 const BADGE_ESTADO = {
   operativo: { bg: 'var(--info-bg-2)', color: 'var(--info-texto)' },
@@ -72,13 +73,13 @@ function Infraestructura() {
   const handleCrearDispositivo = (form) => {
     return axios.post(`${API_URL}/dispositivos-red/`, form)
       .then(() => { setModalNuevoDispositivo(false); cargarDatos(); mostrarToast('Dispositivo creado.', 'exito') })
-      .catch(() => mostrarToast('No se pudo crear el dispositivo.'))
+      .catch(err => mostrarToast(mensajeServidor(err, 'No se pudo crear el dispositivo.')))
   }
 
   const handleGuardarDispositivo = (form) => {
     return axios.put(`${API_URL}/dispositivos-red/${dispositivoViendo.id}/`, form)
       .then(() => { cargarDatos(); mostrarToast('Dispositivo actualizado.', 'exito') })
-      .catch(() => mostrarToast('No se pudo guardar el dispositivo.'))
+      .catch(err => mostrarToast(mensajeServidor(err, 'No se pudo guardar el dispositivo.')))
   }
 
   const confirmarEliminarDispositivo = () => {

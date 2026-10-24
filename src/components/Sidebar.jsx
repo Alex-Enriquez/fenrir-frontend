@@ -7,6 +7,7 @@ import { useAuth } from '../context/AuthContext'
 import Modal from './Modal'
 import MiPerfilForm from './MiPerfilForm'
 import { API_URL } from '../config'
+import { mensajeServidor } from '../ui/mensajes'
 
 function Sidebar({ abierta, onCerrar }) {
   const { logout } = useAuth()
@@ -38,7 +39,7 @@ function Sidebar({ abierta, onCerrar }) {
         setModalPerfilAbierto(false)
       })
       .catch(err => {
-        alert('No se pudo guardar. Intenta de nuevo.')
+        alert(mensajeServidor(err, 'No se pudo guardar. Intenta de nuevo.'))
         console.error(err)
       })
   }
