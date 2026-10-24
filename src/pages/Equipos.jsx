@@ -163,7 +163,8 @@ function Equipos() {
         cargarDatos()
       })
       .catch(err => {
-        alert('No se pudo eliminar el equipo.')
+        alert(err.response?.status === 409 && err.response.data?.detail ? err.response.data.detail : 'No se pudo eliminar el equipo.')
+        setEquipoAEliminar(null)
         console.error(err)
       })
   }
@@ -343,7 +344,7 @@ function Equipos() {
       <ConfirmDialog
         isOpen={!!equipoAEliminar}
         title="¿Eliminar este equipo?"
-        message={equipoAEliminar ? `Se eliminará ${equipoAEliminar.marca} ${equipoAEliminar.modelo} (${equipoAEliminar.numero_serie}). Esta acción no se puede deshacer.` : ''}
+        message={equipoAEliminar ? `Se eliminará ${equipoAEliminar.marca} ${equipoAEliminar.modelo} (${equipoAEliminar.numero_serie}). También se borrará su historial de asignaciones y mantenimientos. Esta acción no se puede deshacer. Si solo dejó de usarse, mejor márcalo como «De baja».` : ''}
         onConfirm={confirmarEliminar}
         onCancel={() => setEquipoAEliminar(null)}
       />

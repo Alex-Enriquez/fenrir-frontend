@@ -140,7 +140,8 @@ function Empleados() {
         cargarDatos()
       })
       .catch(err => {
-        alert('No se pudo eliminar el empleado.')
+        alert(err.response?.status === 409 && err.response.data?.detail ? err.response.data.detail : 'No se pudo eliminar el empleado.')
+        setEmpleadoAEliminar(null)
         console.error(err)
       })
   }
@@ -299,7 +300,7 @@ function Empleados() {
       <ConfirmDialog
         isOpen={!!empleadoAEliminar}
         title="¿Eliminar este empleado?"
-        message={empleadoAEliminar ? `Se eliminará a ${empleadoAEliminar.nombre_completo}. Esta acción no se puede deshacer.` : ''}
+        message={empleadoAEliminar ? `Se eliminará a ${empleadoAEliminar.nombre_completo}, se liberarán los equipos que tenga asignados y se borrará su historial de asignaciones. Esta acción no se puede deshacer. Si dejó la empresa, mejor márcalo como «Baja».` : ''}
         onConfirm={confirmarEliminar}
         onCancel={() => setEmpleadoAEliminar(null)}
       />
